@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2019%2F08%2F27%2Fday2%2F</url>
+    <content type="text"><![CDATA[title:python日常：语言元素变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 ###变量使用### 用input()获取键盘输入 1变量=变量类型（input（&apos;变量 = &apos;）) 1print(&apos;%d + %d = %d&apos; % (变量1, 变量2, 变量1 + 变量2)) ###查看变量类型### 用type()查看变量类型 ###变量类型### int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 ###运算符优先级###如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 ##练习## ###华氏温度转摄氏温度### 1f=float(input(&apos;请输入华氏温度：&apos;)) 1c=(f-32)/1.8 1print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100 100.000000华氏度 = 37.777778摄氏度 ###输入圆半径计算面积和周长### 1import math ※注意※ 1``` perimeter = 2 * math.pi * radius 12 area = math.pi * radius * radius 12 print(‘周长: %.2f’ % perimeter) 12 print(‘面积: %.2f’ % area) 123456789&gt;请输入圆的半径: 3.5&gt;&gt;周长: 21.99&gt;&gt;面积: 38.48###输入年份判断是否为闰年###```year = int(input(&apos;请输入年份: &apos;)) 1year % 400 == 0) print(is_leap) 请输入年份: 2000 True]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[写博客的第一天]]></title>
     <url>%2F2019%2F08%2F27%2Fday1%2F</url>
     <content type="text"><![CDATA[希望自己每天都进步一点吧头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>

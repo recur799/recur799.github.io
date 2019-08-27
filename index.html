@@ -268,8 +268,12 @@
                 
               
 
-              <time title="创建时间：2019-08-27 20:29:19" itemprop="dateCreated datePublished" datetime="2019-08-27T20:29:19+08:00">2019-08-27</time>
+              <time title="创建时间：2019-08-27 20:29:19 / 修改时间：20:40:31" itemprop="dateCreated datePublished" datetime="2019-08-27T20:29:19+08:00">2019-08-27</time>
             </span>
+          
+            
+
+            
           
 
           
@@ -305,69 +309,85 @@
 <li>布尔型：bool</li>
 <li>复数型：complex</li>
 </ol>
-<h3 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a><strong>变量命名</strong></h3><ol>
+<h3 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h3><ol>
 <li>不能以数字开头</li>
 <li>不能有关键字或系统保留字</li>
 <li>注意大小写</li>
 </ol>
-<p>###变量使用###</p>
-<p>用input()获取键盘输入</p>
+<h3 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h3><p>用input()获取键盘输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量=变量类型（input（&apos;变量 = &apos;）)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;%d + %d = %d&apos; % (变量1, 变量2, 变量1 + 变量2))</span><br></pre></td></tr></table></figure>
 
-<p>###查看变量类型###</p>
-<p>用type()查看变量类型</p>
-<p>###变量类型###</p>
-<ol>
+<h3 id="查看变量类型"><a href="#查看变量类型" class="headerlink" title="查看变量类型"></a>查看变量类型</h3><p>用type()查看变量类型</p>
+<h3 id="变量类型-1"><a href="#变量类型-1" class="headerlink" title="变量类型"></a>变量类型</h3><ol>
 <li>int()：将一个数值或字符串转换成整数，可以指定进制。</li>
 <li>float()：将一个字符串转换成浮点数。</li>
 <li>str()：将指定的对象转换成字符串形式，可以指定编码。</li>
 <li>chr()：将整数转换成该编码对应的字符串（一个字符）。</li>
 <li>ord()：将字符串（一个字符）转换成对应的编码（整数）。</li>
 </ol>
-<p>###运算符优先级###<br>如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序</p>
-<p>##练习##</p>
-<p>###华氏温度转摄氏温度###</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f=float(input(&apos;请输入华氏温度：&apos;))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=(f-32)/1.8</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c))</span><br></pre></td></tr></table></figure>
-
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序</p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="华氏温度转摄氏温度"><a href="#华氏温度转摄氏温度" class="headerlink" title="华氏温度转摄氏温度"></a>华氏温度转摄氏温度</h3><blockquote>
+<p>1.f=float(input(‘请输入华氏温度：’))</p>
+</blockquote>
+<blockquote>
+<p>2.c=(f-32)/1.8</p>
+</blockquote>
+<blockquote>
+<p>3.print(‘%1f华氏度 = %1f摄氏度’ % (f,c))</p>
+</blockquote>
+<blockquote>
 <blockquote>
 <p>请输入华氏温度：100</p>
 </blockquote>
+</blockquote>
+<blockquote>
 <blockquote>
 <blockquote>
 <p>100.000000华氏度 = 37.777778摄氏度</p>
 </blockquote>
 </blockquote>
-<p>###输入圆半径计算面积和周长###</p>
+</blockquote>
+<h3 id="输入圆半径计算面积和周长"><a href="#输入圆半径计算面积和周长" class="headerlink" title="输入圆半径计算面积和周长"></a>输入圆半径计算面积和周长</h3><p>※注意※</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br></pre></td></tr></table></figure>
 
-<p>※注意※</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```</span><br></pre></td></tr></table></figure>
-
-<p>perimeter = 2 * math.pi * radius</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>area = math.pi * radius * radius</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>print(‘周长: %.2f’ % perimeter)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>print(‘面积: %.2f’ % area)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;请输入圆的半径: 3.5</span><br><span class="line">&gt;&gt;周长: 21.99</span><br><span class="line"></span><br><span class="line">&gt;&gt;面积: 38.48</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###输入年份判断是否为闰年###</span><br><span class="line"></span><br><span class="line">```year = int(input(&apos;请输入年份: &apos;))</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">year % 400 == 0)</span><br></pre></td></tr></table></figure>
-
-<p><code>print(is_leap)</code></p>
+<blockquote>
+<p>1.radius = float(input(‘请输入圆的半径: ‘))</p>
+</blockquote>
+<blockquote>
+<p>2.perimeter = 2 * math.pi * radius</p>
+</blockquote>
+<blockquote>
+<p>3.area = math.pi * radius * radius</p>
+</blockquote>
+<blockquote>
+<p>4.print(‘周长: %.2f’ % perimeter)</p>
+</blockquote>
+<blockquote>
+<p>5.print(‘面积: %.2f’ % area)</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>请输入圆的半径: 3.5</p>
+<blockquote>
+<p>周长: 21.99<br>面积: 38.48</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="输入年份判断是否为闰年"><a href="#输入年份判断是否为闰年" class="headerlink" title="输入年份判断是否为闰年"></a>输入年份判断是否为闰年</h3><blockquote>
+<p>1.year = int(input(‘请输入年份: ‘))</p>
+</blockquote>
+<blockquote>
+<p>2.is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0)</p>
+</blockquote>
+<blockquote>
+<p>print(is_leap)</p>
 <blockquote>
 <p>请输入年份: 2000</p>
 <blockquote>
 <p>True</p>
+</blockquote>
 </blockquote>
 </blockquote>
 

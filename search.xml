@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python日常：分支结构]]></title>
     <url>%2F2019%2F08%2F28%2F3%2F</url>
-    <content type="text"><![CDATA[IF语句用户身份验证1234567import getpass ※如果不显示输入的密码（类似于linux登录）※ username = input(&apos;请输入用户名：&apos;) password = getpass.getpass(&apos;请输入密码：&apos;) if username == &apos;szw&apos; and password == &apos;szwszw12138&apos; :print(&apos;登入成功&apos;)else :print(&apos;登入失败&apos;) 请输入用户名：szw请输入密码：登入成功 ※注意※：getpass的用法 分段函数12345678x = float(input(&apos;x=&apos;))if x&gt;1 : y=3*x-5elif x&lt;-1 : y=5*x+3else: y=x+2print(&apos;f(%.2f)=%.2f&apos;%(x,y)) x=-2f(-2.00)=-7.00 ※注意※：尽量将代码扁平化，少用嵌套结构。 练习骰子玩法123456789101112131415from random import randint ※注意※face = randint(1,6)if face == 1 : result = &apos;摇到的点数为1&apos;elif face == 2 : result = &apos;摇到的点数为2&apos;elif face == 3 : result = &apos;摇到的点数为3&apos;elif face == 4 : result = &apos;摇到的点数为4&apos;elif face == 5 : result = &apos;摇到的点数为5&apos;else : result = &apos;摇到的点数为6&apos;print(result) 结果为随机出现的骰子数 ※注意※：使用了random模块的randint函数生成指定的随机数 分数转换等级制度123456789101112sorce = float(input(&apos;分数为：&apos;))if sorce &gt;= 90 : grade = &apos;A&apos;elif sorce &gt;= 80 : grade = &apos;B&apos;elif sorce &gt;= 70 : grade = &apos;C&apos;elif sorce &gt;= 60 : grade = &apos;D&apos;else : grade = &apos;F&apos;print(&apos;您的等级为&apos;,grade) 分数为：100您的等级为 A 判断三边是否可以构成三角形，如果可以计算其面积和周长123456789101112import matha = float(input(&apos;A边为：&apos;))b = float(input(&apos;B边为：&apos;))c = float(input(&apos;C边为：&apos;))if a+b&gt;c and a+c&gt;b and b+c&gt;a : perimeter = a + b + c print(&apos;周长为：%.2f&apos;%perimeter) p = (a + b + c) / 2 area = math.sqrt(p(p - a)(p - b)(p - c)) print(&apos;面积为：%.2f&apos;%area)else : print(&apos;构不成三角形&apos;) A边为：2B边为：8C边为：1构不成三角形 ※注意※：1.import math之后,sqrt前面要加.math2.公式要在print上面一行写，不能一开始就写3.注意print里面的格式]]></content>
+    <content type="text"><![CDATA[今日学习分支结构 IF语句用户身份验证1234567import getpass ※如果不显示输入的密码（类似于linux登录）※ username = input(&apos;请输入用户名：&apos;) password = getpass.getpass(&apos;请输入密码：&apos;) if username == &apos;szw&apos; and password == &apos;szwszw12138&apos; :print(&apos;登入成功&apos;)else :print(&apos;登入失败&apos;) 请输入用户名：szw请输入密码：登入成功 ※注意※：getpass的用法 分段函数12345678x = float(input(&apos;x=&apos;))if x&gt;1 : y=3*x-5elif x&lt;-1 : y=5*x+3else: y=x+2print(&apos;f(%.2f)=%.2f&apos;%(x,y)) x=-2f(-2.00)=-7.00 ※注意※：尽量将代码扁平化，少用嵌套结构。 练习骰子玩法123456789101112131415from random import randint ※注意※face = randint(1,6)if face == 1 : result = &apos;摇到的点数为1&apos;elif face == 2 : result = &apos;摇到的点数为2&apos;elif face == 3 : result = &apos;摇到的点数为3&apos;elif face == 4 : result = &apos;摇到的点数为4&apos;elif face == 5 : result = &apos;摇到的点数为5&apos;else : result = &apos;摇到的点数为6&apos;print(result) 结果为随机出现的骰子数 ※注意※：使用了random模块的randint函数生成指定的随机数 分数转换等级制度123456789101112sorce = float(input(&apos;分数为：&apos;))if sorce &gt;= 90 : grade = &apos;A&apos;elif sorce &gt;= 80 : grade = &apos;B&apos;elif sorce &gt;= 70 : grade = &apos;C&apos;elif sorce &gt;= 60 : grade = &apos;D&apos;else : grade = &apos;F&apos;print(&apos;您的等级为&apos;,grade) 分数为：100您的等级为 A 判断三边是否可以构成三角形，如果可以计算其面积和周长123456789101112import matha = float(input(&apos;A边为：&apos;))b = float(input(&apos;B边为：&apos;))c = float(input(&apos;C边为：&apos;))if a+b&gt;c and a+c&gt;b and b+c&gt;a : perimeter = a + b + c print(&apos;周长为：%.2f&apos;%perimeter) p = (a + b + c) / 2 area = math.sqrt(p(p - a)(p - b)(p - c)) print(&apos;面积为：%.2f&apos;%area)else : print(&apos;构不成三角形&apos;) A边为：2B边为：8C边为：1构不成三角形 ※注意※：1.import math之后,sqrt前面要加.math2.公式要在print上面一行写，不能一开始就写3.注意print里面的格式]]></content>
       <categories>
         <category>python</category>
       </categories>
@@ -11,7 +11,7 @@
   <entry>
     <title><![CDATA[python日常：语言元素]]></title>
     <url>%2F2019%2F08%2F27%2F2%2F</url>
-    <content type="text"><![CDATA[变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
+    <content type="text"><![CDATA[今日学习语言元素 变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
       <categories>
         <category>python</category>
       </categories>
@@ -19,7 +19,7 @@
   <entry>
     <title><![CDATA[写博客的第一天]]></title>
     <url>%2F2019%2F08%2F26%2F1%2F</url>
-    <content type="text"><![CDATA[希望自己每天都进步一点吧头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <content type="text"><![CDATA[希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -27,7 +27,7 @@
   <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F08%2F26%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
         <category>介绍</category>
       </categories>

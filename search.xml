@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F2019%2F08%2F29%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：循环结构]]></title>
     <url>%2F2019%2F08%2F29%2Fpython3%2F</url>
     <content type="text"><![CDATA[引言：今日学习循环结构 for-in循环用for-in计算1~100求和结果1234sum = 0for x in range(0,101): sum += xprint(sum) 5050 ※注意※：1.”+=”的意思是两边相加，值赋予左边2.用到了range 类型 ，range(101)可以产生一个0到100的整数序列、range(1,100,2)可以产生一个1到99的奇数序列，其中的2是步长，即数值序列的增量 以此类推可以计算1~100的偶数求和1234sum = 0for x in range(2,101,2): sum += xprint(sum) 2550 也可根据昨天学的if语句分支结构计算0~100的偶数求和12345sum = 0for x in range(0,101,2): if x % 2 == 0 : sum += xprint(sum) 2550 ※注意※：if-in循环用于计算知道循环执行次数或者要对一个容器进行迭代，如果不知道循环多少次，就要用到while循环。 while循环while循环可以通过一个能够产生或转换出bool值的表达式来控制循环，True循环继续，False循环结束 猜数字游戏12345678910111213141516import randomanser = random.randint(1,99)counter = 0while True : counter += 1 number = int(input(&apos;请输入你猜的数字：&apos;)) if anser &gt; number : print(&apos;大一点&apos;) elif anser &lt; number : print(&apos;小一点&apos;) else: print(&apos;恭喜你猜对了&apos;) breakprint(&apos;你一共猜了%d次&apos; % counter)if counter &gt; 7 : print(&apos;你咋猜的啊？？？？？？&apos;) 请输入你猜的数字：50大一点请输入你猜的数字：60大一点请输入你猜的数字：80小一点请输入你猜的数字：76小一点请输入你猜的数字：72小一点请输入你猜的数字：65大一点请输入你猜的数字：69小一点请输入你猜的数字：67大一点请输入你猜的数字：68恭喜你猜对了你一共猜了9次你咋猜的啊？？？？？？ ※注意※：1.注意python语法使用缩进来结束if或者while，while循环结束要用break来结束循环（要在嵌套结构里结束）2.第二个if结构不要再第一个if结构里 循环结构嵌套输出九九乘法表1234for i in range(1, 10): for j in range(1, i + 1): print(&apos;%d*%d=%d&apos; % (i, j, i * j), end=&apos;\t&apos;) print() 1*1=12*1=2 2*2=43*1=3 3*2=6 3*3=94*1=4 4*2=8 4*3=12 4*4=165*1=5 5*2=10 5*3=15 5*4=20 5*5=256*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=367*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=498*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=649*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81(markdown语法真是够了，要加那么多转义反斜杠…) **※注意※：1.end=’’用法：例如print（“#”，end=” \n”)，默认换行，print（“#”，end=” “)则在循环中不换行2.python的转移符号： \(在行尾时) &emsp;&emsp;&emsp; 续行符\\ &emsp;&emsp;&emsp;反斜杠符号\‘ &emsp;&emsp;&emsp;单引号\“ &emsp;&emsp;&emsp;双引号\a &emsp;&emsp;&emsp;响铃\b &emsp;&emsp;&emsp;退格(Backspace)\e &emsp;&emsp;&emsp;转义\000 &emsp;&emsp;&emsp;空\n &emsp;&emsp;&emsp;换行\v &emsp;&emsp;&emsp;纵向制表符\t &emsp;&emsp;&emsp;横向制表符\r &emsp;&emsp;&emsp;回车\f &emsp;&emsp;&emsp;换页\oyy &emsp;&emsp;八进制数，yy代表的字符，例如：\o12代表换行\xyy &emsp;&emsp;十六进制数，yy代表的字符，例如：\x0a代表换行\other &emsp;&emsp;其它的字符以普通格式输出** 练习输入一个正整数判断是不是素数12345678910111213from math import sqrtnum = int(input(&apos;请输入一个正整数: &apos;))end = int(sqrt(num))is_prime = Truefor x in range(2, end + 1): if num % x == 0: is_prime = False breakif is_prime and num != 1: print(&apos;%d是素数&apos; % num)else: print(&apos;%d不是素数&apos; % num) 请输入一个正整数: 33是素数 **※注意※：1.判断是否为素数：在一般领域，对正整数n，如果用2到sqrt(n)之间的所有整数去除，均无法整除，则n为质数质数大于等于2 不能被它本身和1以外的数整除 疑问：for-in前用 is_prime = True，for-in里用is_prime = False 结束，最后判断的时候为什么用is_prime和num不等于1做条件？猜想：for-in里如果可以整除，is_prime为False，就是为0.然后在下面判断is_prime和num是否为1，来判断是否为素数** 输入两个正整数，计算最大公约数和最小公倍数123456789x = int(input(&apos;x = &apos;))y = int(input(&apos;y = &apos;))if x &gt; y: x, y = y, xfor factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: print(&apos;%d和%d的最大公约数是%d&apos; % (x, y, factor)) print(&apos;%d和%d的最小公倍数是%d&apos; % (x, y, x * y // factor)) break x = 28y = 4228和42的最大公约数是1428和42的最小公倍数是84 **※注意※：1.最大公约数计算：一个数可以整除另外两个数，那么这个数是另外两个数的最大公约数2.(a,b)[a,b]=ab(a,b均为整数)，(a,b)为最大公约数，[a,b]为最小公倍数 疑问：range(x, 0, -1)x到0之间取值，步数为-1是怎么取值的解答：表示从x开始，到0为止（不包括0），取其中所有的整数 (为什么不用range（0，x，1）？** 打印三角形123456789101112131415161718192021row = int(input(&apos;请输入行数: &apos;))for i in range(row): for _ in range(i + 1): print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for j in range(row): if j &lt; row - i - 1: print(&apos; &apos;, end=&apos;&apos;) else: print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for _ in range(row - i - 1): print(&apos; &apos;, end=&apos;&apos;) for _ in range(2 * i + 1): print(&apos;*&apos;, end=&apos;&apos;) print() 请输入行数: 3xxxxxx&emsp;x&ensp;xxxxx&emsp;x&ensp;xxxxxxxx ※注意※：1.for _ in range（）的 _ 的意思是只要这次for循环结束之后，就不管了。咱要的只是循环这个过程2.还需要多练，一开始看不懂，看了10分钟才明白]]></content>
@@ -13,8 +24,8 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F2019%2F08%2F28%2Fdaily3%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
+    <url>%2F2019%2F08%2F28%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
       <categories>
         <category>日常</category>
       </categories>

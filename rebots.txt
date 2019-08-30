@@ -1,15 +1,14 @@
 User-agent: *
-Allow: /
+Allow: /about/
+Allow: /home/
+Allow: /tags/
+Allow:  /categories/
 Allow: /archives/
-Allow: /categories/
-Allow: /tags/ 
-Allow: /resources/ 
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
+Disallow: /images/
+Disallow: /lib/
 
 Sitemap: https://recur799.github.io/sitemap.xml
 Sitemap: https://recur799.github.io/baidusitemap.xml

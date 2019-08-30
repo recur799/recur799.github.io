@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://recur799.github.io/python4.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/daily1.htmlq</loc>
     <lastmod>2019-08-30</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/python3.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/python4.htmlq</loc>
     <lastmod>2019-08-30</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/python2.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/python3.htmlq</loc>
     <lastmod>2019-08-30</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/puthon1.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/python2.htmlq</loc>
     <lastmod>2019-08-30</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/daily3.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/puthon1.htmlq</loc>
     <lastmod>2019-08-30</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/daily2.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/daily3.htmlq</loc>
+    <lastmod>2019-08-30</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/recur799/year/mounth/day/daily2.htmlq</loc>
     <lastmod>2019-08-29</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/daily1.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/tucao1.htmlq</loc>
     <lastmod>2019-08-29</lastmod>
   </url>  <url>
-    <loc>http://recur799.github.io/tucao1.html</loc>
-    <lastmod>2019-08-29</lastmod>
-  </url>  <url>
-    <loc>http://recur799.github.io/hello-world.html</loc>
+    <loc>http://yoursite.com/recur799/year/mounth/day/hello-world.htmlq</loc>
     <lastmod>2019-08-28</lastmod>
   </url>
 </urlset>

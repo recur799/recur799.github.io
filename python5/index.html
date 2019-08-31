@@ -65,31 +65,35 @@
   };
 </script>
 
-  <meta name="description" content="日积月累，循序渐进。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宋昭威的日常">
-<meta property="og:url" content="http://recur799.github.io/index.html">
+  <meta name="description" content="函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算  12345678def factorial(num):    result = 1    for i in range(1,num+1):        result *= i    return resultn = int(input(&amp;apos;n=&amp;apos;))m = int(input(&amp;">
+<meta name="keywords" content="python,疑问,最大公约数,最小公倍数,素数,def,factorial,回文数,变量作用域,局部作用域,嵌套作用域,全局作用域,内置作用域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python日常：函数和模块的使用">
+<meta property="og:url" content="http://recur799.github.io/python5/index.html">
 <meta property="og:site_name" content="宋昭威的日常">
-<meta property="og:description" content="日积月累，循序渐进。">
+<meta property="og:description" content="函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算  12345678def factorial(num):    result = 1    for i in range(1,num+1):        result *= i    return resultn = int(input(&amp;apos;n=&amp;apos;))m = int(input(&amp;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python5.png">
+<meta property="og:updated_time" content="2019-08-31T08:44:12.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宋昭威的日常">
-<meta name="twitter:description" content="日积月累，循序渐进。">
-  <link rel="canonical" href="http://recur799.github.io/">
+<meta name="twitter:title" content="python日常：函数和模块的使用">
+<meta name="twitter:description" content="函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算  12345678def factorial(num):    result = 1    for i in range(1,num+1):        result *= i    return resultn = int(input(&amp;apos;n=&amp;apos;))m = int(input(&amp;">
+<meta name="twitter:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python5.png">
+  <link rel="canonical" href="http://recur799.github.io/python5/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>  - 宋昭威的日常日积月累，循序渐进。 </title>
+  <title>python日常：函数和模块的使用 | 宋昭威的日常</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -261,12 +265,13 @@
 
           <div id="content" class="content">
             
+
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block home">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -279,9 +284,8 @@
       <meta itemprop="name" content="宋昭威的日常">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/python5/" class="post-title-link" itemprop="url">python日常：函数和模块的使用</a>
+        <h1 class="post-title" itemprop="name headline">python日常：函数和模块的使用
+
           
         </h1>
 
@@ -320,6 +324,14 @@
           
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
   
   <span class="post-meta-item">
     
@@ -344,7 +356,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler</p>
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler</p>
 <h3 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h3><p> 计算<img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python5.png" alt> </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def factorial(num):</span><br><span class="line">    result = 1</span><br><span class="line">    for i in range(1,num+1):</span><br><span class="line">        result *= i</span><br><span class="line">    return result</span><br><span class="line">n = int(input(&apos;n=&apos;))</span><br><span class="line">m = int(input(&apos;m=&apos;))</span><br><span class="line">print(factorial(m) // factorial(n) // factorial(n-m))</span><br></pre></td></tr></table></figure>
 
@@ -407,1093 +419,93 @@
 </blockquote>
 <p><strong>※注意※：<br>1.<code>foo</code>函数里定义的<code>b</code>是一个局部变量，属于局部定义域；在<code>foo</code>函数里又定义了一个<code>bar</code>函数，在<code>bar</code>函数里，变量<code>b</code>就属于嵌套作用域，在<code>bar</code>中可以访问的到；在<code>bar</code>函数里又定义了一个<code>c</code>，<code>c</code>只作用于<code>bar</code>中，其他作用关于搜不到。除了“局部作用域”、“嵌套作用域”、“全局作用域”，还有“内置作用域”。所谓的“内置作用域”就是Python内置的那些隐含标识符min、len等都属于内置作用域）。也可以在局部变量前加一个 <code>global</code>代表来自于全局作用域<br>2.在实际开发中，我们应该尽量减少对全局变量的使用，因为全局变量的作用域和影响过于广泛，可能会发生意料之外的修改和使用，除此之外全局变量比局部变量拥有更长的生命周期，可能导致对象占用的内存长时间无法被垃圾回收。事实上，减少对全局变量的使用，也是降低代码之间耦合度的一个重要举措，同时也是对迪米特法则的践行。<br>3.所以以后要按照以下方法书写</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    # Todo: Add your code here</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-        
-      
     </div>
 	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
 	  
 	</div>
     
     
     
+      
+
+        
+      
+
       <footer class="post-footer">
-          <div class="post-eof"></div>
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" <i class="fa fa-tag"</i> python</a>
+            
+              <a href="/tags/疑问/" <i class="fa fa-tag"</i> 疑问</a>
+            
+              <a href="/tags/最大公约数/" <i class="fa fa-tag"</i> 最大公约数</a>
+            
+              <a href="/tags/最小公倍数/" <i class="fa fa-tag"</i> 最小公倍数</a>
+            
+              <a href="/tags/素数/" <i class="fa fa-tag"</i> 素数</a>
+            
+              <a href="/tags/def/" <i class="fa fa-tag"</i> def</a>
+            
+              <a href="/tags/factorial/" <i class="fa fa-tag"</i> factorial</a>
+            
+              <a href="/tags/回文数/" <i class="fa fa-tag"</i> 回文数</a>
+            
+              <a href="/tags/变量作用域/" <i class="fa fa-tag"</i> 变量作用域</a>
+            
+              <a href="/tags/局部作用域/" <i class="fa fa-tag"</i> 局部作用域</a>
+            
+              <a href="/tags/嵌套作用域/" <i class="fa fa-tag"</i> 嵌套作用域</a>
+            
+              <a href="/tags/全局作用域/" <i class="fa fa-tag"</i> 全局作用域</a>
+            
+              <a href="/tags/内置作用域/" <i class="fa fa-tag"</i> 内置作用域</a>
+            
+          </div>
         
-      </footer>
-  </div>
-  
-  
-  
-  </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/daily3/" class="post-title-link" itemprop="url">练字日常</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-30 00:00:00 / 修改时间：20:11:08" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">2019-08-30</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
         
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/daily3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily3/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日的练字 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/daily3/" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/daily3/" rel="next" title="练字日常">
+                  <i class="fa fa-chevron-left"></i> 练字日常
+                </a>
+              
             </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python4/">
+            <span class="post-nav-divider"></span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/python4/" class="post-title-link" itemprop="url">python日常：构造程序逻辑练习</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
+            <div class="post-nav-prev post-nav-item">
               
-                
-              
-
-              <time title="创建时间：2019-08-30 00:00:00 / 修改时间：20:18:50" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">2019-08-30</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/python4/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python4/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日练习构造程序逻辑 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/python4/" rel="contents">
-                阅读全文 &raquo;
-              </a>
             </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/daily2/" class="post-title-link" itemprop="url">练字日常</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-29 00:00:00 / 修改时间：21:07:44" itemprop="dateCreated datePublished" datetime="2019-08-29T00:00:00+08:00">2019-08-29</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/daily2/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily2/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日的练字 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/daily2/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/python3/" class="post-title-link" itemprop="url">python日常：循环结构</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-29T00:00:00+08:00">2019-08-29</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-31 16:13:13" itemprop="dateModified" datetime="2019-08-31T16:13:13+08:00">2019-08-31</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/python3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python3/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日学习循环结构 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/python3/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/daily1/" class="post-title-link" itemprop="url">练字日常</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-28 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-28T00:00:00+08:00">2019-08-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-30 22:23:26" itemprop="dateModified" datetime="2019-08-30T22:23:26+08:00">2019-08-30</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/daily1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily1/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日的练字 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/daily1/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/python2/" class="post-title-link" itemprop="url">python日常：分支结构</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-28 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-28T00:00:00+08:00">2019-08-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-30 20:16:12" itemprop="dateModified" datetime="2019-08-30T20:16:12+08:00">2019-08-30</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/python2/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python2/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日学习分支结构 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/python2/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/puthon1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/puthon1/" class="post-title-link" itemprop="url">python日常：语言元素</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-27T00:00:00+08:00">2019-08-27</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-30 20:14:50" itemprop="dateModified" datetime="2019-08-30T20:14:50+08:00">2019-08-30</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/puthon1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/puthon1/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日学习语言元素 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/puthon1/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <i class="fa fa-thumb-tack"></i>
-            <font color=7D26CD>置顶</font>
-            <span class="post-meta-divider">|</span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-26T00:00:00+08:00">2019-08-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-28 18:10:53" itemprop="dateModified" datetime="2019-08-28T18:10:53+08:00">2019-08-28</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/介绍/" itemprop="url" rel="index"><span itemprop="name">介绍</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/hello-world/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/hello-world/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 这里是宋昭威的日常博客 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/hello-world/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/tucao1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/tucao1/" class="post-title-link" itemprop="url">写博客的第一天</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-26T00:00:00+08:00">2019-08-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-29 13:53:30" itemprop="dateModified" datetime="2019-08-29T13:53:30+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tucao1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/tucao1/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：希望自己每天都进步一点吧 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/tucao1/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -1508,6 +520,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc" data-target="post-toc-wrap">
@@ -1520,6 +537,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义函数"><span class="nav-number">1.1.</span> <span class="nav-text">定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的参数"><span class="nav-number">1.2.</span> <span class="nav-text">函数的参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例注意1"><span class="nav-number">1.2.1.</span> <span class="nav-text">举例注意1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可变参数"><span class="nav-number">1.2.2.</span> <span class="nav-text">可变参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用模块管理函数"><span class="nav-number">1.3.</span> <span class="nav-text">用模块管理函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#命名冲突"><span class="nav-number">1.3.1.</span> <span class="nav-text">命名冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决命名冲突1"><span class="nav-number">1.3.2.</span> <span class="nav-text">解决命名冲突1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决命名冲突2"><span class="nav-number">1.3.3.</span> <span class="nav-text">解决命名冲突2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">2.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用定义函数实现计算最大公约数和最小公倍数的函数"><span class="nav-number">2.1.</span> <span class="nav-text">用定义函数实现计算最大公约数和最小公倍数的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个程序判断输入的正整数是不是回文素数"><span class="nav-number">2.2.</span> <span class="nav-text">写一个程序判断输入的正整数是不是回文素数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域"><span class="nav-number">2.3.</span> <span class="nav-text">变量作用域</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

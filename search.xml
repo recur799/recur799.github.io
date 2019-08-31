@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python日常：函数和模块的使用]]></title>
+    <url>%2F%2Fpython5%2F</url>
+    <content type="text"><![CDATA[函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算 12345678def factorial(num): result = 1 for i in range(1,num+1): result *= i return resultn = int(input(&apos;n=&apos;))m = int(input(&apos;m=&apos;))print(factorial(m) // factorial(n) // factorial(n-m)) n=3m=7840 ※注意※：1.def定义一个方程式，def()括号里面的是自变量，定义函数结尾的return返回的值是因变量2.Python的math模块中其实已经有一个factorial函数了，事实上要计算阶乘可以直接使用这个现成的函数而不用自己定义 函数的参数在Python中，函数的参数可以有默认值，也支持使用可变参数，所以Python并不需要像其他语言一样支持函数的重载 123456789from random import randintdef roll_dice(n=2): total = 0 for _ in range(n): total += randint(1, 6) return totalprint(roll_dice()) 9 ※注意※：疑问：range(2)应该是range(0，2)也就是[0,1]，为什么是摇两次1.在定义函数时设定了默认值，如果再调用函数时没有传入对应参数的值，就用默认值来计算2.可变参数的运用 举例注意112345678def add(a=0, b=0, c=0): return a + b + cprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(c=50, a=100, b=200)) 0136350 **※注意※：用不同方式调用add函数，这和其他函数重载的效果一样。 可变参数1234567891011def add(*args): total = 0 for val in args: total += val return totalprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(1, 3, 5, 7, 9)) 013625 ※注意※：1.参数名前加个*表示参数时一个可变参数 用模块管理函数命名冲突123456789def foo(): print(&apos;hello, world!&apos;)def foo(): print(&apos;goodbye, world!&apos;)foo() goodbye, world! 因为python中没有函数重载概念，所以如果两个定义名字相同，最新的定义就会覆盖掉之前的定义 解决命名冲突1module1.py 12def foo(): print(&apos;hello, world!&apos;) module2.py 12def foo(): print(&apos;goodbye, world!&apos;) test.py 1234567from module1 import foofoo()from module2 import foofoo() python中每个文件就代表一个模块(module)，在使用函数的时候我们通过import关键字导入指定的模块就可以区分到底要使用的是哪个模块中的foo函数 解决命名冲突2test.py 12345import module1 as m1import module2 as m2m1.foo()m2.foo() ※注意※：不能写成 12from module1 import foofrom module2 import foo 因为程序中调用的是最后倒入的那个fo 练习用定义函数实现计算最大公约数和最小公倍数的函数12345678def gcd(x, y): (x, y) = (y, x) if x &gt; y else (x, y) for factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: return factordef lcm(x, y): return x * y // gcd(x, y) 写一个程序判断输入的正整数是不是回文素数1234567891011121314151617181920def is_palindrome(num): temp = num total = 0 while temp &gt; 0: total = total * 10 + temp % 10 temp //= 10 return total == numdef is_prime(num): for factor in range(2,num): if num % factor == 0: return False return True if num != 1 else Falseif __name__ == &apos;__main__&apos;: num = int(input(&apos;请输入正整数: &apos;)) if is_palindrome(num) and is_prime(num): print(&apos;%d是回文素数&apos; % num) else: print(&apos;%d不是回文素数&apos;% num) ※疑问※：1.判断回文素数没看懂2.__name__ == ‘__main__‘没看懂 变量作用域举例 12345678910111213141516def foo(): b = &apos;hello&apos; def bar(): c = True print(a) print(b) print(c) bar() # print(c) if __name__ == &apos;__main__&apos;: a = 100 # print(b) foo() 100hello ※注意※：1.foo函数里定义的b是一个局部变量，属于局部定义域；在foo函数里又定义了一个bar函数，在bar函数里，变量b就属于嵌套作用域，在bar中可以访问的到；在bar函数里又定义了一个c，c只作用于bar中，其他作用关于搜不到。除了“局部作用域”、“嵌套作用域”、“全局作用域”，还有“内置作用域”。所谓的“内置作用域”就是Python内置的那些隐含标识符min、len等都属于内置作用域）。也可以在局部变量前加一个 global代表来自于全局作用域2.在实际开发中，我们应该尽量减少对全局变量的使用，因为全局变量的作用域和影响过于广泛，可能会发生意料之外的修改和使用，除此之外全局变量比局部变量拥有更长的生命周期，可能导致对象占用的内存长时间无法被垃圾回收。事实上，减少对全局变量的使用，也是降低代码之间耦合度的一个重要举措，同时也是对迪米特法则的践行。3.所以以后要按照以下方法书写 1234567def main(): # Todo: Add your code here passif __name__ == &apos;__main__&apos;: main()]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>疑问</tag>
+        <tag>最大公约数</tag>
+        <tag>最小公倍数</tag>
+        <tag>素数</tag>
+        <tag>def</tag>
+        <tag>factorial</tag>
+        <tag>回文数</tag>
+        <tag>变量作用域</tag>
+        <tag>局部作用域</tag>
+        <tag>嵌套作用域</tag>
+        <tag>全局作用域</tag>
+        <tag>内置作用域</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[练字日常]]></title>
     <url>%2F%2Fdaily3%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
@@ -47,11 +70,12 @@
         <tag>python</tag>
         <tag>range</tag>
         <tag>while</tag>
-        <tag>end&#39;&#39;</tag>
+        <tag>end&#39;&amp;ensp&#39;</tag>
         <tag>转移符号</tag>
         <tag>疑问</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
+        <tag>素数</tag>
       </tags>
   </entry>
   <entry>

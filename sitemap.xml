@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://recur799.github.io/python5/</loc>
+    
+    <lastmod>2019-08-31T08:44:12.205Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://recur799.github.io/python3/</loc>
+    
+    <lastmod>2019-08-31T08:13:13.098Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://recur799.github.io/lib/pace/README.html</loc>
     
     <lastmod>2019-08-30T15:08:18.646Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://recur799.github.io/python4/</loc>
     
     <lastmod>2019-08-30T12:18:50.224Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://recur799.github.io/python3/</loc>
-    
-    <lastmod>2019-08-30T12:18:18.859Z</lastmod>
     
   </url>
   

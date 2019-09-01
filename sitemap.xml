@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://recur799.github.io/python6/</loc>
+    
+    <lastmod>2019-09-01T12:05:54.304Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://recur799.github.io/python3/</loc>
+    
+    <lastmod>2019-09-01T11:47:00.360Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://recur799.github.io/python4/</loc>
+    
+    <lastmod>2019-09-01T10:07:20.662Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://recur799.github.io/python5/</loc>
     
-    <lastmod>2019-08-31T14:39:38.682Z</lastmod>
+    <lastmod>2019-09-01T10:06:51.701Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://recur799.github.io/daily4/</loc>
     
     <lastmod>2019-08-31T14:37:36.130Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://recur799.github.io/python3/</loc>
-    
-    <lastmod>2019-08-31T08:13:13.098Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>http://recur799.github.io/daily1/</loc>
     
     <lastmod>2019-08-30T14:23:26.082Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://recur799.github.io/python4/</loc>
-    
-    <lastmod>2019-08-30T12:18:50.224Z</lastmod>
     
   </url>
   

@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat32.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat16.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<meta name="google-site-verification" content="xxxxxxxxxxxxx" />
+<meta name="baidu-site-verification" content="xxxxxxxxx" />
+
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="description" content="引言：今日学习字符串和常用数据结构">
+<meta name="keywords" content="python,for,len,capitalize,upper,find,index,startswith,endswith,center,rjust,str,isditig,isalpha,isalnum,strip,apend,insert,remove,del,clear,title,sorted,reverse,key,yield,斐波那契数列,tuple,set,add,discard,time,os">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串和常用数据结构">
+<meta property="og:url" content="http://recur799.github.io/python6/index.html">
+<meta property="og:site_name" content="宋昭威的日常">
+<meta property="og:description" content="引言：今日学习字符串和常用数据结构">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python5.png">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python6.PNG">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python-set.png">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python6%20%281%29.jpg">
+<meta property="og:updated_time" content="2019-09-01T12:05:54.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符串和常用数据结构">
+<meta name="twitter:description" content="引言：今日学习字符串和常用数据结构">
+<meta name="twitter:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python5.png">
+  <link rel="canonical" href="http://recur799.github.io/python6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>字符串和常用数据结构 | 宋昭威的日常</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a href="https://github.com/recur799" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">宋昭威的日常</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">日常吐槽，吐槽日常</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于我</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>主页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>学习总览</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="宋昭威">
+      <meta itemprop="description" content="日积月累，循序渐进。">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宋昭威的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">字符串和常用数据结构
+
+          
+        </h1>
+
+        <div class="post-meta">
+		
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-01 00:00:00 / 修改时间：20:05:54" itemprop="dateCreated datePublished" datetime="2019-09-01T00:00:00+08:00">2019-09-01</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/python6/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python6/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <center> 引言：今日学习字符串和常用数据结构 </center>
+<a id="more"></a>
+
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串：就是由零个或多个字符组成的有限序列，一般记为<img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python5.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    str1 = &apos;hello, world!&apos;</span><br><span class="line">    # 通过len函数计算字符串的长度</span><br><span class="line">    print(len(str1))  # 13</span><br><span class="line">    # 获得字符串首字母大写的拷贝</span><br><span class="line">    print(str1.capitalize())  # Hello, world!</span><br><span class="line">    # 获得字符串变大写后的拷贝</span><br><span class="line">    print(str1.upper())  # HELLO, WORLD!</span><br><span class="line">    # 从字符串中查找子串所在位置</span><br><span class="line">    print(str1.find(&apos;or&apos;))  # 8</span><br><span class="line">    print(str1.find(&apos;shit&apos;))  # -1</span><br><span class="line">    # 与find类似但找不到子串时会引发异常</span><br><span class="line">    # print(str1.index(&apos;or&apos;))</span><br><span class="line">    # print(str1.index(&apos;shit&apos;))</span><br><span class="line">    # 检查字符串是否以指定的字符串开头</span><br><span class="line">    print(str1.startswith(&apos;He&apos;))  # False</span><br><span class="line">    print(str1.startswith(&apos;hel&apos;))  # True</span><br><span class="line">    # 检查字符串是否以指定的字符串结尾</span><br><span class="line">    print(str1.endswith(&apos;!&apos;))  # True</span><br><span class="line">    # 将字符串以指定的宽度居中并在两侧填充指定的字符</span><br><span class="line">    print(str1.center(50, &apos;*&apos;))</span><br><span class="line">    # 将字符串以指定的宽度靠右放置左侧填充指定的字符</span><br><span class="line">    print(str1.rjust(50, &apos; &apos;))</span><br><span class="line">    str2 = &apos;abc123456&apos;</span><br><span class="line">    # 从字符串中取出指定位置的字符(下标运算)</span><br><span class="line">    print(str2[2])  # c</span><br><span class="line">    # 字符串切片(从指定的开始索引到指定的结束索引)</span><br><span class="line">    print(str2[2:5])  # c12</span><br><span class="line">    print(str2[2:])  # c123456</span><br><span class="line">    print(str2[2::2])  # c246</span><br><span class="line">    print(str2[::2])  # ac246</span><br><span class="line">    print(str2[::-1])  # 654321cba</span><br><span class="line">    print(str2[-3:-1])  # 45</span><br><span class="line">    # 检查字符串是否由数字构成</span><br><span class="line">    print(str2.isdigit())  # False</span><br><span class="line">    # 检查字符串是否以字母构成</span><br><span class="line">    print(str2.isalpha())  # False</span><br><span class="line">    # 检查字符串是否以数字和字母构成</span><br><span class="line">    print(str2.isalnum())  # True</span><br><span class="line">    str3 = &apos;  jackfrued@126.com &apos;</span><br><span class="line">    print(str3)</span><br><span class="line">    # 获得字符串修剪左右两侧空格的拷贝</span><br><span class="line">    print(str3.strip())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>13<br>Hello, world!<br>HELLO, WORLD!<br>8<br>-1<br>False<br>True<br>True<br>******************hello, world!*******************<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; hello, world!<br>c<br>c12<br>c123456<br>c246<br>ac246<br>654321cba<br>45<br>False<br>False<br>True<br>  recur799.github.io<br>recur799.github.io</p>
+</blockquote>
+<p><strong>※注意※：<br>1.<code>len()</code>用于计算字符串长度<br>2.<code>capitalize()</code>用于将字符串首字母换成大写<br>3.<code>upper()</code>用于将整个字符串换位大写<br>4.<code>find()</code>用于检测字符串中是否包含指定字符，如果有就返回值，如果没有就返回-1（下标运算）<br>5.<code>index()</code>和<code>find()</code>用途一致,但检测不到就会引发异常<br>6.<code>startswith()</code>用于检查字符串是否以指定字符开头<br>7.<code>endswith()</code>用于检查字符串是否以指定字符结尾<br>8.<code>center()</code>用于将字符串以指定宽度居中并在两侧填充指定字符<br>9.<code>rjust()</code>用于将字符串以指定宽度放置左侧并在左侧填充指定字符<br>10.<code>str[]</code>用于从字符串中去除指定位置的字符（下标运算）<br>11.<code>srt[x:x+1]</code>x为任意数，用于从x的位置索引到x+1的位置结束<br>12.<code>str[x::n]</code>x为任意数，n为任意数，用于从x的位置开始索引，步数为n开始索引<br>13.<code>str[::n]</code>n为任意数，用于从从开始位置索引到结束，步数为n，若n=-1，就倒着索引该字符串<br>14.<code>isdigit()</code>用于检查字符串是否以数字构成<br>15.<code>isalpha()</code>用于检查字符串是否以字母构成<br>16.<code>isalnum()</code>用于检查字符串是否以数字和字母构成<br>17.<code>strip()</code>用于将字符串修建左右两侧空格并输出</strong></p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    list1 = [1, 3, 5, 7, 100]</span><br><span class="line">    print(list1)</span><br><span class="line">    list2 = [&apos;hello&apos;] * 5</span><br><span class="line">    print(list2)</span><br><span class="line">    # 计算列表长度(元素个数)</span><br><span class="line">    print(len(list1))</span><br><span class="line">    # 下标(索引)运算</span><br><span class="line">    print(list1[0])</span><br><span class="line">    print(list1[4])</span><br><span class="line">    # print(list1[5])  # IndexError: list index out of range</span><br><span class="line">    print(list1[-1])</span><br><span class="line">    print(list1[-3])</span><br><span class="line">    list1[2] = 300</span><br><span class="line">    print(list1)</span><br><span class="line">    # 添加元素</span><br><span class="line">    list1.append(200)</span><br><span class="line">    list1.insert(1, 400)</span><br><span class="line">    list1 += [1000, 2000]</span><br><span class="line">    print(list1)</span><br><span class="line">    print(len(list1))</span><br><span class="line">    # 删除元素</span><br><span class="line">    list1.remove(3)</span><br><span class="line">    if 1234 in list1:</span><br><span class="line">        list1.remove(1234)</span><br><span class="line">    del list1[0]</span><br><span class="line">    print(list1)</span><br><span class="line">    # 清空列表元素</span><br><span class="line">    list1.clear()</span><br><span class="line">    print(list1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[1, 3, 5, 7, 100]<br>[‘hello’, ‘hello’, ‘hello’, ‘hello’, ‘hello’]<br>5<br>1<br>100<br>100<br>5<br>[1, 3, 300, 7, 100]<br>[1, 400, 3, 300, 7, 100, 200, 1000, 2000]<br>9<br>[400, 300, 7, 100, 200, 1000, 2000]<br>[]</p>
+</blockquote>
+<p><strong>※注意※：<br>1.<code>len()</code>用于计算元素个数<br>2.<code>listn[x]</code>n为任意列表，x为查找第几个元素（下标运算），不存在会报错。<br>3.<code>listn[x]=y</code>n为任意列表，x为添加在第几个元素后面，y为所添加的元素（下标运算）<br>4.<code>apend()</code>用于在列表末尾添加新的元素<br>5.<code>insert(n，x)</code>n为列表中任意位置，x为添加的新元素，用于在n位置后面添加新元素y<br>6.<code>remove()</code>删除指定元素<br>7.<code>del</code>删除变量<br>8.<code>clear()</code>清空元素列表</strong></p>
+<h4 id="解释del"><a href="#解释del" class="headerlink" title="解释del"></a>解释<code>del</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=1       # 对象 1 被 变量a引用，对象1的引用计数器为1</span><br><span class="line">b=a       # 对象1 被变量b引用，对象1的引用计数器加1 = 2</span><br><span class="line">c=a       #1对象1 被变量c引用，对象1的引用计数器加1 = 3</span><br><span class="line">del a     #删除变量a，解除a对1的引用</span><br><span class="line">del b     #删除变量b，解除b对1的引用</span><br><span class="line">print(c)  #最终变量c仍然引用1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1</p>
+</blockquote>
+<p><strong>变量a已经被del，c=a还是可以得到1的结果，所以python中del不是直接将该对象在内存中删除，二十将该对象的引用计数删除</strong></p>
+<h3 id="列表切片"><a href="#列表切片" class="headerlink" title="列表切片"></a>列表切片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    fruits = [&apos;grape&apos;, &apos;apple&apos;, &apos;strawberry&apos;, &apos;waxberry&apos;]</span><br><span class="line">    fruits += [&apos;pitaya&apos;, &apos;pear&apos;, &apos;mango&apos;]</span><br><span class="line">    # 循环遍历列表元素</span><br><span class="line">    for fruit in fruits:</span><br><span class="line">        print(fruit.title(), end=&apos; &apos;)</span><br><span class="line">    print()</span><br><span class="line">    # 列表切片</span><br><span class="line">    fruits2 = fruits[1:4]</span><br><span class="line">    print(fruits2)</span><br><span class="line">    # fruit3 = fruits  # 没有复制列表只创建了新的引用</span><br><span class="line">    # 可以通过完整切片操作来复制列表</span><br><span class="line">    fruits3 = fruits[:]</span><br><span class="line">    print(fruits3)</span><br><span class="line">    fruits4 = fruits[-3:-1]</span><br><span class="line">    print(fruits4)</span><br><span class="line">    # 可以通过反向切片操作来获得倒转后的列表的拷贝</span><br><span class="line">    fruits5 = fruits[::-1]</span><br><span class="line">    print(fruits5)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Grape Apple Strawberry Waxberry Pitaya Pear Mango<br>[‘apple’, ‘strawberry’, ‘waxberry’]<br>[‘grape’, ‘apple’, ‘strawberry’, ‘waxberry’, ‘pitaya’, ‘pear’, ‘mango’]<br>[‘pitaya’, ‘pear’]<br>[‘mango’, ‘pear’, ‘pitaya’, ‘waxberry’, ‘strawberry’, ‘apple’, ‘grape’]</p>
+</blockquote>
+<p><strong>※注意※：<br>1.<code>title()</code>用于将列表中所有元素首字母改为大写<br>2.没有复制列表只创建了新的引用<br>3.列表切片操作和字符串切片操作一样</strong></p>
+<h3 id="列表的排序操作"><a href="#列表的排序操作" class="headerlink" title="列表的排序操作"></a>列表的排序操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    list1 = [&apos;orange&apos;, &apos;apple&apos;, &apos;zoo&apos;, &apos;internationalization&apos;, &apos;blueberry&apos;]</span><br><span class="line">    list2 = sorted(list1)</span><br><span class="line">    # sorted函数返回列表排序后的拷贝不会修改传入的列表</span><br><span class="line">    # 函数的设计就应该像sorted函数一样尽可能不产生副作用</span><br><span class="line">    list3 = sorted(list1, reverse=True)</span><br><span class="line">    # 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序</span><br><span class="line">    list4 = sorted(list1, key=len)</span><br><span class="line">    print(list1)</span><br><span class="line">    print(list2)</span><br><span class="line">    print(list3)</span><br><span class="line">    print(list4)</span><br><span class="line">    # 给列表对象发出排序消息直接在列表对象上进行排序</span><br><span class="line">    list1.sort(reverse=True)</span><br><span class="line">    print(list1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[‘orange’, ‘apple’, ‘zoo’, ‘internationalization’, ‘blueberry’]<br>[‘apple’, ‘blueberry’, ‘internationalization’, ‘orange’, ‘zoo’]<br>[‘zoo’, ‘orange’, ‘internationalization’, ‘blueberry’, ‘apple’]<br>[‘zoo’, ‘apple’, ‘orange’, ‘blueberry’, ‘internationalization’]<br>[‘zoo’, ‘orange’, ‘internationalization’, ‘blueberry’, ‘apple’]</p>
+</blockquote>
+<p><strong>※注意※：<br>1.<code>sorted()</code>用于将列表里的元素进行按字母表或者数字从小到大的顺序进行排序<br>2.<code>sorred(listn,reverse=True)</code>n为任意列表，<code>reverse</code>为排序规则，<code>True</code>就将列表进行反向排序，<code>False</code>为升序,将列表按字母表顺序排序后并将其降序排列<br>3.<code>sorred(listn,key=len)</code>n为任意列表，<code>key=len</code>，通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序</strong></p>
+<h3 id="使用列表的生成式语法来创建列表"><a href="#使用列表的生成式语法来创建列表" class="headerlink" title="使用列表的生成式语法来创建列表"></a>使用列表的生成式语法来创建列表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    f = [x for x in range(1, 10)]</span><br><span class="line">    print(f)</span><br><span class="line">    f = [x + y for x in &apos;ABCDE&apos; for y in &apos;1234567&apos;]</span><br><span class="line">    print(f)</span><br><span class="line">    # 用列表的生成表达式语法创建列表容器</span><br><span class="line">    # 用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间</span><br><span class="line">    f = [x ** 2 for x in range(1, 1000)]</span><br><span class="line">    print(sys.getsizeof(f))  # 查看对象占用内存的字节数</span><br><span class="line">    print(f)</span><br><span class="line">    # 请注意下面的代码创建的不是一个列表而是一个生成器对象</span><br><span class="line">    # 通过生成器可以获取到数据但它不占用额外的空间存储数据</span><br><span class="line">    # 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)</span><br><span class="line">    f = (x ** 2 for x in range(1, 1000))</span><br><span class="line">    print(sys.getsizeof(f))  # 相比生成式生成器不占用存储数据的空间</span><br><span class="line">    print(f)</span><br><span class="line">    for val in f:</span><br><span class="line">        print(val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>结果太长，不复制过来了</p>
+</blockquote>
+<p><strong>※注意※：<br>1.<code>f = [x for x in range(1, 10)]</code>是用列表的生成表达式语法创建列表容器<br>2.用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间<br>3.相比于<code>f = [x ** 2 for x in range(1, 1000)]</code> , <code>f = (x ** 2 for x in range(1, 1000))</code>后者为创建的不是一个列表而是一个生成器对象，通过生成器可以获取到数据但它不占用额外的空间存储数据<br>4.生成器对象相比于生成式生成器不占用储存数据的空间</strong></p>
+<h4 id="通过yield关键字将一个普通函数改为生成数函数"><a href="#通过yield关键字将一个普通函数改为生成数函数" class="headerlink" title="通过yield关键字将一个普通函数改为生成数函数"></a>通过<code>yield</code>关键字将一个普通函数改为生成数函数</h4><p><img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python6.PNG" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def fib(n):</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    for _ in range(n):</span><br><span class="line">        a, b = b, a + b</span><br><span class="line">        yield a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    for val in fib(20):</span><br><span class="line">        print(val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1<br>1<br>2<br>3<br>5<br>8<br>13<br>21<br>34<br>55<br>89<br>144<br>233<br>377<br>610<br>987<br>1597<br>2584<br>4181<br>6765</p>
+</blockquote>
+<p><strong>※疑问※：<br>没看懂<code>yield</code></strong></p>
+<h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    # 定义元组</span><br><span class="line">    t = (&apos;骆昊&apos;, 38, True, &apos;四川成都&apos;)</span><br><span class="line">    print(t)</span><br><span class="line">    # 获取元组中的元素</span><br><span class="line">    print(t[0])</span><br><span class="line">    print(t[3])</span><br><span class="line">    # 遍历元组中的值</span><br><span class="line">    for member in t:</span><br><span class="line">        print(member)</span><br><span class="line">    # 重新给元组赋值</span><br><span class="line">    # t[0] = &apos;王大锤&apos;  # TypeError</span><br><span class="line">    # 变量t重新引用了新的元组原来的元组将被垃圾回收</span><br><span class="line">    t = (&apos;王大锤&apos;, 20, True, &apos;云南昆明&apos;)</span><br><span class="line">    print(t)</span><br><span class="line"></span><br><span class="line">    # 将元组转换成列表</span><br><span class="line">    person = list(t)</span><br><span class="line">    print(person)</span><br><span class="line">    # 列表是可以修改它的元素的</span><br><span class="line">    person[0] = &apos;李小龙&apos;</span><br><span class="line">    person[1] = 25</span><br><span class="line">    print(person)</span><br><span class="line">    # 将列表转换成元组</span><br><span class="line">    fruits_list = [&apos;apple&apos;, &apos;banana&apos;, &apos;orange&apos;]</span><br><span class="line">    fruits_tuple = tuple(fruits_list)</span><br><span class="line">    print(fruits_tuple)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>(‘骆昊’, 38, True, ‘四川成都’)<br>骆昊<br>四川成都<br>骆昊<br>38<br>True<br>四川成都<br>(‘王大锤’, 20, True, ‘云南昆明’)<br>[‘王大锤’, 20, True, ‘云南昆明’]<br>[‘李小龙’, 25, True, ‘云南昆明’]<br>(‘apple’, ‘banana’, ‘orange’)</p>
+</blockquote>
+<p>**※注意※：<br>1.元组为<code>n = (&amp;ensp;&amp;ensp;)</code>,n为任意变量,列表为<code>listn = [&amp;ensp;&amp;ensp;]</code>注意符号<br>2.元组不能修改，但列表可以<br>3.已经有了列表，为什么还需要元组：</p>
+<ul>
+<li>元组中的元素是无法修改的，事实上我们在项目中尤其是多线程环境（后面会讲到）中可能更喜欢使用的是那些不变对象（一方面因为对象状态不能修改，所以可以避免由此引起的不必要的程序错误，简单的说就是一个不变的对象要比可变的对象更加容易维护；另一方面因为没有任何一个线程能够修改不变对象的内部状态，一个不变对象自动就是线程安全的，这样就可以省掉处理同步化的开销。一个不变对象可以方便的被共享访问）。所以结论就是：如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</li>
+<li>元组在创建时间和占用的空间上面都优于列表。我们可以使用sys模块的getsizeof函数来检查存储同样的元素的元组和列表各自占用了多少内存空间，这个很容易做到。我们也可以在ipython中使用魔法指令%timeit来分析创建同样内容的元组和列表所花费的时间，下图是我的macOS系统上测试的结果。</li>
+</ul>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    set1 = &#123;1, 2, 3, 3, 3, 2&#125;</span><br><span class="line">    print(set1)</span><br><span class="line">    print(&apos;Length =&apos;, len(set1))</span><br><span class="line">    set2 = set(range(1, 10))</span><br><span class="line">    print(set2)</span><br><span class="line">    set1.add(4)</span><br><span class="line">    set1.add(5)</span><br><span class="line">    set2.update([11, 12])</span><br><span class="line">    print(set1)</span><br><span class="line">    print(set2)</span><br><span class="line">    set2.discard(5)</span><br><span class="line">    # remove的元素如果不存在会引发KeyError</span><br><span class="line">    if 4 in set2:</span><br><span class="line">        set2.remove(4)</span><br><span class="line">    print(set2)</span><br><span class="line">    # 遍历集合容器</span><br><span class="line">    for elem in set2:</span><br><span class="line">        print(elem ** 2, end=&apos; &apos;)</span><br><span class="line">    print()</span><br><span class="line">    # 将元组转换成集合</span><br><span class="line">    set3 = set((1, 2, 3, 3, 2, 1))</span><br><span class="line">    print(set3.pop())</span><br><span class="line">    print(set3)</span><br><span class="line">    # 集合的交集、并集、差集、对称差运算</span><br><span class="line">    print(set1 &amp; set2)</span><br><span class="line">    # print(set1.intersection(set2))</span><br><span class="line">    print(set1 | set2)</span><br><span class="line">    # print(set1.union(set2))</span><br><span class="line">    print(set1 - set2)</span><br><span class="line">    # print(set1.difference(set2))</span><br><span class="line">    print(set1 ^ set2)</span><br><span class="line">    # print(set1.symmetric_difference(set2))</span><br><span class="line">    # 判断子集和超集</span><br><span class="line">    print(set2 &lt;= set1)</span><br><span class="line">    # print(set2.issubset(set1))</span><br><span class="line">    print(set3 &lt;= set1)</span><br><span class="line">    # print(set3.issubset(set1))</span><br><span class="line">    print(set1 &gt;= set2)</span><br><span class="line">    # print(set1.issuperset(set2))</span><br><span class="line">    print(set1 &gt;= set3)</span><br><span class="line">    # print(set1.issuperset(set3))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>{1, 2, 3}<br>Length = 3<br>{1, 2, 3, 4, 5, 6, 7, 8, 9}<br>{1, 2, 3, 4, 5}<br>{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12}<br>{1, 2, 3, 6, 7, 8, 9, 11, 12}<br>1 4 9 36 49 64 81 121 144<br>1<br>{2, 3}<br>{1, 2, 3}<br>{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12}<br>{4, 5}<br>{4, 5, 6, 7, 8, 9, 11, 12}<br>False<br>True<br>False<br>True</p>
+</blockquote>
+<p>**※注意※：<br>1.<code>set</code>:集合（set）是一个无序的不重复元素序列。可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典<br>2.<code>add()</code>:方法用于给集合添加元素，如果添加的元素在集合中已存在，则不执行任何操作<br>3.<code>discard()</code>和<code>remove()</code>区别是如果容器里没有，使用<code>remove()</code>会报错<br>4.<code>pop()</code>:pop() 函数用于移除列表中的一个元素（默认最后一个元素），并且返回该元素的值<br>5.超集：如果一个集合S2中的每一个元素都在集合S1中，且集合S1中可能包含S2中没有的元素，则集合S1就是S2的一个超集，反过来，S2是S1的子集。 S1是S2的超集，若S1中一定有S2中没有的元素，则S1是S2的真超集，反过来S2是S1的真子集。<br>6.并集、交集、差集、对称差、超集如图所示：<br><img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python-set.png" alt><br><img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/pic/python6%20%281%29.jpg" alt></p>
+<h3 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">def main():</span><br><span class="line">    scores = &#123;&apos;骆昊&apos;: 95, &apos;白元芳&apos;: 78, &apos;狄仁杰&apos;: 82&#125;</span><br><span class="line">    # 通过键可以获取字典中对应的值</span><br><span class="line">    print(scores[&apos;骆昊&apos;])</span><br><span class="line">    print(scores[&apos;狄仁杰&apos;])</span><br><span class="line">    # 对字典进行遍历(遍历的其实是键再通过键取对应的值)</span><br><span class="line">    for elem in scores:</span><br><span class="line">        print(&apos;%s\t---&gt;\t%d&apos; % (elem, scores[elem]))</span><br><span class="line">    # 更新字典中的元素</span><br><span class="line">    scores[&apos;白元芳&apos;] = 65</span><br><span class="line">    scores[&apos;诸葛王朗&apos;] = 71</span><br><span class="line">    scores.update(冷面=67, 方启鹤=85)</span><br><span class="line">    print(scores)</span><br><span class="line">    if &apos;武则天&apos; in scores:</span><br><span class="line">        print(scores[&apos;武则天&apos;])</span><br><span class="line">    print(scores.get(&apos;武则天&apos;))</span><br><span class="line">    # get方法也是通过键获取对应的值但是可以设置默认值</span><br><span class="line">    print(scores.get(&apos;武则天&apos;, 60))</span><br><span class="line">    # 删除字典中的元素</span><br><span class="line">    print(scores.popitem())</span><br><span class="line">    print(scores.popitem())</span><br><span class="line">    print(scores.pop(&apos;骆昊&apos;, 100))</span><br><span class="line">    # 清空字典</span><br><span class="line">    scores.clear()</span><br><span class="line">    print(scores)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>95<br>82<br>骆昊    —&gt;    95<br>白元芳    —&gt;    78<br>狄仁杰    —&gt;    82<br>{‘骆昊’: 95, ‘白元芳’: 65, ‘狄仁杰’: 82, ‘诸葛王朗’: 71, ‘冷面’: 67, ‘方启鹤’: 85}<br>None<br>60<br>(‘方启鹤’, 85)<br>(‘冷面’, 67)<br>95<br>{}</p>
+</blockquote>
+<p>**※注意※：<br>1.使用<code>scores</code>来创建字典<br>2.<code>get()</code>返回指定键的值，如果值不在字典中返回默认值<br>3.<code>popitem()</code>和<code>pop()</code>用法一致</p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h4 id="在屏幕上显示跑马灯文字"><a href="#在屏幕上显示跑马灯文字" class="headerlink" title="在屏幕上显示跑马灯文字"></a>在屏幕上显示跑马灯文字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    content = &apos;北京欢迎你为你开天辟地…………&apos;</span><br><span class="line">    while True:</span><br><span class="line">        # 清理屏幕上的输出</span><br><span class="line">        os.system(&apos;cls&apos;)  # os.system(&apos;clear&apos;)</span><br><span class="line">        print(content)</span><br><span class="line">        # 休眠200毫秒</span><br><span class="line">        time.sleep(0.2)</span><br><span class="line">        content = content[1:] + content[0]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>北京欢迎你为你开天辟地…………<br>京欢迎你为你开天辟地…………北<br>欢迎你为你开天辟地…………北京<br>迎你为你开天辟地…………北京欢<br>你为你开天辟地…………北京欢迎<br>为你开天辟地…………北京欢迎你<br>你开天辟地…………北京欢迎你为<br>开天辟地…………北京欢迎你为你<br>天辟地…………北京欢迎你为你开<br>辟地…………北京欢迎你为你开天<br>地…………北京欢迎你为你开天辟<br>…………北京欢迎你为你开天辟地<br>………北京欢迎你为你开天辟地…<br>……北京欢迎你为你开天辟地……<br><strong>※注意※：<br>1.<code>time.sleep()</code>：推迟调用线程的运行，secs指秒数<br>※疑问※：<code>os</code>模块</strong></p>
+</blockquote>
+<h3 id="今日练习未做完"><a href="#今日练习未做完" class="headerlink" title="今日练习未做完"></a>今日练习未做完</h3>
+    </div>
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+    
+    
+    
+      
+
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" <i class="fa fa-tag"</i> python</a>
+            
+              <a href="/tags/for/" <i class="fa fa-tag"</i> for</a>
+            
+              <a href="/tags/len/" <i class="fa fa-tag"</i> len</a>
+            
+              <a href="/tags/capitalize/" <i class="fa fa-tag"</i> capitalize</a>
+            
+              <a href="/tags/upper/" <i class="fa fa-tag"</i> upper</a>
+            
+              <a href="/tags/find/" <i class="fa fa-tag"</i> find</a>
+            
+              <a href="/tags/index/" <i class="fa fa-tag"</i> index</a>
+            
+              <a href="/tags/startswith/" <i class="fa fa-tag"</i> startswith</a>
+            
+              <a href="/tags/endswith/" <i class="fa fa-tag"</i> endswith</a>
+            
+              <a href="/tags/center/" <i class="fa fa-tag"</i> center</a>
+            
+              <a href="/tags/rjust/" <i class="fa fa-tag"</i> rjust</a>
+            
+              <a href="/tags/str/" <i class="fa fa-tag"</i> str</a>
+            
+              <a href="/tags/isditig/" <i class="fa fa-tag"</i> isditig</a>
+            
+              <a href="/tags/isalpha/" <i class="fa fa-tag"</i> isalpha</a>
+            
+              <a href="/tags/isalnum/" <i class="fa fa-tag"</i> isalnum</a>
+            
+              <a href="/tags/strip/" <i class="fa fa-tag"</i> strip</a>
+            
+              <a href="/tags/apend/" <i class="fa fa-tag"</i> apend</a>
+            
+              <a href="/tags/insert/" <i class="fa fa-tag"</i> insert</a>
+            
+              <a href="/tags/remove/" <i class="fa fa-tag"</i> remove</a>
+            
+              <a href="/tags/del/" <i class="fa fa-tag"</i> del</a>
+            
+              <a href="/tags/clear/" <i class="fa fa-tag"</i> clear</a>
+            
+              <a href="/tags/title/" <i class="fa fa-tag"</i> title</a>
+            
+              <a href="/tags/sorted/" <i class="fa fa-tag"</i> sorted</a>
+            
+              <a href="/tags/reverse/" <i class="fa fa-tag"</i> reverse</a>
+            
+              <a href="/tags/key/" <i class="fa fa-tag"</i> key</a>
+            
+              <a href="/tags/yield/" <i class="fa fa-tag"</i> yield</a>
+            
+              <a href="/tags/斐波那契数列/" <i class="fa fa-tag"</i> 斐波那契数列</a>
+            
+              <a href="/tags/tuple/" <i class="fa fa-tag"</i> tuple</a>
+            
+              <a href="/tags/set/" <i class="fa fa-tag"</i> set</a>
+            
+              <a href="/tags/add/" <i class="fa fa-tag"</i> add</a>
+            
+              <a href="/tags/discard/" <i class="fa fa-tag"</i> discard</a>
+            
+              <a href="/tags/time/" <i class="fa fa-tag"</i> time</a>
+            
+              <a href="/tags/os/" <i class="fa fa-tag"</i> os</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/daily4/" rel="next" title="练字日常">
+                  <i class="fa fa-chevron-left"></i> 练字日常
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc" data-target="post-toc-wrap">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">2.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释del"><span class="nav-number">2.1.</span> <span class="nav-text">解释del</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表切片"><span class="nav-number">3.</span> <span class="nav-text">列表切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表的排序操作"><span class="nav-number">4.</span> <span class="nav-text">列表的排序操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用列表的生成式语法来创建列表"><span class="nav-number">5.</span> <span class="nav-text">使用列表的生成式语法来创建列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过yield关键字将一个普通函数改为生成数函数"><span class="nav-number">5.1.</span> <span class="nav-text">通过yield关键字将一个普通函数改为生成数函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">6.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合"><span class="nav-number">7.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">8.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#练习"><span class="nav-number">9.</span> <span class="nav-text">练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在屏幕上显示跑马灯文字"><span class="nav-number">9.1.</span> <span class="nav-text">在屏幕上显示跑马灯文字</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#今日练习未做完"><span class="nav-number">10.</span> <span class="nav-text">今日练习未做完</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/touxiang.jpg"
+      alt="宋昭威">
+  <p class="site-author-name" itemprop="name">宋昭威</p>
+  <div class="site-description" itemprop="description">日积月累，循序渐进。</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/recur799" title="GitHub &rarr; https://github.com/recur799" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/u/2944940083" title="Weibo &rarr; https://weibo.com/u/2944940083" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+  <div id="days"></div>
+<script>
+function show_date_time(){
+    window.setTimeout("show_date_time()", 1000);
+    BirthDay=new Date("08/26/2019 19:20:35");
+    today=new Date();
+    timeold=(today.getTime()-BirthDay.getTime());
+    sectimeold=timeold/1000
+    secondsold=Math.floor(sectimeold);
+    msPerDay=24*60*60*1000
+    e_daysold=timeold/msPerDay
+    daysold=Math.floor(e_daysold);
+    e_hrsold=(e_daysold-daysold)*24;
+    hrsold=setzero(Math.floor(e_hrsold));
+    e_minsold=(e_hrsold-hrsold)*60;
+    minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+    seconds=setzero(Math.floor((e_minsold-minsold)*60));
+    document.getElementById('days').innerHTML="已运行 "+daysold+" 天 "+hrsold+" 小时 "+minsold+" 分 "+seconds+" 秒";
+}
+function setzero(i) {
+    if (i<10) {
+        i="0" + i
+    };
+    return i;
+}
+show_date_time();
+</script>
+  
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋昭威</span>
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'cH8mg4UqgoeIXksKOT9quykQ-gzGzoHsz',
+    appKey: 'HGIfWlOv7I8xKicHtbItnHrE',
+    placeholder: '来随便写点什么呗，又不会怀孕！',
+    avatar: 'retro',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname
+  });
+}, window.Valine);
+</script>
+
+</body>
++ <script type="text/javascript" src="/js/src/instantclick.js" data-no-instant></script>
++ <script data-no-instant>InstantClick.init();</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"superSample":3,"width":300,"height":600,"position":"right","hOffset":0,"vOffset":-10},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"tagMode":false});</script></body>
+</html>
+</html>

@@ -45,7 +45,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
+    <url>%2F%2Fdaily5%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -76,6 +76,17 @@
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily4%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>

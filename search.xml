@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily6%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python日常：面对对象编程基础]]></title>
+    <url>%2F%2Fpython7%2F</url>
+    <content type="text"><![CDATA[引言：今日学习面对对象编程基础 **一切实例都可以算为对象（object），比如小狗—&gt;金毛（实例）；类（class）用来创建对象dog1 = Dog()，或描述对象 面对对象： 练习123456789101112131415161718192021222324252627282930from time import sleepclass Clock(object): def __init__(self,hour=0,minute=0,second=0): self.hour = hour self.minute = minute self.second = second def run(self): self.second += 1 if self.second == 60: self.second = 0 self.minute += 1 if self.minute == 60: self.minute = 0 self.hour += 1 if self.hour == 24: self.hour = 0 def show(self): return &apos;%02d:%02d:%02d&apos; % \ (self.hour, self.minute, self.second)def main(): clock = Clock(23,59,59) while True: print(clock.show()) sleep(1) clock.run()if __name__==&apos;__main__&apos;: main() 23:59:5900:00:0000:00:0100:00:0200:00:0300:00:0400:00:0500:00:0600:00:0700:00:08 疑问对象、方法、类的概念还是有点不清晰]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>疑问</tag>
+        <tag>对象</tag>
+        <tag>类</tag>
+        <tag>方法</tag>
+        <tag>封装</tag>
+        <tag>继承</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：字符串和常用数据结构]]></title>
     <url>%2F%2Fpython6%2F</url>
     <content type="text"><![CDATA[引言：今日学习字符串和常用数据结构 字符串字符串：就是由零个或多个字符组成的有限序列，一般记为 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647def main(): str1 = &apos;hello, world!&apos; # 通过len函数计算字符串的长度 print(len(str1)) # 13 # 获得字符串首字母大写的拷贝 print(str1.capitalize()) # Hello, world! # 获得字符串变大写后的拷贝 print(str1.upper()) # HELLO, WORLD! # 从字符串中查找子串所在位置 print(str1.find(&apos;or&apos;)) # 8 print(str1.find(&apos;shit&apos;)) # -1 # 与find类似但找不到子串时会引发异常 # print(str1.index(&apos;or&apos;)) # print(str1.index(&apos;shit&apos;)) # 检查字符串是否以指定的字符串开头 print(str1.startswith(&apos;He&apos;)) # False print(str1.startswith(&apos;hel&apos;)) # True # 检查字符串是否以指定的字符串结尾 print(str1.endswith(&apos;!&apos;)) # True # 将字符串以指定的宽度居中并在两侧填充指定的字符 print(str1.center(50, &apos;*&apos;)) # 将字符串以指定的宽度靠右放置左侧填充指定的字符 print(str1.rjust(50, &apos; &apos;)) str2 = &apos;abc123456&apos; # 从字符串中取出指定位置的字符(下标运算) print(str2[2]) # c # 字符串切片(从指定的开始索引到指定的结束索引) print(str2[2:5]) # c12 print(str2[2:]) # c123456 print(str2[2::2]) # c246 print(str2[::2]) # ac246 print(str2[::-1]) # 654321cba print(str2[-3:-1]) # 45 # 检查字符串是否由数字构成 print(str2.isdigit()) # False # 检查字符串是否以字母构成 print(str2.isalpha()) # False # 检查字符串是否以数字和字母构成 print(str2.isalnum()) # True str3 = &apos; jackfrued@126.com &apos; print(str3) # 获得字符串修剪左右两侧空格的拷贝 print(str3.strip())if __name__ == &apos;__main__&apos;: main() 13Hello, world!HELLO, WORLD!8-1FalseTrueTrue******************hello, world!*******************&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; hello, world!cc12c123456c246ac246654321cba45FalseFalseTrue recur799.github.iorecur799.github.io ※注意※：1.len()用于计算字符串长度2.capitalize()用于将字符串首字母换成大写3.upper()用于将整个字符串换位大写4.find()用于检测字符串中是否包含指定字符，如果有就返回值，如果没有就返回-1（下标运算）5.index()和find()用途一致,但检测不到就会引发异常6.startswith()用于检查字符串是否以指定字符开头7.endswith()用于检查字符串是否以指定字符结尾8.center()用于将字符串以指定宽度居中并在两侧填充指定字符9.rjust()用于将字符串以指定宽度放置左侧并在左侧填充指定字符10.str[]用于从字符串中去除指定位置的字符（下标运算）11.srt[x:x+1]x为任意数，用于从x的位置索引到x+1的位置结束12.str[x::n]x为任意数，n为任意数，用于从x的位置开始索引，步数为n开始索引13.str[::n]n为任意数，用于从从开始位置索引到结束，步数为n，若n=-1，就倒着索引该字符串14.isdigit()用于检查字符串是否以数字构成15.isalpha()用于检查字符串是否以字母构成16.isalnum()用于检查字符串是否以数字和字母构成17.strip()用于将字符串修建左右两侧空格并输出 列表12345678910111213141516171819202122232425262728293031323334def main(): list1 = [1, 3, 5, 7, 100] print(list1) list2 = [&apos;hello&apos;] * 5 print(list2) # 计算列表长度(元素个数) print(len(list1)) # 下标(索引)运算 print(list1[0]) print(list1[4]) # print(list1[5]) # IndexError: list index out of range print(list1[-1]) print(list1[-3]) list1[2] = 300 print(list1) # 添加元素 list1.append(200) list1.insert(1, 400) list1 += [1000, 2000] print(list1) print(len(list1)) # 删除元素 list1.remove(3) if 1234 in list1: list1.remove(1234) del list1[0] print(list1) # 清空列表元素 list1.clear() print(list1)if __name__ == &apos;__main__&apos;: main() [1, 3, 5, 7, 100][‘hello’, ‘hello’, ‘hello’, ‘hello’, ‘hello’]511001005[1, 3, 300, 7, 100][1, 400, 3, 300, 7, 100, 200, 1000, 2000]9[400, 300, 7, 100, 200, 1000, 2000][] ※注意※：1.len()用于计算元素个数2.listn[x]n为任意列表，x为查找第几个元素（下标运算），不存在会报错。3.listn[x]=yn为任意列表，x为添加在第几个元素后面，y为所添加的元素（下标运算）4.apend()用于在列表末尾添加新的元素5.insert(n，x)n为列表中任意位置，x为添加的新元素，用于在n位置后面添加新元素y6.remove()删除指定元素7.del删除变量8.clear()清空元素列表 解释del123456a=1 # 对象 1 被 变量a引用，对象1的引用计数器为1b=a # 对象1 被变量b引用，对象1的引用计数器加1 = 2c=a #1对象1 被变量c引用，对象1的引用计数器加1 = 3del a #删除变量a，解除a对1的引用del b #删除变量b，解除b对1的引用print(c) #最终变量c仍然引用1 1 变量a已经被del，c=a还是可以得到1的结果，所以python中del不是直接将该对象在内存中删除，二十将该对象的引用计数删除 列表切片1234567891011121314151617181920212223def main(): fruits = [&apos;grape&apos;, &apos;apple&apos;, &apos;strawberry&apos;, &apos;waxberry&apos;] fruits += [&apos;pitaya&apos;, &apos;pear&apos;, &apos;mango&apos;] # 循环遍历列表元素 for fruit in fruits: print(fruit.title(), end=&apos; &apos;) print() # 列表切片 fruits2 = fruits[1:4] print(fruits2) # fruit3 = fruits # 没有复制列表只创建了新的引用 # 可以通过完整切片操作来复制列表 fruits3 = fruits[:] print(fruits3) fruits4 = fruits[-3:-1] print(fruits4) # 可以通过反向切片操作来获得倒转后的列表的拷贝 fruits5 = fruits[::-1] print(fruits5)if __name__ == &apos;__main__&apos;: main() Grape Apple Strawberry Waxberry Pitaya Pear Mango[‘apple’, ‘strawberry’, ‘waxberry’][‘grape’, ‘apple’, ‘strawberry’, ‘waxberry’, ‘pitaya’, ‘pear’, ‘mango’][‘pitaya’, ‘pear’][‘mango’, ‘pear’, ‘pitaya’, ‘waxberry’, ‘strawberry’, ‘apple’, ‘grape’] ※注意※：1.title()用于将列表中所有元素首字母改为大写2.没有复制列表只创建了新的引用3.列表切片操作和字符串切片操作一样 列表的排序操作12345678910111213141516171819def main(): list1 = [&apos;orange&apos;, &apos;apple&apos;, &apos;zoo&apos;, &apos;internationalization&apos;, &apos;blueberry&apos;] list2 = sorted(list1) # sorted函数返回列表排序后的拷贝不会修改传入的列表 # 函数的设计就应该像sorted函数一样尽可能不产生副作用 list3 = sorted(list1, reverse=True) # 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序 list4 = sorted(list1, key=len) print(list1) print(list2) print(list3) print(list4) # 给列表对象发出排序消息直接在列表对象上进行排序 list1.sort(reverse=True) print(list1)if __name__ == &apos;__main__&apos;: main() [‘orange’, ‘apple’, ‘zoo’, ‘internationalization’, ‘blueberry’][‘apple’, ‘blueberry’, ‘internationalization’, ‘orange’, ‘zoo’][‘zoo’, ‘orange’, ‘internationalization’, ‘blueberry’, ‘apple’][‘zoo’, ‘apple’, ‘orange’, ‘blueberry’, ‘internationalization’][‘zoo’, ‘orange’, ‘internationalization’, ‘blueberry’, ‘apple’] ※注意※：1.sorted()用于将列表里的元素进行按字母表或者数字从小到大的顺序进行排序2.sorred(listn,reverse=True)n为任意列表，reverse为排序规则，True就将列表进行反向排序，False为升序,将列表按字母表顺序排序后并将其降序排列3.sorred(listn,key=len)n为任意列表，key=len，通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序 使用列表的生成式语法来创建列表12345678910111213141516171819202122232425import sysdef main(): f = [x for x in range(1, 10)] print(f) f = [x + y for x in &apos;ABCDE&apos; for y in &apos;1234567&apos;] print(f) # 用列表的生成表达式语法创建列表容器 # 用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间 f = [x ** 2 for x in range(1, 1000)] print(sys.getsizeof(f)) # 查看对象占用内存的字节数 print(f) # 请注意下面的代码创建的不是一个列表而是一个生成器对象 # 通过生成器可以获取到数据但它不占用额外的空间存储数据 # 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间) f = (x ** 2 for x in range(1, 1000)) print(sys.getsizeof(f)) # 相比生成式生成器不占用存储数据的空间 print(f) for val in f: print(val)if __name__ == &apos;__main__&apos;: main() 结果太长，不复制过来了 ※注意※：1.f = [x for x in range(1, 10)]是用列表的生成表达式语法创建列表容器2.用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间3.相比于f = [x ** 2 for x in range(1, 1000)] , f = (x ** 2 for x in range(1, 1000))后者为创建的不是一个列表而是一个生成器对象，通过生成器可以获取到数据但它不占用额外的空间存储数据4.生成器对象相比于生成式生成器不占用储存数据的空间 通过yield关键字将一个普通函数改为生成数函数 1234567891011121314def fib(n): a, b = 0, 1 for _ in range(n): a, b = b, a + b yield adef main(): for val in fib(20): print(val)if __name__ == &apos;__main__&apos;: main() 11235813213455891442333776109871597258441816765 ※疑问※：没看懂yield 元组12345678910111213141516171819202122232425262728293031def main(): # 定义元组 t = (&apos;骆昊&apos;, 38, True, &apos;四川成都&apos;) print(t) # 获取元组中的元素 print(t[0]) print(t[3]) # 遍历元组中的值 for member in t: print(member) # 重新给元组赋值 # t[0] = &apos;王大锤&apos; # TypeError # 变量t重新引用了新的元组原来的元组将被垃圾回收 t = (&apos;王大锤&apos;, 20, True, &apos;云南昆明&apos;) print(t) # 将元组转换成列表 person = list(t) print(person) # 列表是可以修改它的元素的 person[0] = &apos;李小龙&apos; person[1] = 25 print(person) # 将列表转换成元组 fruits_list = [&apos;apple&apos;, &apos;banana&apos;, &apos;orange&apos;] fruits_tuple = tuple(fruits_list) print(fruits_tuple)if __name__ == &apos;__main__&apos;: main() (‘骆昊’, 38, True, ‘四川成都’)骆昊四川成都骆昊38True四川成都(‘王大锤’, 20, True, ‘云南昆明’)[‘王大锤’, 20, True, ‘云南昆明’][‘李小龙’, 25, True, ‘云南昆明’](‘apple’, ‘banana’, ‘orange’) **※注意※：1.元组为n = (&amp;ensp;&amp;ensp;),n为任意变量,列表为listn = [&amp;ensp;&amp;ensp;]注意符号2.元组不能修改，但列表可以3.已经有了列表，为什么还需要元组： 元组中的元素是无法修改的，事实上我们在项目中尤其是多线程环境（后面会讲到）中可能更喜欢使用的是那些不变对象（一方面因为对象状态不能修改，所以可以避免由此引起的不必要的程序错误，简单的说就是一个不变的对象要比可变的对象更加容易维护；另一方面因为没有任何一个线程能够修改不变对象的内部状态，一个不变对象自动就是线程安全的，这样就可以省掉处理同步化的开销。一个不变对象可以方便的被共享访问）。所以结论就是：如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。 元组在创建时间和占用的空间上面都优于列表。我们可以使用sys模块的getsizeof函数来检查存储同样的元素的元组和列表各自占用了多少内存空间，这个很容易做到。我们也可以在ipython中使用魔法指令%timeit来分析创建同样内容的元组和列表所花费的时间，下图是我的macOS系统上测试的结果。 集合12345678910111213141516171819202122232425262728293031323334353637383940414243444546def main(): set1 = &#123;1, 2, 3, 3, 3, 2&#125; print(set1) print(&apos;Length =&apos;, len(set1)) set2 = set(range(1, 10)) print(set2) set1.add(4) set1.add(5) set2.update([11, 12]) print(set1) print(set2) set2.discard(5) # remove的元素如果不存在会引发KeyError if 4 in set2: set2.remove(4) print(set2) # 遍历集合容器 for elem in set2: print(elem ** 2, end=&apos; &apos;) print() # 将元组转换成集合 set3 = set((1, 2, 3, 3, 2, 1)) print(set3.pop()) print(set3) # 集合的交集、并集、差集、对称差运算 print(set1 &amp; set2) # print(set1.intersection(set2)) print(set1 | set2) # print(set1.union(set2)) print(set1 - set2) # print(set1.difference(set2)) print(set1 ^ set2) # print(set1.symmetric_difference(set2)) # 判断子集和超集 print(set2 &lt;= set1) # print(set2.issubset(set1)) print(set3 &lt;= set1) # print(set3.issubset(set1)) print(set1 &gt;= set2) # print(set1.issuperset(set2)) print(set1 &gt;= set3) # print(set1.issuperset(set3))if __name__ == &apos;__main__&apos;: main() {1, 2, 3}Length = 3{1, 2, 3, 4, 5, 6, 7, 8, 9}{1, 2, 3, 4, 5}{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12}{1, 2, 3, 6, 7, 8, 9, 11, 12}1 4 9 36 49 64 81 121 1441{2, 3}{1, 2, 3}{1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12}{4, 5}{4, 5, 6, 7, 8, 9, 11, 12}FalseTrueFalseTrue **※注意※：1.set:集合（set）是一个无序的不重复元素序列。可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典2.add():方法用于给集合添加元素，如果添加的元素在集合中已存在，则不执行任何操作3.discard()和remove()区别是如果容器里没有，使用remove()会报错4.pop():pop() 函数用于移除列表中的一个元素（默认最后一个元素），并且返回该元素的值5.超集：如果一个集合S2中的每一个元素都在集合S1中，且集合S1中可能包含S2中没有的元素，则集合S1就是S2的一个超集，反过来，S2是S1的子集。 S1是S2的超集，若S1中一定有S2中没有的元素，则S1是S2的真超集，反过来S2是S1的真子集。6.并集、交集、差集、对称差、超集如图所示： 字典1234567891011121314151617181920212223242526272829def main(): scores = &#123;&apos;骆昊&apos;: 95, &apos;白元芳&apos;: 78, &apos;狄仁杰&apos;: 82&#125; # 通过键可以获取字典中对应的值 print(scores[&apos;骆昊&apos;]) print(scores[&apos;狄仁杰&apos;]) # 对字典进行遍历(遍历的其实是键再通过键取对应的值) for elem in scores: print(&apos;%s\t---&gt;\t%d&apos; % (elem, scores[elem])) # 更新字典中的元素 scores[&apos;白元芳&apos;] = 65 scores[&apos;诸葛王朗&apos;] = 71 scores.update(冷面=67, 方启鹤=85) print(scores) if &apos;武则天&apos; in scores: print(scores[&apos;武则天&apos;]) print(scores.get(&apos;武则天&apos;)) # get方法也是通过键获取对应的值但是可以设置默认值 print(scores.get(&apos;武则天&apos;, 60)) # 删除字典中的元素 print(scores.popitem()) print(scores.popitem()) print(scores.pop(&apos;骆昊&apos;, 100)) # 清空字典 scores.clear() print(scores)if __name__ == &apos;__main__&apos;: main() 9582骆昊 —&gt; 95白元芳 —&gt; 78狄仁杰 —&gt; 82{‘骆昊’: 95, ‘白元芳’: 65, ‘狄仁杰’: 82, ‘诸葛王朗’: 71, ‘冷面’: 67, ‘方启鹤’: 85}None60(‘方启鹤’, 85)(‘冷面’, 67)95{} **※注意※：1.使用scores来创建字典2.get()返回指定键的值，如果值不在字典中返回默认值3.popitem()和pop()用法一致 练习在屏幕上显示跑马灯文字1234567891011121314151617import osimport timedef main(): content = &apos;北京欢迎你为你开天辟地…………&apos; while True: # 清理屏幕上的输出 os.system(&apos;cls&apos;) # os.system(&apos;clear&apos;) print(content) # 休眠200毫秒 time.sleep(0.2) content = content[1:] + content[0]if __name__ == &apos;__main__&apos;: main() 北京欢迎你为你开天辟地………… 京欢迎你为你开天辟地…………北 欢迎你为你开天辟地…………北京 迎你为你开天辟地…………北京欢 你为你开天辟地…………北京欢迎 为你开天辟地…………北京欢迎你 你开天辟地…………北京欢迎你为 开天辟地…………北京欢迎你为你 天辟地…………北京欢迎你为你开 辟地…………北京欢迎你为你开天 地…………北京欢迎你为你开天辟 …………北京欢迎你为你开天辟地 ………北京欢迎你为你开天辟地… ……北京欢迎你为你开天辟地……※注意※：1.time.sleep()：推迟调用线程的运行，secs指秒数※疑问※：os模块 今日练习未做完]]></content>
@@ -55,6 +82,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily4%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：函数和模块的使用]]></title>
     <url>%2F%2Fpython5%2F</url>
     <content type="text"><![CDATA[引言：今日练习函数和模块的使用 函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算 12345678def factorial(num): result = 1 for i in range(1,num+1): result *= i return resultn = int(input(&apos;n=&apos;))m = int(input(&apos;m=&apos;))print(factorial(m) // factorial(n) // factorial(n-m)) n=3m=7840 ※注意※：1.def定义一个方程式，def()括号里面的是自变量，定义函数结尾的return返回的值是因变量2.Python的math模块中其实已经有一个factorial函数了，事实上要计算阶乘可以直接使用这个现成的函数而不用自己定义 函数的参数在Python中，函数的参数可以有默认值，也支持使用可变参数，所以Python并不需要像其他语言一样支持函数的重载 123456789from random import randintdef roll_dice(n=2): total = 0 for _ in range(n): total += randint(1, 6) return totalprint(roll_dice()) 9 ※注意※：疑问：range(2)应该是range(0，2)也就是[0,1]，为什么是摇两次1.在定义函数时设定了默认值，如果再调用函数时没有传入对应参数的值，就用默认值来计算2.可变参数的运用 举例注意112345678def add(a=0, b=0, c=0): return a + b + cprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(c=50, a=100, b=200)) 0136350 **※注意※：用不同方式调用add函数，这和其他函数重载的效果一样。 可变参数1234567891011def add(*args): total = 0 for val in args: total += val return totalprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(1, 3, 5, 7, 9)) 013625 ※注意※：1.参数名前加个*表示参数时一个可变参数 用模块管理函数命名冲突123456789def foo(): print(&apos;hello, world!&apos;)def foo(): print(&apos;goodbye, world!&apos;)foo() goodbye, world! 因为python中没有函数重载概念，所以如果两个定义名字相同，最新的定义就会覆盖掉之前的定义 解决命名冲突1module1.py 12def foo(): print(&apos;hello, world!&apos;) module2.py 12def foo(): print(&apos;goodbye, world!&apos;) test.py 1234567from module1 import foofoo()from module2 import foofoo() python中每个文件就代表一个模块(module)，在使用函数的时候我们通过import关键字导入指定的模块就可以区分到底要使用的是哪个模块中的foo函数 解决命名冲突2test.py 12345import module1 as m1import module2 as m2m1.foo()m2.foo() ※注意※：不能写成 12from module1 import foofrom module2 import foo 因为程序中调用的是最后倒入的那个fo 练习用定义函数实现计算最大公约数和最小公倍数的函数12345678def gcd(x, y): (x, y) = (y, x) if x &gt; y else (x, y) for factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: return factordef lcm(x, y): return x * y // gcd(x, y) 写一个程序判断输入的正整数是不是回文素数1234567891011121314151617181920def is_palindrome(num): temp = num total = 0 while temp &gt; 0: total = total * 10 + temp % 10 temp //= 10 return total == numdef is_prime(num): for factor in range(2,num): if num % factor == 0: return False return True if num != 1 else Falseif __name__ == &apos;__main__&apos;: num = int(input(&apos;请输入正整数: &apos;)) if is_palindrome(num) and is_prime(num): print(&apos;%d是回文素数&apos; % num) else: print(&apos;%d不是回文素数&apos;% num) ※疑问※：1.判断回文素数没看懂2.__name__ == ‘__main__‘没看懂 变量作用域举例 12345678910111213141516def foo(): b = &apos;hello&apos; def bar(): c = True print(a) print(b) print(c) bar() # print(c) if __name__ == &apos;__main__&apos;: a = 100 # print(b) foo() 100hello ※注意※：1.foo函数里定义的b是一个局部变量，属于局部定义域；在foo函数里又定义了一个bar函数，在bar函数里，变量b就属于嵌套作用域，在bar中可以访问的到；在bar函数里又定义了一个c，c只作用于bar中，其他作用关于搜不到。除了“局部作用域”、“嵌套作用域”、“全局作用域”，还有“内置作用域”。所谓的“内置作用域”就是Python内置的那些隐含标识符min、len等都属于内置作用域）。也可以在局部变量前加一个 global代表来自于全局作用域2.在实际开发中，我们应该尽量减少对全局变量的使用，因为全局变量的作用域和影响过于广泛，可能会发生意料之外的修改和使用，除此之外全局变量比局部变量拥有更长的生命周期，可能导致对象占用的内存长时间无法被垃圾回收。事实上，减少对全局变量的使用，也是降低代码之间耦合度的一个重要举措，同时也是对迪米特法则的践行。3.所以以后要按照以下方法书写 1234567def main(): # Todo: Add your code here passif __name__ == &apos;__main__&apos;: main()]]></content>
@@ -80,8 +118,8 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+    <url>%2F%2Fdaily3%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -106,8 +144,8 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily3%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
+    <url>%2F%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -136,28 +174,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily2%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：分支结构]]></title>
     <url>%2F%2Fpython2%2F</url>
     <content type="text"><![CDATA[引言：今日学习分支结构 IF语句用户身份验证1234567import getpass ※如果不显示输入的密码（类似于linux登录）※ username = input(&apos;请输入用户名：&apos;) password = getpass.getpass(&apos;请输入密码：&apos;) if username == &apos;szw&apos; and password == &apos;szwszw12138&apos; :print(&apos;登入成功&apos;)else :print(&apos;登入失败&apos;) 请输入用户名：szw请输入密码：登入成功 ※注意※：getpass的用法 分段函数12345678x = float(input(&apos;x=&apos;))if x&gt;1 : y=3*x-5elif x&lt;-1 : y=5*x+3else: y=x+2print(&apos;f(%.2f)=%.2f&apos;%(x,y)) x=-2f(-2.00)=-7.00 ※注意※：尽量将代码扁平化，少用嵌套结构。 练习骰子玩法123456789101112131415from random import randint ※注意※face = randint(1,6)if face == 1 : result = &apos;摇到的点数为1&apos;elif face == 2 : result = &apos;摇到的点数为2&apos;elif face == 3 : result = &apos;摇到的点数为3&apos;elif face == 4 : result = &apos;摇到的点数为4&apos;elif face == 5 : result = &apos;摇到的点数为5&apos;else : result = &apos;摇到的点数为6&apos;print(result) 结果为随机出现的骰子数 ※注意※：使用了random模块的randint函数生成指定的随机数 分数转换等级制度123456789101112sorce = float(input(&apos;分数为：&apos;))if sorce &gt;= 90 : grade = &apos;A&apos;elif sorce &gt;= 80 : grade = &apos;B&apos;elif sorce &gt;= 70 : grade = &apos;C&apos;elif sorce &gt;= 60 : grade = &apos;D&apos;else : grade = &apos;F&apos;print(&apos;您的等级为&apos;,grade) 分数为：100您的等级为 A 判断三边是否可以构成三角形，如果可以计算其面积和周长123456789101112import matha = float(input(&apos;A边为：&apos;))b = float(input(&apos;B边为：&apos;))c = float(input(&apos;C边为：&apos;))if a+b&gt;c and a+c&gt;b and b+c&gt;a : perimeter = a + b + c print(&apos;周长为：%.2f&apos;%perimeter) p = (a + b + c) / 2 area = math.sqrt(p(p - a)(p - b)(p - c)) print(&apos;面积为：%.2f&apos;%area)else : print(&apos;构不成三角形&apos;) A边为：2B边为：8C边为：1构不成三角形 ※注意※：1.import math之后,sqrt前面要加.math2.公式要在print上面一行写，不能一开始就写3.注意print里面的格式4.海伦公式：①p=(a+b+c)/2 ②S=sqrt(p(p-a)(p-b)(p-c))]]></content>
@@ -174,6 +190,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：语言元素]]></title>
     <url>%2F%2Fputhon1%2F</url>
     <content type="text"><![CDATA[引言：今日学习语言元素 变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
@@ -186,22 +213,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>

@@ -298,7 +298,7 @@
                 
               
 
-              <time title="创建时间：2019-09-06 00:00:00 / 修改时间：15:00:24" itemprop="dateCreated datePublished" datetime="2019-09-06T00:00:00+08:00">2019-09-06</time>
+              <time title="创建时间：2019-09-06 00:00:00 / 修改时间：15:13:35" itemprop="dateCreated datePublished" datetime="2019-09-06T00:00:00+08:00">2019-09-06</time>
             </span>
           
             
@@ -344,88 +344,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h2><h3 id="常见执行linux命令的格式"><a href="#常见执行linux命令的格式" class="headerlink" title="常见执行linux命令的格式"></a>常见执行linux命令的格式</h3><p><code>命令名称 [参数] [对象]</code></p>
-<p><strong>※注意※<br>1.对象一般指要处理的文件、目录、用户等资源<br>2.参数可以用长格式(前缀为--)、或短格式(前缀为-)</strong></p>
-<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><h4 id="man"><a href="#man" class="headerlink" title="man"></a><code>man</code></h4><ul>
-<li><code>page down</code>向下翻一页</li>
-<li><code>page up</code>向上翻一页</li>
-<li><code>home</code>直接前往首页</li>
-<li><code>end</code>直接前往尾页</li>
-<li><code>/</code>从上至下搜索某个关键词</li>
-<li><code>?</code>从下至上搜索某个关键词</li>
-<li><code>n</code>定位到下一个搜索到的关键词</li>
-<li><code>N</code>定位到上一个搜索到的关键词</li>
-<li><code>q</code>退出帮助文档</li>
-</ul>
-<h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a><code>echo</code></h4><p><code>echo</code>命令用于在终端输出字符串或变量提取后的值<br>格式为 <code>echo[字符串|$变量]</code></p>
-<p>举例1：把指定字符串输出到终端屏幕</p>
-<blockquote>
-<p>[root@linuxprobe linuxprobe]# echo hello world<br>hello world</p>
-</blockquote>
-<p>举例2：使用$变量的方式提取变量SHELL的值</p>
-<blockquote>
-<p>[root@linuxprobe linuxprobe]# echo $SHELL<br>/bin/bash</p>
-</blockquote>
-<h4 id="date"><a href="#date" class="headerlink" title="date"></a><code>date</code></h4><p><code>date</code>命令用于显示及设置系统的事件或日期<br>格式为``date[选项][+指定的格式]<br>参数：</p>
-<ul>
-<li><code>%t</code>跳格[Tab键]</li>
-<li><code>%H</code>小时(00~23)</li>
-<li><code>%I</code>小时(00~12)</li>
-<li><code>%M</code>分钟(00~59)</li>
-<li><code>%S</code>秒(00~59)</li>
-<li><code>%j</code>今年中的第几天</li>
-</ul>
-<p>举例1：按照指定格式查看系统时间</p>
-<blockquote>
-<p>[root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”<br>2019-09-06 14:35:03</p>
-</blockquote>
-<p>举例2：查看今天是今年的第几天</p>
-<blockquote>
-<p>[root@linuxprobe linuxprobe]# date +%j<br>249</p>
-</blockquote>
-<h4 id="rebot"><a href="#rebot" class="headerlink" title="rebot"></a><code>rebot</code></h4><p>重启系统</p>
-<h4 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a><code>poweroff</code></h4><p>关机</p>
-<h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a><code>wget</code></h4><p><code>wget</code>用于在终端下载网络文件<br>格式为<code>wget[参数]下载地址</code><br>参数：</p>
-<ul>
-<li><code>-b</code>后台下载模式</li>
-<li><code>-P</code>下载到指定目录</li>
-<li><code>-t</code>最大尝试次数</li>
-<li><code>-c</code>断点续传</li>
-<li><code>-p</code>下载页面内所有的资源</li>
-<li><code>-r</code>递归下载</li>
-</ul>
-<h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a><code>ps</code></h4><p><code>ps</code>命令用于查看系统中的进程状态<br>格式为<code>ps[参数]</code><br>参数：</p>
-<ul>
-<li><code>-a</code>显示所有进程(包括其他用户)</li>
-<li><code>-u</code>用户以及其他详细信息</li>
-<li><code>-x</code>显示没有控制终端的进程</li>
-</ul>
-<p><code>ps</code>参数可允许参数不加减号(-) 可直接写为<code>ps aux</code></p>
-<blockquote>
-<p>[root@linuxprobe linuxprobe]# ps -aux<br>USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</p>
-</blockquote>
-<p>表头解释：</p>
-<ul>
-<li><code>USER</code>进程所有者</li>
-<li><code>PID</code>进程ID号</li>
-<li><code>%CPU</code>进程占用率</li>
-<li><code>%MEM</code>内存占用率</li>
-<li><code>VSZ</code>虚拟内存使用量(KB)</li>
-<li><code>RSS</code>占用的固定内存量(KB)</li>
-<li><code>TTY</code>所在终端</li>
-<li><code>STAT</code>进程状态</li>
-<li><code>START</code> 被启动的时间</li>
-<li><code>TIME</code>实际使用CPU的时间</li>
-<li><code>COMMAND</code>命令名称与参数</li>
-</ul>
-<h5 id="linux中5种常见进程"><a href="#linux中5种常见进程" class="headerlink" title="linux中5种常见进程"></a>linux中5种常见进程</h5><ul>
-<li>R(运行)：进程正在运行或者在运行队列中等待</li>
-<li>S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态</li>
-<li>D(不可中断)：进程不响应系统异步信号，即便用<code>kill</code>命令也不能将其中断</li>
-<li>Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用<code>wait()</code>系统函数后将进程释放</li>
-<li>T(停止)：进程收到停止命令后停止运行</li>
-</ul>
-
+          <center> 引言：进入学习linux命令 </center>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/linux1/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

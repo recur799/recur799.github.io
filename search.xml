@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[linux日常：linux命令]]></title>
     <url>%2F%2Flinux1%2F</url>
-    <content type="text"><![CDATA[引言：进入学习linux命令 linux命令常见执行linux命令的格式命令名称 [参数] [对象] ※注意※1.对象一般指要处理的文件、目录、用户等资源2.参数可以用长格式(前缀为--)、或短格式(前缀为-) 常见命令man page down向下翻一页 page up向上翻一页 home直接前往首页 end直接前往尾页 /从上至下搜索某个关键词 ?从下至上搜索某个关键词 n定位到下一个搜索到的关键词 N定位到上一个搜索到的关键词 q退出帮助文档 echoecho命令用于在终端输出字符串或变量提取后的值格式为 echo[字符串|$变量] 举例1：把指定字符串输出到终端屏幕 [root@linuxprobe linuxprobe]# echo hello worldhello world 举例2：使用$变量的方式提取变量SHELL的值 [root@linuxprobe linuxprobe]# echo $SHELL/bin/bash datedate命令用于显示及设置系统的事件或日期格式为``date[选项][+指定的格式]参数： %t跳格[Tab键] %H小时(00~23) %I小时(00~12) %M分钟(00~59) %S秒(00~59) %j今年中的第几天 举例1：按照指定格式查看系统时间 [root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”2019-09-06 14:35:03 举例2：查看今天是今年的第几天 [root@linuxprobe linuxprobe]# date +%j249 rebot重启系统 poweroff关机 wgetwget用于在终端下载网络文件格式为wget[参数]下载地址参数： -b后台下载模式 -P下载到指定目录 -t最大尝试次数 -c断点续传 -p下载页面内所有的资源 -r递归下载 psps命令用于查看系统中的进程状态格式为ps[参数]参数： -a显示所有进程(包括其他用户) -u用户以及其他详细信息 -x显示没有控制终端的进程 ps参数可允许参数不加减号(-) 可直接写为ps aux [root@linuxprobe linuxprobe]# ps -auxUSER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND 表头解释： USER进程所有者 PID进程ID号 %CPU进程占用率 %MEM内存占用率 VSZ虚拟内存使用量(KB) RSS占用的固定内存量(KB) TTY所在终端 STAT进程状态 START 被启动的时间 TIME实际使用CPU的时间 COMMAND命令名称与参数 linux中5种常见进程 R(运行)：进程正在运行或者在运行队列中等待 S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态 D(不可中断)：进程不响应系统异步信号，即便用kill命令也不能将其中断 Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用wait()系统函数后将进程释放 T(停止)：进程收到停止命令后停止运行]]></content>
+    <content type="text"><![CDATA[引言：今日学习linux命令 linux命令常见执行linux命令的格式命令名称 [参数] [对象] ※注意※1.对象一般指要处理的文件、目录、用户等资源2.参数可以用长格式(前缀为--)、或短格式(前缀为-) 常见命令man page down向下翻一页 page up向上翻一页 home直接前往首页 end直接前往尾页 /从上至下搜索某个关键词 ?从下至上搜索某个关键词 n定位到下一个搜索到的关键词 N定位到上一个搜索到的关键词 q退出帮助文档 echoecho命令用于在终端输出字符串或变量提取后的值格式为 echo[字符串|$变量] 举例1：把指定字符串输出到终端屏幕 [root@linuxprobe linuxprobe]# echo hello worldhello world 举例2：使用$变量的方式提取变量SHELL的值 [root@linuxprobe linuxprobe]# echo $SHELL/bin/bash datedate命令用于显示及设置系统的事件或日期格式为``date[选项][+指定的格式]参数： %t跳格[Tab键] %H小时(00~23) %I小时(00~12) %M分钟(00~59) %S秒(00~59) %j今年中的第几天 举例1：按照指定格式查看系统时间 [root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”2019-09-06 14:35:03 举例2：查看今天是今年的第几天 [root@linuxprobe linuxprobe]# date +%j249 rebot重启系统 poweroff关机 wgetwget用于在终端下载网络文件格式为wget[参数]下载地址参数： -b后台下载模式 -P下载到指定目录 -t最大尝试次数 -c断点续传 -p下载页面内所有的资源 -r递归下载 psps命令用于查看系统中的进程状态格式为ps[参数]参数： -a显示所有进程(包括其他用户) -u用户以及其他详细信息 -x显示没有控制终端的进程 ps参数可允许参数不加减号(-) 可直接写为ps aux [root@linuxprobe linuxprobe]# ps -auxUSER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND 表头解释： USER进程所有者 PID进程ID号 %CPU进程占用率 %MEM内存占用率 VSZ虚拟内存使用量(KB) RSS占用的固定内存量(KB) TTY所在终端 STAT进程状态 START 被启动的时间 TIME实际使用CPU的时间 COMMAND命令名称与参数 linux中5种常见进程 R(运行)：进程正在运行或者在运行队列中等待 S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态 D(不可中断)：进程不响应系统异步信号，即便用kill命令也不能将其中断 Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用wait()系统函数后将进程释放 T(停止)：进程收到停止命令后停止运行]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -93,6 +93,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily4%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：函数和模块的使用]]></title>
     <url>%2F%2Fpython5%2F</url>
     <content type="text"><![CDATA[引言：今日练习函数和模块的使用 函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算 12345678def factorial(num): result = 1 for i in range(1,num+1): result *= i return resultn = int(input(&apos;n=&apos;))m = int(input(&apos;m=&apos;))print(factorial(m) // factorial(n) // factorial(n-m)) n=3m=7840 ※注意※：1.def定义一个方程式，def()括号里面的是自变量，定义函数结尾的return返回的值是因变量2.Python的math模块中其实已经有一个factorial函数了，事实上要计算阶乘可以直接使用这个现成的函数而不用自己定义 函数的参数在Python中，函数的参数可以有默认值，也支持使用可变参数，所以Python并不需要像其他语言一样支持函数的重载 123456789from random import randintdef roll_dice(n=2): total = 0 for _ in range(n): total += randint(1, 6) return totalprint(roll_dice()) 9 ※注意※：疑问：range(2)应该是range(0，2)也就是[0,1]，为什么是摇两次1.在定义函数时设定了默认值，如果再调用函数时没有传入对应参数的值，就用默认值来计算2.可变参数的运用 举例注意112345678def add(a=0, b=0, c=0): return a + b + cprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(c=50, a=100, b=200)) 0136350 **※注意※：用不同方式调用add函数，这和其他函数重载的效果一样。 可变参数1234567891011def add(*args): total = 0 for val in args: total += val return totalprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(1, 3, 5, 7, 9)) 013625 ※注意※：1.参数名前加个*表示参数时一个可变参数 用模块管理函数命名冲突123456789def foo(): print(&apos;hello, world!&apos;)def foo(): print(&apos;goodbye, world!&apos;)foo() goodbye, world! 因为python中没有函数重载概念，所以如果两个定义名字相同，最新的定义就会覆盖掉之前的定义 解决命名冲突1module1.py 12def foo(): print(&apos;hello, world!&apos;) module2.py 12def foo(): print(&apos;goodbye, world!&apos;) test.py 1234567from module1 import foofoo()from module2 import foofoo() python中每个文件就代表一个模块(module)，在使用函数的时候我们通过import关键字导入指定的模块就可以区分到底要使用的是哪个模块中的foo函数 解决命名冲突2test.py 12345import module1 as m1import module2 as m2m1.foo()m2.foo() ※注意※：不能写成 12from module1 import foofrom module2 import foo 因为程序中调用的是最后倒入的那个fo 练习用定义函数实现计算最大公约数和最小公倍数的函数12345678def gcd(x, y): (x, y) = (y, x) if x &gt; y else (x, y) for factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: return factordef lcm(x, y): return x * y // gcd(x, y) 写一个程序判断输入的正整数是不是回文素数1234567891011121314151617181920def is_palindrome(num): temp = num total = 0 while temp &gt; 0: total = total * 10 + temp % 10 temp //= 10 return total == numdef is_prime(num): for factor in range(2,num): if num % factor == 0: return False return True if num != 1 else Falseif __name__ == &apos;__main__&apos;: num = int(input(&apos;请输入正整数: &apos;)) if is_palindrome(num) and is_prime(num): print(&apos;%d是回文素数&apos; % num) else: print(&apos;%d不是回文素数&apos;% num) ※疑问※：1.判断回文素数没看懂2.__name__ == ‘__main__‘没看懂 变量作用域举例 12345678910111213141516def foo(): b = &apos;hello&apos; def bar(): c = True print(a) print(b) print(c) bar() # print(c) if __name__ == &apos;__main__&apos;: a = 100 # print(b) foo() 100hello ※注意※：1.foo函数里定义的b是一个局部变量，属于局部定义域；在foo函数里又定义了一个bar函数，在bar函数里，变量b就属于嵌套作用域，在bar中可以访问的到；在bar函数里又定义了一个c，c只作用于bar中，其他作用关于搜不到。除了“局部作用域”、“嵌套作用域”、“全局作用域”，还有“内置作用域”。所谓的“内置作用域”就是Python内置的那些隐含标识符min、len等都属于内置作用域）。也可以在局部变量前加一个 global代表来自于全局作用域2.在实际开发中，我们应该尽量减少对全局变量的使用，因为全局变量的作用域和影响过于广泛，可能会发生意料之外的修改和使用，除此之外全局变量比局部变量拥有更长的生命周期，可能导致对象占用的内存长时间无法被垃圾回收。事实上，减少对全局变量的使用，也是降低代码之间耦合度的一个重要举措，同时也是对迪米特法则的践行。3.所以以后要按照以下方法书写 1234567def main(): # Todo: Add your code here passif __name__ == &apos;__main__&apos;: main()]]></content>
@@ -118,8 +129,8 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+    <url>%2F%2Fdaily3%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -143,28 +154,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily3%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily2%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：循环结构]]></title>
     <url>%2F%2Fpython3%2F</url>
     <content type="text"><![CDATA[引言：今日学习循环结构 for-in循环用for-in计算1~100求和结果1234sum = 0for x in range(0,101): sum += xprint(sum) 5050 ※注意※：1.”+=”的意思是两边相加，值赋予左边2.用到了range 类型 ，range(101)可以产生一个0到100的整数序列、range(1,100,2)可以产生一个1到99的奇数序列，其中的2是步长，即数值序列的增量 以此类推可以计算1~100的偶数求和1234sum = 0for x in range(2,101,2): sum += xprint(sum) 2550 也可根据昨天学的if语句分支结构计算0~100的偶数求和12345sum = 0for x in range(0,101,2): if x % 2 == 0 : sum += xprint(sum) 2550 ※注意※：if-in循环用于计算知道循环执行次数或者要对一个容器进行迭代，如果不知道循环多少次，就要用到while循环。 while循环while循环可以通过一个能够产生或转换出bool值的表达式来控制循环，True循环继续，False循环结束 猜数字游戏12345678910111213141516import randomanser = random.randint(1,99)counter = 0while True : counter += 1 number = int(input(&apos;请输入你猜的数字：&apos;)) if anser &gt; number : print(&apos;大一点&apos;) elif anser &lt; number : print(&apos;小一点&apos;) else: print(&apos;恭喜你猜对了&apos;) breakprint(&apos;你一共猜了%d次&apos; % counter)if counter &gt; 7 : print(&apos;你咋猜的啊？？？？？？&apos;) 请输入你猜的数字：50大一点请输入你猜的数字：60大一点请输入你猜的数字：80小一点请输入你猜的数字：76小一点请输入你猜的数字：72小一点请输入你猜的数字：65大一点请输入你猜的数字：69小一点请输入你猜的数字：67大一点请输入你猜的数字：68恭喜你猜对了你一共猜了9次你咋猜的啊？？？？？？ ※注意※：1.注意python语法使用缩进来结束if或者while，while循环结束要用break来结束循环（要在嵌套结构里结束）2.第二个if结构不要再第一个if结构里 循环结构嵌套输出九九乘法表1234for i in range(1, 10): for j in range(1, i + 1): print(&apos;%d*%d=%d&apos; % (i, j, i * j), end=&apos;\t&apos;) print() 1*1=12*1=2 2*2=43*1=3 3*2=6 3*3=94*1=4 4*2=8 4*3=12 4*4=165*1=5 5*2=10 5*3=15 5*4=20 5*5=256*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=367*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=498*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=649*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81(markdown语法真是够了，要加那么多转义反斜杠…) **※注意※：1.end=’’用法：例如print（“#”，end=” \n”)，默认换行，print（“#”，end=” “)则在循环中不换行2.python的转移符号： \(在行尾时) &emsp;&emsp;&emsp; 续行符\\ &emsp;&emsp;&emsp;反斜杠符号\‘ &emsp;&emsp;&emsp;单引号\“ &emsp;&emsp;&emsp;双引号\a &emsp;&emsp;&emsp;响铃\b &emsp;&emsp;&emsp;退格(Backspace)\e &emsp;&emsp;&emsp;转义\000 &emsp;&emsp;&emsp;空\n &emsp;&emsp;&emsp;换行\v &emsp;&emsp;&emsp;纵向制表符\t &emsp;&emsp;&emsp;横向制表符\r &emsp;&emsp;&emsp;回车\f &emsp;&emsp;&emsp;换页\oyy &emsp;&emsp;八进制数，yy代表的字符，例如：\o12代表换行\xyy &emsp;&emsp;十六进制数，yy代表的字符，例如：\x0a代表换行\other &emsp;&emsp;其它的字符以普通格式输出** 练习输入一个正整数判断是不是素数12345678910111213from math import sqrtnum = int(input(&apos;请输入一个正整数: &apos;))end = int(sqrt(num))is_prime = Truefor x in range(2, end + 1): if num % x == 0: is_prime = False breakif is_prime and num != 1: print(&apos;%d是素数&apos; % num)else: print(&apos;%d不是素数&apos; % num) 请输入一个正整数: 33是素数 **※注意※：1.判断是否为素数：在一般领域，对正整数n，如果用2到sqrt(n)之间的所有整数去除，均无法整除，则n为质数质数大于等于2 不能被它本身和1以外的数整除 疑问：for-in前用 is_prime = True，for-in里用is_prime = False 结束，最后判断的时候为什么用is_prime和num不等于1做条件？猜想：for-in里如果可以整除，is_prime为False，就是为0.然后在下面判断is_prime和num是否为1，来判断是否为素数** 输入两个正整数，计算最大公约数和最小公倍数123456789x = int(input(&apos;x = &apos;))y = int(input(&apos;y = &apos;))if x &gt; y: x, y = y, xfor factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: print(&apos;%d和%d的最大公约数是%d&apos; % (x, y, factor)) print(&apos;%d和%d的最小公倍数是%d&apos; % (x, y, x * y // factor)) break x = 28y = 4228和42的最大公约数是1428和42的最小公倍数是84 **※注意※：1.最大公约数计算：一个数可以整除另外两个数，那么这个数是另外两个数的最大公约数2.(a,b)[a,b]=ab(a,b均为整数)，(a,b)为最大公约数，[a,b]为最小公倍数 疑问：range(x, 0, -1)x到0之间取值，步数为-1是怎么取值的解答：表示从x开始，到0为止（不包括0），取其中所有的整数 (为什么不用range（0，x，1）？** 打印三角形123456789101112131415161718192021row = int(input(&apos;请输入行数: &apos;))for i in range(row): for _ in range(i + 1): print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for j in range(row): if j &lt; row - i - 1: print(&apos; &apos;, end=&apos;&apos;) else: print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for _ in range(row - i - 1): print(&apos; &apos;, end=&apos;&apos;) for _ in range(2 * i + 1): print(&apos;*&apos;, end=&apos;&apos;) print() 请输入行数: 3xxxxxx&emsp;x&ensp;xxxxx&emsp;x&ensp;xxxxxxxx ※注意※：1.for _ in range（）的 _ 的意思是只要这次for循环结束之后，就不管了。咱要的只是循环这个过程2.还需要多练，一开始看不懂，看了10分钟才明白]]></content>
@@ -185,6 +174,28 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：分支结构]]></title>
     <url>%2F%2Fpython2%2F</url>
     <content type="text"><![CDATA[引言：今日学习分支结构 IF语句用户身份验证1234567import getpass ※如果不显示输入的密码（类似于linux登录）※ username = input(&apos;请输入用户名：&apos;) password = getpass.getpass(&apos;请输入密码：&apos;) if username == &apos;szw&apos; and password == &apos;szwszw12138&apos; :print(&apos;登入成功&apos;)else :print(&apos;登入失败&apos;) 请输入用户名：szw请输入密码：登入成功 ※注意※：getpass的用法 分段函数12345678x = float(input(&apos;x=&apos;))if x&gt;1 : y=3*x-5elif x&lt;-1 : y=5*x+3else: y=x+2print(&apos;f(%.2f)=%.2f&apos;%(x,y)) x=-2f(-2.00)=-7.00 ※注意※：尽量将代码扁平化，少用嵌套结构。 练习骰子玩法123456789101112131415from random import randint ※注意※face = randint(1,6)if face == 1 : result = &apos;摇到的点数为1&apos;elif face == 2 : result = &apos;摇到的点数为2&apos;elif face == 3 : result = &apos;摇到的点数为3&apos;elif face == 4 : result = &apos;摇到的点数为4&apos;elif face == 5 : result = &apos;摇到的点数为5&apos;else : result = &apos;摇到的点数为6&apos;print(result) 结果为随机出现的骰子数 ※注意※：使用了random模块的randint函数生成指定的随机数 分数转换等级制度123456789101112sorce = float(input(&apos;分数为：&apos;))if sorce &gt;= 90 : grade = &apos;A&apos;elif sorce &gt;= 80 : grade = &apos;B&apos;elif sorce &gt;= 70 : grade = &apos;C&apos;elif sorce &gt;= 60 : grade = &apos;D&apos;else : grade = &apos;F&apos;print(&apos;您的等级为&apos;,grade) 分数为：100您的等级为 A 判断三边是否可以构成三角形，如果可以计算其面积和周长123456789101112import matha = float(input(&apos;A边为：&apos;))b = float(input(&apos;B边为：&apos;))c = float(input(&apos;C边为：&apos;))if a+b&gt;c and a+c&gt;b and b+c&gt;a : perimeter = a + b + c print(&apos;周长为：%.2f&apos;%perimeter) p = (a + b + c) / 2 area = math.sqrt(p(p - a)(p - b)(p - c)) print(&apos;面积为：%.2f&apos;%area)else : print(&apos;构不成三角形&apos;) A边为：2B边为：8C边为：1构不成三角形 ※注意※：1.import math之后,sqrt前面要加.math2.公式要在print上面一行写，不能一开始就写3.注意print里面的格式4.海伦公式：①p=(a+b+c)/2 ②S=sqrt(p(p-a)(p-b)(p-c))]]></content>
@@ -201,17 +212,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：语言元素]]></title>
     <url>%2F%2Fputhon1%2F</url>
     <content type="text"><![CDATA[引言：今日学习语言元素 变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
@@ -224,22 +224,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>

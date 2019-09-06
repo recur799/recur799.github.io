@@ -267,7 +267,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily6/">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/linux1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="宋昭威">
@@ -281,7 +281,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/daily6/" class="post-title-link" itemprop="url">练字日常</a>
+            <a href="/linux1/" class="post-title-link" itemprop="url">linux日常：linux命令</a>
           
         </h1>
 
@@ -298,7 +298,7 @@
                 
               
 
-              <time title="创建时间：2019-09-02 00:00:00 / 修改时间：22:40:38" itemprop="dateCreated datePublished" datetime="2019-09-02T00:00:00+08:00">2019-09-02</time>
+              <time title="创建时间：2019-09-06 00:00:00 / 修改时间：15:00:24" itemprop="dateCreated datePublished" datetime="2019-09-06T00:00:00+08:00">2019-09-06</time>
             </span>
           
             
@@ -311,7 +311,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a></span>
 
                 
                 
@@ -330,7 +330,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/daily6/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily6/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/linux1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/linux1/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -344,16 +344,88 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <center> 引言：今日的练字 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/daily6/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+          <h2 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h2><h3 id="常见执行linux命令的格式"><a href="#常见执行linux命令的格式" class="headerlink" title="常见执行linux命令的格式"></a>常见执行linux命令的格式</h3><p><code>命令名称 [参数] [对象]</code></p>
+<p><strong>※注意※<br>1.对象一般指要处理的文件、目录、用户等资源<br>2.参数可以用长格式(前缀为--)、或短格式(前缀为-)</strong></p>
+<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><h4 id="man"><a href="#man" class="headerlink" title="man"></a><code>man</code></h4><ul>
+<li><code>page down</code>向下翻一页</li>
+<li><code>page up</code>向上翻一页</li>
+<li><code>home</code>直接前往首页</li>
+<li><code>end</code>直接前往尾页</li>
+<li><code>/</code>从上至下搜索某个关键词</li>
+<li><code>?</code>从下至上搜索某个关键词</li>
+<li><code>n</code>定位到下一个搜索到的关键词</li>
+<li><code>N</code>定位到上一个搜索到的关键词</li>
+<li><code>q</code>退出帮助文档</li>
+</ul>
+<h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a><code>echo</code></h4><p><code>echo</code>命令用于在终端输出字符串或变量提取后的值<br>格式为 <code>echo[字符串|$变量]</code></p>
+<p>举例1：把指定字符串输出到终端屏幕</p>
+<blockquote>
+<p>[root@linuxprobe linuxprobe]# echo hello world<br>hello world</p>
+</blockquote>
+<p>举例2：使用$变量的方式提取变量SHELL的值</p>
+<blockquote>
+<p>[root@linuxprobe linuxprobe]# echo $SHELL<br>/bin/bash</p>
+</blockquote>
+<h4 id="date"><a href="#date" class="headerlink" title="date"></a><code>date</code></h4><p><code>date</code>命令用于显示及设置系统的事件或日期<br>格式为``date[选项][+指定的格式]<br>参数：</p>
+<ul>
+<li><code>%t</code>跳格[Tab键]</li>
+<li><code>%H</code>小时(00~23)</li>
+<li><code>%I</code>小时(00~12)</li>
+<li><code>%M</code>分钟(00~59)</li>
+<li><code>%S</code>秒(00~59)</li>
+<li><code>%j</code>今年中的第几天</li>
+</ul>
+<p>举例1：按照指定格式查看系统时间</p>
+<blockquote>
+<p>[root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”<br>2019-09-06 14:35:03</p>
+</blockquote>
+<p>举例2：查看今天是今年的第几天</p>
+<blockquote>
+<p>[root@linuxprobe linuxprobe]# date +%j<br>249</p>
+</blockquote>
+<h4 id="rebot"><a href="#rebot" class="headerlink" title="rebot"></a><code>rebot</code></h4><p>重启系统</p>
+<h4 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a><code>poweroff</code></h4><p>关机</p>
+<h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a><code>wget</code></h4><p><code>wget</code>用于在终端下载网络文件<br>格式为<code>wget[参数]下载地址</code><br>参数：</p>
+<ul>
+<li><code>-b</code>后台下载模式</li>
+<li><code>-P</code>下载到指定目录</li>
+<li><code>-t</code>最大尝试次数</li>
+<li><code>-c</code>断点续传</li>
+<li><code>-p</code>下载页面内所有的资源</li>
+<li><code>-r</code>递归下载</li>
+</ul>
+<h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a><code>ps</code></h4><p><code>ps</code>命令用于查看系统中的进程状态<br>格式为<code>ps[参数]</code><br>参数：</p>
+<ul>
+<li><code>-a</code>显示所有进程(包括其他用户)</li>
+<li><code>-u</code>用户以及其他详细信息</li>
+<li><code>-x</code>显示没有控制终端的进程</li>
+</ul>
+<p><code>ps</code>参数可允许参数不加减号(-) 可直接写为<code>ps aux</code></p>
+<blockquote>
+<p>[root@linuxprobe linuxprobe]# ps -aux<br>USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</p>
+</blockquote>
+<p>表头解释：</p>
+<ul>
+<li><code>USER</code>进程所有者</li>
+<li><code>PID</code>进程ID号</li>
+<li><code>%CPU</code>进程占用率</li>
+<li><code>%MEM</code>内存占用率</li>
+<li><code>VSZ</code>虚拟内存使用量(KB)</li>
+<li><code>RSS</code>占用的固定内存量(KB)</li>
+<li><code>TTY</code>所在终端</li>
+<li><code>STAT</code>进程状态</li>
+<li><code>START</code> 被启动的时间</li>
+<li><code>TIME</code>实际使用CPU的时间</li>
+<li><code>COMMAND</code>命令名称与参数</li>
+</ul>
+<h5 id="linux中5种常见进程"><a href="#linux中5种常见进程" class="headerlink" title="linux中5种常见进程"></a>linux中5种常见进程</h5><ul>
+<li>R(运行)：进程正在运行或者在运行队列中等待</li>
+<li>S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态</li>
+<li>D(不可中断)：进程不响应系统异步信号，即便用<code>kill</code>命令也不能将其中断</li>
+<li>Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用<code>wait()</code>系统函数后将进程释放</li>
+<li>T(停止)：进程收到停止命令后停止运行</li>
+</ul>
+
         
       
     </div>
@@ -491,7 +563,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python6/">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="宋昭威">
@@ -505,7 +577,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/python6/" class="post-title-link" itemprop="url">python日常：字符串和常用数据结构</a>
+            <a href="/daily6/" class="post-title-link" itemprop="url">练字日常</a>
           
         </h1>
 
@@ -522,7 +594,7 @@
                 
               
 
-              <time title="创建时间：2019-09-01 00:00:00 / 修改时间：21:19:14" itemprop="dateCreated datePublished" datetime="2019-09-01T00:00:00+08:00">2019-09-01</time>
+              <time title="创建时间：2019-09-02 00:00:00 / 修改时间：22:40:38" itemprop="dateCreated datePublished" datetime="2019-09-02T00:00:00+08:00">2019-09-02</time>
             </span>
           
             
@@ -535,7 +607,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
 
                 
                 
@@ -554,7 +626,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/python6/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python6/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/daily6/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily6/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -568,11 +640,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <center> 引言：今日学习字符串和常用数据结构 </center>
+          <center> 引言：今日的练字 </center>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/python6/" rel="contents">
+              <a class="btn" href="/daily6/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -715,7 +787,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily4/">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="宋昭威">
@@ -729,7 +801,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/daily4/" class="post-title-link" itemprop="url">练字日常</a>
+            <a href="/python6/" class="post-title-link" itemprop="url">python日常：字符串和常用数据结构</a>
           
         </h1>
 
@@ -746,7 +818,7 @@
                 
               
 
-              <time title="创建时间：2019-08-31 00:00:00 / 修改时间：22:37:36" itemprop="dateCreated datePublished" datetime="2019-08-31T00:00:00+08:00">2019-08-31</time>
+              <time title="创建时间：2019-09-01 00:00:00 / 修改时间：21:19:14" itemprop="dateCreated datePublished" datetime="2019-09-01T00:00:00+08:00">2019-09-01</time>
             </span>
           
             
@@ -759,7 +831,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
                 
@@ -778,7 +850,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/daily4/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily4/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/python6/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python6/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -792,11 +864,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <center> 引言：今日的练字 </center>
+          <center> 引言：今日学习字符串和常用数据结构 </center>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/daily4/" rel="contents">
+              <a class="btn" href="/python6/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -947,7 +1019,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily3/">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="宋昭威">
@@ -961,7 +1033,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/daily3/" class="post-title-link" itemprop="url">练字日常</a>
+            <a href="/daily4/" class="post-title-link" itemprop="url">练字日常</a>
           
         </h1>
 
@@ -978,7 +1050,7 @@
                 
               
 
-              <time title="创建时间：2019-08-30 00:00:00 / 修改时间：20:11:08" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">2019-08-30</time>
+              <time title="创建时间：2019-08-31 00:00:00 / 修改时间：22:37:36" itemprop="dateCreated datePublished" datetime="2019-08-31T00:00:00+08:00">2019-08-31</time>
             </span>
           
             
@@ -1010,7 +1082,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/daily3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily3/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/daily4/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily4/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -1028,7 +1100,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/daily3/" rel="contents">
+              <a class="btn" href="/daily4/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1179,6 +1251,118 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="宋昭威">
+      <meta itemprop="description" content="日积月累，循序渐进。">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宋昭威的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/daily3/" class="post-title-link" itemprop="url">练字日常</a>
+          
+        </h1>
+
+        <div class="post-meta">
+		
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-30 00:00:00 / 修改时间：20:11:08" itemprop="dateCreated datePublished" datetime="2019-08-30T00:00:00+08:00">2019-08-30</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/daily3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/daily3/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <center> 引言：今日的练字 </center>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/daily3/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+	<div>
+	  
+	</div>
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://recur799.github.io/daily2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1286,126 +1470,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/python3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="宋昭威">
-      <meta itemprop="description" content="日积月累，循序渐进。">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="宋昭威的日常">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/python3/" class="post-title-link" itemprop="url">python日常：循环结构</a>
-          
-        </h1>
-
-        <div class="post-meta">
-		
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-29T00:00:00+08:00">2019-08-29</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-01 19:47:00" itemprop="dateModified" datetime="2019-09-01T19:47:00+08:00">2019-09-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/python3/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/python3/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <center> 引言：今日学习循环结构 </center>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/python3/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-	<div>
-	  
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1458,7 +1522,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1479,7 +1543,9 @@
         
           
         
-        <span class="site-state-item-count">3</span>
+          
+        
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1622,7 +1688,9 @@
         
           
         
-        <span class="site-state-item-count">64</span>
+          
+        
+        <span class="site-state-item-count">65</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

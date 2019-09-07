@@ -69,15 +69,15 @@
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux日常：linux命令">
-<meta property="og:url" content="http://recur799.github.io/linux1/index.html">
+<meta property="og:url" content="http://recur799.github.io/linux2/index.html">
 <meta property="og:site_name" content="宋昭威的日常">
 <meta property="og:description" content="引言：今日学习linux命令">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T10:49:42.933Z">
+<meta property="og:updated_time" content="2019-09-07T11:11:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux日常：linux命令">
 <meta name="twitter:description" content="引言：今日学习linux命令">
-  <link rel="canonical" href="http://recur799.github.io/linux1/">
+  <link rel="canonical" href="http://recur799.github.io/linux2/">
 
 
 <script id="page-configurations">
@@ -270,7 +270,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/linux1/">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/linux2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="宋昭威">
@@ -300,19 +300,11 @@
                 
               
 
-              <time title="创建时间：2019-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-06T00:00:00+08:00">2019-09-06</time>
+              <time title="创建时间：2019-09-07 00:00:00 / 修改时间：19:11:45" itemprop="dateCreated datePublished" datetime="2019-09-07T00:00:00+08:00">2019-09-07</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-07 18:49:42" itemprop="dateModified" datetime="2019-09-07T18:49:42+08:00">2019-09-07</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -348,7 +340,7 @@
       
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/linux1/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/linux1/" itemprop="commentCount"></span></a>
+    <a title="valine" href="/linux2/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/linux2/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -365,87 +357,45 @@
         <center> 引言：今日学习linux命令 </center>
 <a id="more"></a>
 
-<h2 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h2><h3 id="常见执行linux命令的格式"><a href="#常见执行linux命令的格式" class="headerlink" title="常见执行linux命令的格式"></a>常见执行linux命令的格式</h3><p><code>命令名称 [参数] [对象]</code></p>
-<p><strong>※注意※<br>1.对象一般指要处理的文件、目录、用户等资源<br>2.参数可以用长格式(前缀为--)、或短格式(前缀为-)</strong></p>
-<h3 id="常用系统工作命令"><a href="#常用系统工作命令" class="headerlink" title="常用系统工作命令"></a>常用系统工作命令</h3><h4 id="man"><a href="#man" class="headerlink" title="man"></a><code>man</code></h4><ul>
-<li><code>page down</code>向下翻一页</li>
-<li><code>page up</code>向上翻一页</li>
-<li><code>home</code>直接前往首页</li>
-<li><code>end</code>直接前往尾页</li>
-<li><code>/</code>从上至下搜索某个关键词</li>
-<li><code>?</code>从下至上搜索某个关键词</li>
-<li><code>n</code>定位到下一个搜索到的关键词</li>
-<li><code>N</code>定位到上一个搜索到的关键词</li>
-<li><code>q</code>退出帮助文档</li>
-</ul>
-<h4 id="echo"><a href="#echo" class="headerlink" title="echo"></a><code>echo</code></h4><p><code>echo</code>命令用于在终端输出字符串或变量提取后的值<br>格式为 <code>echo[字符串|$变量]</code></p>
-<p>举例1：把指定字符串输出到终端屏幕</p>
+<h2 id="常用系统工作命令"><a href="#常用系统工作命令" class="headerlink" title="常用系统工作命令"></a>常用系统工作命令</h2><h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><h4 id="top"><a href="#top" class="headerlink" title="top"></a><code>top</code></h4><p><code>top</code>命令就想到与windows的任务管理器</p>
+<h4 id="pidof"><a href="#pidof" class="headerlink" title="pidof"></a><code>pidof</code></h4><p><code>pidof</code>命令用于查询某个指定服务进程的PID值<br>格式为<code>pidof[参数][服务名称]</code><br><strong>每个进程的进程号码值(PID)是唯一的</strong><br>举例1：查询本机上sshd服务的PID</p>
 <blockquote>
-<p>[root@linuxprobe linuxprobe]# echo hello world<br>hello world</p>
+<p>[linuxprobe@linuxprobe ~]$ pidof sshd<br>7598</p>
 </blockquote>
-<p>举例2：使用$变量的方式提取变量SHELL的值</p>
+<p>举例2：用<code>kill</code>命令将用<code>pidof</code>查询到的进程强制终止掉</p>
 <blockquote>
-<p>[root@linuxprobe linuxprobe]# echo $SHELL<br>/bin/bash</p>
+<p>[linuxprobe@linuxprobe ~]$ kill 7598<br>bash: kill: (7598) - Operation not permitted</p>
 </blockquote>
-<h4 id="date"><a href="#date" class="headerlink" title="date"></a><code>date</code></h4><p><code>date</code>命令用于显示及设置系统的事件或日期<br>格式为``date[选项][+指定的格式]<br>参数：</p>
-<ul>
-<li><code>%t</code>跳格[Tab键]</li>
-<li><code>%H</code>小时(00~23)</li>
-<li><code>%I</code>小时(00~12)</li>
-<li><code>%M</code>分钟(00~59)</li>
-<li><code>%S</code>秒(00~59)</li>
-<li><code>%j</code>今年中的第几天</li>
-</ul>
-<p>举例1：按照指定格式查看系统时间</p>
+<h4 id="killall"><a href="#killall" class="headerlink" title="killall"></a><code>killall</code></h4><p><code>killall</code>命令用于终止某个指定名称的服务所对应的全部进程<br>格式为<code>killall[参数][进程名称]</code></p>
+<p><strong>※注意※:<br>1.如果我们在终端执行一个命令后想立即停止它，可以按下<code>Ctrl+C</code>立即终止<br>2.如果命令在执行时不断在屏幕上输出信息，可以在执行命令末尾添加一个<code>&amp;</code>进行后台执行</strong></p>
+<h3 id="系统状态检测命令"><a href="#系统状态检测命令" class="headerlink" title="系统状态检测命令"></a>系统状态检测命令</h3><h4 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a><code>ifconfig</code></h4><p><code>ifconfig</code>命令用于获取网卡配置与网络状态等信息<br>格式为<code>ifconfig[网络设备][参数]</code><br><code>ifconfig</code>常用于查看网卡名称、<code>inet</code>参数后面的IP地址、<code>ether</code>参数后面的网卡物理地址(MAC地址)、<code>RX</code>、<code>TX</code>的接收数据包与发送数据包的个数及流量<br>举例：</p>
 <blockquote>
-<p>[root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”<br>2019-09-06 14:35:03</p>
+<p><code>ens32</code>: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>       <code>inet 192.168.132.129</code>  netmask 255.255.255.0  broadcast 192.168.132.255<br>        inet6 fe80::ad72:36d3:83e1:fa33  prefixlen 64  scopeid 0x20&lt;link&gt;<br>        <code>ether 00:0c:29:7f:ea:db</code>  txqueuelen 1000  (Ethernet)<br>        <code>RX packets 1249  bytes 1296031 (1.2 MiB)</code><br>        RX errors 0  dropped 0  overruns 0  frame 0<br>        <code>TX packets 392  bytes 33576 (32.7 KiB)</code><br>        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</p>
 </blockquote>
-<p>举例2：查看今天是今年的第几天</p>
+<h4 id="uname"><a href="#uname" class="headerlink" title="uname"></a><code>uname</code></h4><p><code>uname</code>命令用于查看系统内核与系统版本等信息<br>格式为<code>uname[-a]</code><br>使用<code>uname</code>命令通常带上参数<code>-a</code>来查询当前系统的内核名称、主机名、内核发行版本、节点名、系统时间、硬件名称、硬件平台、处理器类型以及操作系统等信息<br>举例：</p>
 <blockquote>
-<p>[root@linuxprobe linuxprobe]# date +%j<br>249</p>
+<p>[linuxprobe@linuxprobe ~]$ uname -a<br>Linux linuxprobe.com 3.10.0-957.el7.x86_64 #1 SMP Thu Oct 4 20:48:51 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux</p>
 </blockquote>
-<h4 id="rebot"><a href="#rebot" class="headerlink" title="rebot"></a><code>rebot</code></h4><p>重启系统</p>
-<h4 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a><code>poweroff</code></h4><p>关机</p>
-<h4 id="wget"><a href="#wget" class="headerlink" title="wget"></a><code>wget</code></h4><p><code>wget</code>用于在终端下载网络文件<br>格式为<code>wget[参数]下载地址</code><br>参数：</p>
-<ul>
-<li><code>-b</code>后台下载模式</li>
-<li><code>-P</code>下载到指定目录</li>
-<li><code>-t</code>最大尝试次数</li>
-<li><code>-c</code>断点续传</li>
-<li><code>-p</code>下载页面内所有的资源</li>
-<li><code>-r</code>递归下载</li>
-</ul>
-<h4 id="ps"><a href="#ps" class="headerlink" title="ps"></a><code>ps</code></h4><p><code>ps</code>命令用于查看系统中的进程状态<br>格式为<code>ps[参数]</code><br>参数：</p>
-<ul>
-<li><code>-a</code>显示所有进程(包括其他用户)</li>
-<li><code>-u</code>用户以及其他详细信息</li>
-<li><code>-x</code>显示没有控制终端的进程</li>
-</ul>
-<p><code>ps</code>参数可允许参数不加减号(-) 可直接写为<code>ps aux</code></p>
+<p><strong>如果查看当前系统版本的详细信息，可需要查看redhat-release文件</strong><br>举例：</p>
 <blockquote>
-<p>[root@linuxprobe linuxprobe]# ps -aux<br><code>USER</code>        <code>PID</code> <code>%CPU</code> <code>%MEM</code>    <code>VSZ</code>   <code>RSS</code> <code>TTY</code>      <code>STAT</code> <code>START</code>   <code>TIME</code> <code>COMMAND</code></p>
+<p>[linuxprobe@linuxprobe ~]$ cat /etc/redhat-release<br>Red Hat Enterprise Linux Server release 7.6 (Maipo)</p>
 </blockquote>
-<p>表头解释：</p>
-<ul>
-<li><code>USER</code>进程所有者</li>
-<li><code>PID</code>进程ID号</li>
-<li><code>%CPU</code>进程占用率</li>
-<li><code>%MEM</code>内存占用率</li>
-<li><code>VSZ</code>虚拟内存使用量(KB)</li>
-<li><code>RSS</code>占用的固定内存量(KB)</li>
-<li><code>TTY</code>所在终端</li>
-<li><code>STAT</code>进程状态</li>
-<li><code>START</code> 被启动的时间</li>
-<li><code>TIME</code>实际使用CPU的时间</li>
-<li><code>COMMAND</code>命令名称与参数</li>
-</ul>
-<h5 id="linux中5种常见进程"><a href="#linux中5种常见进程" class="headerlink" title="linux中5种常见进程"></a>linux中5种常见进程</h5><ul>
-<li>R(运行)：进程正在运行或者在运行队列中等待</li>
-<li>S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态</li>
-<li>D(不可中断)：进程不响应系统异步信号，即便用<code>kill</code>命令也不能将其中断</li>
-<li>Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用<code>wait()</code>系统函数后将进程释放</li>
-<li>T(停止)：进程收到停止命令后停止运行</li>
-</ul>
+<h4 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a><code>uptime</code></h4><p><code>uptime</code>命令用于查看系统的负载信息<br>格式为<code>uptime</code><br><code>uptime</code>命令可以显示当前系统时间、系统已运行时间、启用终端数量以及平均负载值等信息<br><strong>平均负载信息指最近1分钟、5分钟、15分钟内的压力情况；负载值越低越好、尽量不要长期超过1，生产环境中不要超过5</strong><br>举例：</p>
+<blockquote>
+<p>[linuxprobe@linuxprobe ~]$ uptime<br> 18:46:57 up 36 min,  2 users,  load average: 0.00, 0.01, 0.05</p>
+</blockquote>
+<h4 id="free"><a href="#free" class="headerlink" title="free"></a><code>free</code></h4><p><code>free</code>命令用于显示当前系统中内存的使用量信息<br>格式为<code>free[-h]</code><br>举例：</p>
+<blockquote>
+<p>[linuxprobe@linuxprobe ~]$ free -h<br>              <code>total</code>        <code>used</code>        <code>free</code>      <code>shared</code>  <code>buff/cache</code>   <code>available</code><br>Mem:           1.8G        751M        315M         13M        752M        828M<br>Swap:          2.0G          0B        2.0G</p>
+</blockquote>
+<p>表头解释：<br><code>total</code>内存总量<br><code>used</code>已用量<br><code>free</code>未使用的内存，包括交换区<br><code>shared</code>进程共享的内存量<br><code>buffers</code>磁盘缓存的内存量<br> <code>buff/cache</code>缓冲区和缓存的总大小<br><code>available</code>还可以被应用程序使用的物理内存大小</p>
+<p><strong>※注意※：<br>free 与 available 的区别<br>free 是真正尚未被使用的物理内存数量。<br>available 是应用程序认为可用内存数量，available = free + buffer + cache (注：只是大概的计算方法)</strong></p>
+<h4 id="who"><a href="#who" class="headerlink" title="who"></a><code>who</code></h4><p><code>who</code>用于查看当前登入主机的用户终端信息<br>格式为<code>who[参数]</code><br>举例：</p>
+<blockquote>
+<p>[linuxprobe@linuxprobe ~]$ who<br>linuxprobe :0           2019-09-07 18:14 (:0)<br>linuxprobe pts/0        2019-09-07 18:15 (:0)</p>
+</blockquote>
+<h4 id="last"><a href="#last" class="headerlink" title="last"></a><code>last</code></h4><p><code>last</code>用于查看所有系统的登录记录<br>格式为<code>last[参数]</code><br><strong>※注意※：<br>这些信息都是以日志文件的形式保存在系统中，因此黑客可以很容易的对内容进行篡改，所以不要以单纯以该命令的输出信息判断系统是否有无被恶意入侵</strong></p>
+<h4 id="history"><a href="#history" class="headerlink" title="history"></a><code>history</code></h4><p><code>history</code>用于显示历史执行过的命令，可查看最近1000条命令，如果1000不够多可以自定义/etc/profile文件中的HISTSIE变量值<br>格式为<code>history</code>，<code>history[-c]</code>则会清空所有的命令历史记录<br>还可以用<code>!编码数字</code>的方式重复执行某一命令，查看用户家目录中的.bash_history文件中</p>
 
     </div>
 	<div>
@@ -481,8 +431,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/daily6/" rel="next" title="练字日常">
-                  <i class="fa fa-chevron-left"></i> 练字日常
+                <a href="/linux1/" rel="next" title="linux日常：linux命令">
+                  <i class="fa fa-chevron-left"></i> linux日常：linux命令
                 </a>
               
             </div>
@@ -490,10 +440,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/linux2/" rel="prev" title="linux日常：linux命令">
-                  linux日常：linux命令 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -545,7 +491,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux命令"><span class="nav-number">1.</span> <span class="nav-text">linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见执行linux命令的格式"><span class="nav-number">1.1.</span> <span class="nav-text">常见执行linux命令的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用系统工作命令"><span class="nav-number">1.2.</span> <span class="nav-text">常用系统工作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#man"><span class="nav-number">1.2.1.</span> <span class="nav-text">man</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#echo"><span class="nav-number">1.2.2.</span> <span class="nav-text">echo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#date"><span class="nav-number">1.2.3.</span> <span class="nav-text">date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rebot"><span class="nav-number">1.2.4.</span> <span class="nav-text">rebot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#poweroff"><span class="nav-number">1.2.5.</span> <span class="nav-text">poweroff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wget"><span class="nav-number">1.2.6.</span> <span class="nav-text">wget</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ps"><span class="nav-number">1.2.7.</span> <span class="nav-text">ps</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#linux中5种常见进程"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">linux中5种常见进程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用系统工作命令"><span class="nav-number">1.</span> <span class="nav-text">常用系统工作命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见命令"><span class="nav-number">1.1.</span> <span class="nav-text">常见命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#top"><span class="nav-number">1.1.1.</span> <span class="nav-text">top</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pidof"><span class="nav-number">1.1.2.</span> <span class="nav-text">pidof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#killall"><span class="nav-number">1.1.3.</span> <span class="nav-text">killall</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统状态检测命令"><span class="nav-number">1.2.</span> <span class="nav-text">系统状态检测命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ifconfig"><span class="nav-number">1.2.1.</span> <span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uname"><span class="nav-number">1.2.2.</span> <span class="nav-text">uname</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uptime"><span class="nav-number">1.2.3.</span> <span class="nav-text">uptime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#free"><span class="nav-number">1.2.4.</span> <span class="nav-text">free</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#who"><span class="nav-number">1.2.5.</span> <span class="nav-text">who</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#last"><span class="nav-number">1.2.6.</span> <span class="nav-text">last</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-number">1.2.7.</span> <span class="nav-text">history</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

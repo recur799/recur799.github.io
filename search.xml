@@ -2,13 +2,35 @@
 <search>
   <entry>
     <title><![CDATA[linux日常：linux命令]]></title>
-    <url>%2F%2Flinux1%2F</url>
-    <content type="text"><![CDATA[引言：今日学习linux命令 linux命令常见执行linux命令的格式命令名称 [参数] [对象] ※注意※1.对象一般指要处理的文件、目录、用户等资源2.参数可以用长格式(前缀为--)、或短格式(前缀为-) 常见命令man page down向下翻一页 page up向上翻一页 home直接前往首页 end直接前往尾页 /从上至下搜索某个关键词 ?从下至上搜索某个关键词 n定位到下一个搜索到的关键词 N定位到上一个搜索到的关键词 q退出帮助文档 echoecho命令用于在终端输出字符串或变量提取后的值格式为 echo[字符串|$变量] 举例1：把指定字符串输出到终端屏幕 [root@linuxprobe linuxprobe]# echo hello worldhello world 举例2：使用$变量的方式提取变量SHELL的值 [root@linuxprobe linuxprobe]# echo $SHELL/bin/bash datedate命令用于显示及设置系统的事件或日期格式为``date[选项][+指定的格式]参数： %t跳格[Tab键] %H小时(00~23) %I小时(00~12) %M分钟(00~59) %S秒(00~59) %j今年中的第几天 举例1：按照指定格式查看系统时间 [root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”2019-09-06 14:35:03 举例2：查看今天是今年的第几天 [root@linuxprobe linuxprobe]# date +%j249 rebot重启系统 poweroff关机 wgetwget用于在终端下载网络文件格式为wget[参数]下载地址参数： -b后台下载模式 -P下载到指定目录 -t最大尝试次数 -c断点续传 -p下载页面内所有的资源 -r递归下载 psps命令用于查看系统中的进程状态格式为ps[参数]参数： -a显示所有进程(包括其他用户) -u用户以及其他详细信息 -x显示没有控制终端的进程 ps参数可允许参数不加减号(-) 可直接写为ps aux [root@linuxprobe linuxprobe]# ps -auxUSER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND 表头解释： USER进程所有者 PID进程ID号 %CPU进程占用率 %MEM内存占用率 VSZ虚拟内存使用量(KB) RSS占用的固定内存量(KB) TTY所在终端 STAT进程状态 START 被启动的时间 TIME实际使用CPU的时间 COMMAND命令名称与参数 linux中5种常见进程 R(运行)：进程正在运行或者在运行队列中等待 S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态 D(不可中断)：进程不响应系统异步信号，即便用kill命令也不能将其中断 Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用wait()系统函数后将进程释放 T(停止)：进程收到停止命令后停止运行]]></content>
+    <url>%2F%2Flinux2%2F</url>
+    <content type="text"><![CDATA[引言：今日学习linux命令 常用系统工作命令常见命令toptop命令就想到与windows的任务管理器 pidofpidof命令用于查询某个指定服务进程的PID值格式为pidof[参数][服务名称]每个进程的进程号码值(PID)是唯一的举例1：查询本机上sshd服务的PID [linuxprobe@linuxprobe ~]$ pidof sshd7598 举例2：用kill命令将用pidof查询到的进程强制终止掉 [linuxprobe@linuxprobe ~]$ kill 7598bash: kill: (7598) - Operation not permitted killallkillall命令用于终止某个指定名称的服务所对应的全部进程格式为killall[参数][进程名称] ※注意※:1.如果我们在终端执行一个命令后想立即停止它，可以按下Ctrl+C立即终止2.如果命令在执行时不断在屏幕上输出信息，可以在执行命令末尾添加一个&amp;进行后台执行 系统状态检测命令ifconfigifconfig命令用于获取网卡配置与网络状态等信息格式为ifconfig[网络设备][参数]ifconfig常用于查看网卡名称、inet参数后面的IP地址、ether参数后面的网卡物理地址(MAC地址)、RX、TX的接收数据包与发送数据包的个数及流量举例： ens32: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500 inet 192.168.132.129 netmask 255.255.255.0 broadcast 192.168.132.255 inet6 fe80::ad72:36d3:83e1:fa33 prefixlen 64 scopeid 0x20&lt;link&gt; ether 00:0c:29:7f:ea:db txqueuelen 1000 (Ethernet) RX packets 1249 bytes 1296031 (1.2 MiB) RX errors 0 dropped 0 overruns 0 frame 0 TX packets 392 bytes 33576 (32.7 KiB) TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0 unameuname命令用于查看系统内核与系统版本等信息格式为uname[-a]使用uname命令通常带上参数-a来查询当前系统的内核名称、主机名、内核发行版本、节点名、系统时间、硬件名称、硬件平台、处理器类型以及操作系统等信息举例： [linuxprobe@linuxprobe ~]$ uname -aLinux linuxprobe.com 3.10.0-957.el7.x86_64 #1 SMP Thu Oct 4 20:48:51 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux 如果查看当前系统版本的详细信息，可需要查看redhat-release文件举例： [linuxprobe@linuxprobe ~]$ cat /etc/redhat-releaseRed Hat Enterprise Linux Server release 7.6 (Maipo) uptimeuptime命令用于查看系统的负载信息格式为uptimeuptime命令可以显示当前系统时间、系统已运行时间、启用终端数量以及平均负载值等信息平均负载信息指最近1分钟、5分钟、15分钟内的压力情况；负载值越低越好、尽量不要长期超过1，生产环境中不要超过5举例： [linuxprobe@linuxprobe ~]$ uptime 18:46:57 up 36 min, 2 users, load average: 0.00, 0.01, 0.05 freefree命令用于显示当前系统中内存的使用量信息格式为free[-h]举例： [linuxprobe@linuxprobe ~]$ free -h total used free shared buff/cache availableMem: 1.8G 751M 315M 13M 752M 828MSwap: 2.0G 0B 2.0G 表头解释：total内存总量used已用量free未使用的内存，包括交换区shared进程共享的内存量buffers磁盘缓存的内存量 buff/cache缓冲区和缓存的总大小available还可以被应用程序使用的物理内存大小 ※注意※：free 与 available 的区别free 是真正尚未被使用的物理内存数量。available 是应用程序认为可用内存数量，available = free + buffer + cache (注：只是大概的计算方法) whowho用于查看当前登入主机的用户终端信息格式为who[参数]举例： [linuxprobe@linuxprobe ~]$ wholinuxprobe :0 2019-09-07 18:14 (:0)linuxprobe pts/0 2019-09-07 18:15 (:0) lastlast用于查看所有系统的登录记录格式为last[参数]※注意※：这些信息都是以日志文件的形式保存在系统中，因此黑客可以很容易的对内容进行篡改，所以不要以单纯以该命令的输出信息判断系统是否有无被恶意入侵 historyhistory用于显示历史执行过的命令，可查看最近1000条命令，如果1000不够多可以自定义/etc/profile文件中的HISTSIE变量值格式为history，history[-c]则会清空所有的命令历史记录还可以用!编码数字的方式重复执行某一命令，查看用户家目录中的.bash_history文件中]]></content>
       <categories>
         <category>linux</category>
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux日常：linux命令]]></title>
+    <url>%2F%2Flinux1%2F</url>
+    <content type="text"><![CDATA[引言：今日学习linux命令 linux命令常见执行linux命令的格式命令名称 [参数] [对象] ※注意※1.对象一般指要处理的文件、目录、用户等资源2.参数可以用长格式(前缀为--)、或短格式(前缀为-) 常用系统工作命令man page down向下翻一页 page up向上翻一页 home直接前往首页 end直接前往尾页 /从上至下搜索某个关键词 ?从下至上搜索某个关键词 n定位到下一个搜索到的关键词 N定位到上一个搜索到的关键词 q退出帮助文档 echoecho命令用于在终端输出字符串或变量提取后的值格式为 echo[字符串|$变量] 举例1：把指定字符串输出到终端屏幕 [root@linuxprobe linuxprobe]# echo hello worldhello world 举例2：使用$变量的方式提取变量SHELL的值 [root@linuxprobe linuxprobe]# echo $SHELL/bin/bash datedate命令用于显示及设置系统的事件或日期格式为``date[选项][+指定的格式]参数： %t跳格[Tab键] %H小时(00~23) %I小时(00~12) %M分钟(00~59) %S秒(00~59) %j今年中的第几天 举例1：按照指定格式查看系统时间 [root@linuxprobe linuxprobe]# date “+%Y-%m-%d %H:%M:%S”2019-09-06 14:35:03 举例2：查看今天是今年的第几天 [root@linuxprobe linuxprobe]# date +%j249 rebot重启系统 poweroff关机 wgetwget用于在终端下载网络文件格式为wget[参数]下载地址参数： -b后台下载模式 -P下载到指定目录 -t最大尝试次数 -c断点续传 -p下载页面内所有的资源 -r递归下载 psps命令用于查看系统中的进程状态格式为ps[参数]参数： -a显示所有进程(包括其他用户) -u用户以及其他详细信息 -x显示没有控制终端的进程 ps参数可允许参数不加减号(-) 可直接写为ps aux [root@linuxprobe linuxprobe]# ps -auxUSER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND 表头解释： USER进程所有者 PID进程ID号 %CPU进程占用率 %MEM内存占用率 VSZ虚拟内存使用量(KB) RSS占用的固定内存量(KB) TTY所在终端 STAT进程状态 START 被启动的时间 TIME实际使用CPU的时间 COMMAND命令名称与参数 linux中5种常见进程 R(运行)：进程正在运行或者在运行队列中等待 S(中断)：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该状态 D(不可中断)：进程不响应系统异步信号，即便用kill命令也不能将其中断 Z(僵死)：进程已经终止，但进程描述符依然存在，直到父进程调用wait()系统函数后将进程释放 T(停止)：进程收到停止命令后停止运行]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily6%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -25,17 +47,6 @@
         <tag>方法</tag>
         <tag>封装</tag>
         <tag>继承</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily6%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -112,19 +123,19 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>for</tag>
+        <tag>def</tag>
         <tag>疑问</tag>
+        <tag>factorial</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
-        <tag>素数</tag>
-        <tag>def</tag>
-        <tag>factorial</tag>
         <tag>回文数</tag>
+        <tag>素数</tag>
         <tag>变量作用域</tag>
         <tag>局部作用域</tag>
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
+        <tag>for</tag>
       </tags>
   </entry>
   <entry>
@@ -147,30 +158,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>for</tag>
         <tag>疑问</tag>
+        <tag>for</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[python日常：循环结构]]></title>
-    <url>%2F%2Fpython3%2F</url>
-    <content type="text"><![CDATA[引言：今日学习循环结构 for-in循环用for-in计算1~100求和结果1234sum = 0for x in range(0,101): sum += xprint(sum) 5050 ※注意※：1.”+=”的意思是两边相加，值赋予左边2.用到了range 类型 ，range(101)可以产生一个0到100的整数序列、range(1,100,2)可以产生一个1到99的奇数序列，其中的2是步长，即数值序列的增量 以此类推可以计算1~100的偶数求和1234sum = 0for x in range(2,101,2): sum += xprint(sum) 2550 也可根据昨天学的if语句分支结构计算0~100的偶数求和12345sum = 0for x in range(0,101,2): if x % 2 == 0 : sum += xprint(sum) 2550 ※注意※：if-in循环用于计算知道循环执行次数或者要对一个容器进行迭代，如果不知道循环多少次，就要用到while循环。 while循环while循环可以通过一个能够产生或转换出bool值的表达式来控制循环，True循环继续，False循环结束 猜数字游戏12345678910111213141516import randomanser = random.randint(1,99)counter = 0while True : counter += 1 number = int(input(&apos;请输入你猜的数字：&apos;)) if anser &gt; number : print(&apos;大一点&apos;) elif anser &lt; number : print(&apos;小一点&apos;) else: print(&apos;恭喜你猜对了&apos;) breakprint(&apos;你一共猜了%d次&apos; % counter)if counter &gt; 7 : print(&apos;你咋猜的啊？？？？？？&apos;) 请输入你猜的数字：50大一点请输入你猜的数字：60大一点请输入你猜的数字：80小一点请输入你猜的数字：76小一点请输入你猜的数字：72小一点请输入你猜的数字：65大一点请输入你猜的数字：69小一点请输入你猜的数字：67大一点请输入你猜的数字：68恭喜你猜对了你一共猜了9次你咋猜的啊？？？？？？ ※注意※：1.注意python语法使用缩进来结束if或者while，while循环结束要用break来结束循环（要在嵌套结构里结束）2.第二个if结构不要再第一个if结构里 循环结构嵌套输出九九乘法表1234for i in range(1, 10): for j in range(1, i + 1): print(&apos;%d*%d=%d&apos; % (i, j, i * j), end=&apos;\t&apos;) print() 1*1=12*1=2 2*2=43*1=3 3*2=6 3*3=94*1=4 4*2=8 4*3=12 4*4=165*1=5 5*2=10 5*3=15 5*4=20 5*5=256*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=367*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=498*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=649*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81(markdown语法真是够了，要加那么多转义反斜杠…) **※注意※：1.end=’’用法：例如print（“#”，end=” \n”)，默认换行，print（“#”，end=” “)则在循环中不换行2.python的转移符号： \(在行尾时) &emsp;&emsp;&emsp; 续行符\\ &emsp;&emsp;&emsp;反斜杠符号\‘ &emsp;&emsp;&emsp;单引号\“ &emsp;&emsp;&emsp;双引号\a &emsp;&emsp;&emsp;响铃\b &emsp;&emsp;&emsp;退格(Backspace)\e &emsp;&emsp;&emsp;转义\000 &emsp;&emsp;&emsp;空\n &emsp;&emsp;&emsp;换行\v &emsp;&emsp;&emsp;纵向制表符\t &emsp;&emsp;&emsp;横向制表符\r &emsp;&emsp;&emsp;回车\f &emsp;&emsp;&emsp;换页\oyy &emsp;&emsp;八进制数，yy代表的字符，例如：\o12代表换行\xyy &emsp;&emsp;十六进制数，yy代表的字符，例如：\x0a代表换行\other &emsp;&emsp;其它的字符以普通格式输出** 练习输入一个正整数判断是不是素数12345678910111213from math import sqrtnum = int(input(&apos;请输入一个正整数: &apos;))end = int(sqrt(num))is_prime = Truefor x in range(2, end + 1): if num % x == 0: is_prime = False breakif is_prime and num != 1: print(&apos;%d是素数&apos; % num)else: print(&apos;%d不是素数&apos; % num) 请输入一个正整数: 33是素数 **※注意※：1.判断是否为素数：在一般领域，对正整数n，如果用2到sqrt(n)之间的所有整数去除，均无法整除，则n为质数质数大于等于2 不能被它本身和1以外的数整除 疑问：for-in前用 is_prime = True，for-in里用is_prime = False 结束，最后判断的时候为什么用is_prime和num不等于1做条件？猜想：for-in里如果可以整除，is_prime为False，就是为0.然后在下面判断is_prime和num是否为1，来判断是否为素数** 输入两个正整数，计算最大公约数和最小公倍数123456789x = int(input(&apos;x = &apos;))y = int(input(&apos;y = &apos;))if x &gt; y: x, y = y, xfor factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: print(&apos;%d和%d的最大公约数是%d&apos; % (x, y, factor)) print(&apos;%d和%d的最小公倍数是%d&apos; % (x, y, x * y // factor)) break x = 28y = 4228和42的最大公约数是1428和42的最小公倍数是84 **※注意※：1.最大公约数计算：一个数可以整除另外两个数，那么这个数是另外两个数的最大公约数2.(a,b)[a,b]=ab(a,b均为整数)，(a,b)为最大公约数，[a,b]为最小公倍数 疑问：range(x, 0, -1)x到0之间取值，步数为-1是怎么取值的解答：表示从x开始，到0为止（不包括0），取其中所有的整数 (为什么不用range（0，x，1）？** 打印三角形123456789101112131415161718192021row = int(input(&apos;请输入行数: &apos;))for i in range(row): for _ in range(i + 1): print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for j in range(row): if j &lt; row - i - 1: print(&apos; &apos;, end=&apos;&apos;) else: print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for _ in range(row - i - 1): print(&apos; &apos;, end=&apos;&apos;) for _ in range(2 * i + 1): print(&apos;*&apos;, end=&apos;&apos;) print() 请输入行数: 3xxxxxx&emsp;x&ensp;xxxxx&emsp;x&ensp;xxxxxxxx ※注意※：1.for _ in range（）的 _ 的意思是只要这次for循环结束之后，就不管了。咱要的只是循环这个过程2.还需要多练，一开始看不懂，看了10分钟才明白]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>range</tag>
-        <tag>while</tag>
-        <tag>for</tag>
-        <tag>end&#39; &#39;</tag>
-        <tag>转移符号</tag>
-        <tag>疑问</tag>
-        <tag>最大公约数</tag>
-        <tag>最小公倍数</tag>
-        <tag>素数</tag>
       </tags>
   </entry>
   <entry>
@@ -185,14 +176,23 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
+    <title><![CDATA[python日常：循环结构]]></title>
+    <url>%2F%2Fpython3%2F</url>
+    <content type="text"><![CDATA[引言：今日学习循环结构 for-in循环用for-in计算1~100求和结果1234sum = 0for x in range(0,101): sum += xprint(sum) 5050 ※注意※：1.”+=”的意思是两边相加，值赋予左边2.用到了range 类型 ，range(101)可以产生一个0到100的整数序列、range(1,100,2)可以产生一个1到99的奇数序列，其中的2是步长，即数值序列的增量 以此类推可以计算1~100的偶数求和1234sum = 0for x in range(2,101,2): sum += xprint(sum) 2550 也可根据昨天学的if语句分支结构计算0~100的偶数求和12345sum = 0for x in range(0,101,2): if x % 2 == 0 : sum += xprint(sum) 2550 ※注意※：if-in循环用于计算知道循环执行次数或者要对一个容器进行迭代，如果不知道循环多少次，就要用到while循环。 while循环while循环可以通过一个能够产生或转换出bool值的表达式来控制循环，True循环继续，False循环结束 猜数字游戏12345678910111213141516import randomanser = random.randint(1,99)counter = 0while True : counter += 1 number = int(input(&apos;请输入你猜的数字：&apos;)) if anser &gt; number : print(&apos;大一点&apos;) elif anser &lt; number : print(&apos;小一点&apos;) else: print(&apos;恭喜你猜对了&apos;) breakprint(&apos;你一共猜了%d次&apos; % counter)if counter &gt; 7 : print(&apos;你咋猜的啊？？？？？？&apos;) 请输入你猜的数字：50大一点请输入你猜的数字：60大一点请输入你猜的数字：80小一点请输入你猜的数字：76小一点请输入你猜的数字：72小一点请输入你猜的数字：65大一点请输入你猜的数字：69小一点请输入你猜的数字：67大一点请输入你猜的数字：68恭喜你猜对了你一共猜了9次你咋猜的啊？？？？？？ ※注意※：1.注意python语法使用缩进来结束if或者while，while循环结束要用break来结束循环（要在嵌套结构里结束）2.第二个if结构不要再第一个if结构里 循环结构嵌套输出九九乘法表1234for i in range(1, 10): for j in range(1, i + 1): print(&apos;%d*%d=%d&apos; % (i, j, i * j), end=&apos;\t&apos;) print() 1*1=12*1=2 2*2=43*1=3 3*2=6 3*3=94*1=4 4*2=8 4*3=12 4*4=165*1=5 5*2=10 5*3=15 5*4=20 5*5=256*1=6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=367*1=7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=498*1=8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=649*1=9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81(markdown语法真是够了，要加那么多转义反斜杠…) **※注意※：1.end=’’用法：例如print（“#”，end=” \n”)，默认换行，print（“#”，end=” “)则在循环中不换行2.python的转移符号： \(在行尾时) &emsp;&emsp;&emsp; 续行符\\ &emsp;&emsp;&emsp;反斜杠符号\‘ &emsp;&emsp;&emsp;单引号\“ &emsp;&emsp;&emsp;双引号\a &emsp;&emsp;&emsp;响铃\b &emsp;&emsp;&emsp;退格(Backspace)\e &emsp;&emsp;&emsp;转义\000 &emsp;&emsp;&emsp;空\n &emsp;&emsp;&emsp;换行\v &emsp;&emsp;&emsp;纵向制表符\t &emsp;&emsp;&emsp;横向制表符\r &emsp;&emsp;&emsp;回车\f &emsp;&emsp;&emsp;换页\oyy &emsp;&emsp;八进制数，yy代表的字符，例如：\o12代表换行\xyy &emsp;&emsp;十六进制数，yy代表的字符，例如：\x0a代表换行\other &emsp;&emsp;其它的字符以普通格式输出** 练习输入一个正整数判断是不是素数12345678910111213from math import sqrtnum = int(input(&apos;请输入一个正整数: &apos;))end = int(sqrt(num))is_prime = Truefor x in range(2, end + 1): if num % x == 0: is_prime = False breakif is_prime and num != 1: print(&apos;%d是素数&apos; % num)else: print(&apos;%d不是素数&apos; % num) 请输入一个正整数: 33是素数 **※注意※：1.判断是否为素数：在一般领域，对正整数n，如果用2到sqrt(n)之间的所有整数去除，均无法整除，则n为质数质数大于等于2 不能被它本身和1以外的数整除 疑问：for-in前用 is_prime = True，for-in里用is_prime = False 结束，最后判断的时候为什么用is_prime和num不等于1做条件？猜想：for-in里如果可以整除，is_prime为False，就是为0.然后在下面判断is_prime和num是否为1，来判断是否为素数** 输入两个正整数，计算最大公约数和最小公倍数123456789x = int(input(&apos;x = &apos;))y = int(input(&apos;y = &apos;))if x &gt; y: x, y = y, xfor factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: print(&apos;%d和%d的最大公约数是%d&apos; % (x, y, factor)) print(&apos;%d和%d的最小公倍数是%d&apos; % (x, y, x * y // factor)) break x = 28y = 4228和42的最大公约数是1428和42的最小公倍数是84 **※注意※：1.最大公约数计算：一个数可以整除另外两个数，那么这个数是另外两个数的最大公约数2.(a,b)[a,b]=ab(a,b均为整数)，(a,b)为最大公约数，[a,b]为最小公倍数 疑问：range(x, 0, -1)x到0之间取值，步数为-1是怎么取值的解答：表示从x开始，到0为止（不包括0），取其中所有的整数 (为什么不用range（0，x，1）？** 打印三角形123456789101112131415161718192021row = int(input(&apos;请输入行数: &apos;))for i in range(row): for _ in range(i + 1): print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for j in range(row): if j &lt; row - i - 1: print(&apos; &apos;, end=&apos;&apos;) else: print(&apos;*&apos;, end=&apos;&apos;) print()for i in range(row): for _ in range(row - i - 1): print(&apos; &apos;, end=&apos;&apos;) for _ in range(2 * i + 1): print(&apos;*&apos;, end=&apos;&apos;) print() 请输入行数: 3xxxxxx&emsp;x&ensp;xxxxx&emsp;x&ensp;xxxxxxxx ※注意※：1.for _ in range（）的 _ 的意思是只要这次for循环结束之后，就不管了。咱要的只是循环这个过程2.还需要多练，一开始看不懂，看了10分钟才明白]]></content>
       <categories>
-        <category>日常</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>练字</tag>
+        <tag>python</tag>
+        <tag>疑问</tag>
+        <tag>最大公约数</tag>
+        <tag>最小公倍数</tag>
+        <tag>素数</tag>
+        <tag>for</tag>
+        <tag>range</tag>
+        <tag>while</tag>
+        <tag>end&#39; &#39;</tag>
+        <tag>转移符号</tag>
       </tags>
   </entry>
   <entry>
@@ -212,6 +212,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：语言元素]]></title>
     <url>%2F%2Fputhon1%2F</url>
     <content type="text"><![CDATA[引言：今日学习语言元素 变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
@@ -224,22 +235,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>

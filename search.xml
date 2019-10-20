@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hcia-sec:day1]]></title>
+    <url>%2F%2Fsec-1%2F</url>
+    <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络 所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1 -a是用源地址ping]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>sec</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux日常：linux命令]]></title>
     <url>%2F%2Flinux2%2F</url>
     <content type="text"><![CDATA[引言：今日学习linux命令 常用系统工作命令常见命令toptop命令就想到与windows的任务管理器 pidofpidof命令用于查询某个指定服务进程的PID值格式为pidof[参数][服务名称]每个进程的进程号码值(PID)是唯一的举例1：查询本机上sshd服务的PID [linuxprobe@linuxprobe ~]$ pidof sshd7598 举例2：用kill命令将用pidof查询到的进程强制终止掉 [linuxprobe@linuxprobe ~]$ kill 7598bash: kill: (7598) - Operation not permitted killallkillall命令用于终止某个指定名称的服务所对应的全部进程格式为killall[参数][进程名称] ※注意※:1.如果我们在终端执行一个命令后想立即停止它，可以按下Ctrl+C立即终止2.如果命令在执行时不断在屏幕上输出信息，可以在执行命令末尾添加一个&amp;进行后台执行 系统状态检测命令ifconfigifconfig命令用于获取网卡配置与网络状态等信息格式为ifconfig[网络设备][参数]ifconfig常用于查看网卡名称、inet参数后面的IP地址、ether参数后面的网卡物理地址(MAC地址)、RX、TX的接收数据包与发送数据包的个数及流量举例： ens32: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt; mtu 1500 inet 192.168.132.129 netmask 255.255.255.0 broadcast 192.168.132.255 inet6 fe80::ad72:36d3:83e1:fa33 prefixlen 64 scopeid 0x20&lt;link&gt; ether 00:0c:29:7f:ea:db txqueuelen 1000 (Ethernet) RX packets 1249 bytes 1296031 (1.2 MiB) RX errors 0 dropped 0 overruns 0 frame 0 TX packets 392 bytes 33576 (32.7 KiB) TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0 unameuname命令用于查看系统内核与系统版本等信息格式为uname[-a]使用uname命令通常带上参数-a来查询当前系统的内核名称、主机名、内核发行版本、节点名、系统时间、硬件名称、硬件平台、处理器类型以及操作系统等信息举例： [linuxprobe@linuxprobe ~]$ uname -aLinux linuxprobe.com 3.10.0-957.el7.x86_64 #1 SMP Thu Oct 4 20:48:51 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux 如果查看当前系统版本的详细信息，可需要查看redhat-release文件举例： [linuxprobe@linuxprobe ~]$ cat /etc/redhat-releaseRed Hat Enterprise Linux Server release 7.6 (Maipo) uptimeuptime命令用于查看系统的负载信息格式为uptimeuptime命令可以显示当前系统时间、系统已运行时间、启用终端数量以及平均负载值等信息平均负载信息指最近1分钟、5分钟、15分钟内的压力情况；负载值越低越好、尽量不要长期超过1，生产环境中不要超过5举例： [linuxprobe@linuxprobe ~]$ uptime 18:46:57 up 36 min, 2 users, load average: 0.00, 0.01, 0.05 freefree命令用于显示当前系统中内存的使用量信息格式为free[-h]举例： [linuxprobe@linuxprobe ~]$ free -h total used free shared buff/cache availableMem: 1.8G 751M 315M 13M 752M 828MSwap: 2.0G 0B 2.0G 表头解释：total内存总量used已用量free未使用的内存，包括交换区shared进程共享的内存量buffers磁盘缓存的内存量 buff/cache缓冲区和缓存的总大小available还可以被应用程序使用的物理内存大小 ※注意※：free 与 available 的区别free 是真正尚未被使用的物理内存数量。available 是应用程序认为可用内存数量，available = free + buffer + cache (注：只是大概的计算方法) whowho用于查看当前登入主机的用户终端信息格式为who[参数]举例： [linuxprobe@linuxprobe ~]$ wholinuxprobe :0 2019-09-07 18:14 (:0)linuxprobe pts/0 2019-09-07 18:15 (:0) lastlast用于查看所有系统的登录记录格式为last[参数]※注意※：这些信息都是以日志文件的形式保存在系统中，因此黑客可以很容易的对内容进行篡改，所以不要以单纯以该命令的输出信息判断系统是否有无被恶意入侵 historyhistory用于显示历史执行过的命令，可查看最近1000条命令，如果1000不够多可以自定义/etc/profile文件中的HISTSIE变量值格式为history，history[-c]则会清空所有的命令历史记录还可以用!编码数字的方式重复执行某一命令，查看用户家目录中的.bash_history文件中]]></content>
@@ -123,30 +134,19 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>def</tag>
+        <tag>for</tag>
         <tag>疑问</tag>
-        <tag>factorial</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
-        <tag>回文数</tag>
         <tag>素数</tag>
+        <tag>def</tag>
+        <tag>factorial</tag>
+        <tag>回文数</tag>
         <tag>变量作用域</tag>
         <tag>局部作用域</tag>
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
-        <tag>for</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily3%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -158,16 +158,16 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>疑问</tag>
         <tag>for</tag>
+        <tag>疑问</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily2%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+    <url>%2F%2Fdaily3%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -184,15 +184,26 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>range</tag>
+        <tag>while</tag>
+        <tag>for</tag>
+        <tag>end&#39; &#39;</tag>
+        <tag>转移符号</tag>
         <tag>疑问</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
         <tag>素数</tag>
-        <tag>for</tag>
-        <tag>range</tag>
-        <tag>while</tag>
-        <tag>end&#39; &#39;</tag>
-        <tag>转移符号</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>

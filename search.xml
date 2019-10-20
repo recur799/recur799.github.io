@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hcia-sec:day1]]></title>
     <url>%2F%2Fsec-1%2F</url>
-    <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置,R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息,Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络,所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1,-a是用源地址ping 学会空敲 学会写总结报告]]></content>
+    <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置,R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息,Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络,所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1,-a是用源地址ping no summary 在rip中关闭汇总 学会空敲 学会写总结报告]]></content>
       <categories>
         <category>sec</category>
       </categories>
@@ -34,17 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily6%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：面对对象编程基础]]></title>
     <url>%2F%2Fpython7%2F</url>
     <content type="text"><![CDATA[引言：今日学习面对对象编程基础 **一切实例都可以算为对象（object），比如小狗—&gt;金毛（实例）；类（class）用来创建对象dog1 = Dog()，或描述对象 面对对象： 练习123456789101112131415161718192021222324252627282930from time import sleepclass Clock(object): def __init__(self,hour=0,minute=0,second=0): self.hour = hour self.minute = minute self.second = second def run(self): self.second += 1 if self.second == 60: self.second = 0 self.minute += 1 if self.minute == 60: self.minute = 0 self.hour += 1 if self.hour == 24: self.hour = 0 def show(self): return &apos;%02d:%02d:%02d&apos; % \ (self.hour, self.minute, self.second)def main(): clock = Clock(23,59,59) while True: print(clock.show()) sleep(1) clock.run()if __name__==&apos;__main__&apos;: main() 23:59:5900:00:0000:00:0100:00:0200:00:0300:00:0400:00:0500:00:0600:00:0700:00:08 疑问对象、方法、类的概念还是有点不清晰]]></content>
@@ -62,7 +51,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily5%2F</url>
+    <url>%2F%2Fdaily6%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -116,7 +105,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
+    <url>%2F%2Fdaily5%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -150,6 +139,28 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily4%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily3%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：构造程序逻辑练习]]></title>
     <url>%2F%2Fpython4%2F</url>
     <content type="text"><![CDATA[引言：今日练习构造程序逻辑 练习寻找“水仙花数”123456for num in range(100,1000): low = num % 10 mid = num // 10 % 10 high = num // 100 if num == low ** 3 + mid ** 3 + high ** 3 : print(num) 水仙花数为：153水仙花数为：370水仙花数为：371水仙花数为：407 **※注意※：1.python运算符的运用，“//”的意义为取整除，及返回商的整数部分（向下取整）；“%”的意义为返回除法的余数2.水仙花数是各位立方和等于这个数本身的数，如: 153 = 1^3 + 5^3 + 3^3 寻找“完美数”1234567891011import mathfor num in range(1, 10000): result = 0 for factor in range(1, int(math.sqrt(num)) + 1): if num % factor == 0: result += factor if factor &gt; 1 and num // factor != factor: result += num // factor if result == num: print(num) **※注意※：疑问:为什么factor取值要在``range(1,int(math.sqrt(num))+1)里面取1.完美数是除自身外其他所有因子的和正好等于这个数本身的数，例如: 6 = 1 + 2 + 3, 28 = 1 + 2 + 4 + 7 + 14]]></content>
@@ -162,17 +173,6 @@
         <tag>疑问</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily3%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>

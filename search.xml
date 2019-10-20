@@ -5,7 +5,7 @@
     <url>%2F%2Fsec-1%2F</url>
     <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络 所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1 -a是用源地址ping]]></content>
       <categories>
-        <category>linux</category>
+        <category>sec</category>
       </categories>
       <tags>
         <tag>sec</tag>

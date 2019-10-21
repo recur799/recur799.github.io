@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[php&sql_1]]></title>
-    <url>%2F%2Fphp_sql1%2F</url>
-    <content type="text"><![CDATA[引言：php&sql php连接数据库 连接服务器：$link = mysqli_connect(&#39;host&#39;,&#39;user&#39;,&#39;password&#39;)或c:&gt;mysql -h host -u user -p password 打开数据库：mysqli_query($link,&#39;use 数据库名&#39;);或mysqli_select_db($link,&#39;数据库名&#39;),或mysqli_connect(‘host’,’user’,’password’,’数据库名’)`` 执行sql语句：定义一条sql语句：$sql=&#39;select * from abc(数据库名)&#39; $RES = mysqli_query($link,$sql) 处理结果集：一条一条读记录while($row = mysqli_fetch_assoc/row/array($RES)) {} 释放 关闭连接 字符集补充 mysql_query($link&#39;set names utf8&#39;)]]></content>
+    <title><![CDATA[hcip-rs:day1]]></title>
+    <url>%2F%2Fhcip-rs-day1%2F</url>
+    <content type="text"><![CDATA[引言：今日复习hcip-rs 配置设备作为DHCP Server，为用户分配IP地址的示例预计时间:30min实际时间:50min(还未解决)主要负责人:宋昭威指导老师:杨老师组网图形和需求: 总结: 现在R1路由器中开启dhcp服务 dhcp enble 因为组网需求，所以需要创建两个地址池 ip pool 1/2 根据组网需求配置租期:lease day x hour x域名:domain-name huawei.comdns:dns-list x.x.x.xnetbios:netbios-list x.x.x.x网关:gateway-list x.x.x.x网段:network x.x.x.x mash x.x.x.x以及保留某些ip地址:exclued-ip-address x.x.x.x 忘记空敲 忘记配置dhcp命令]]></content>
       <categories>
-        <category>php&amp;sql</category>
+        <category>rs</category>
       </categories>
       <tags>
-        <tag>php</tag>
-        <tag>sql</tag>
+        <tag>rs</tag>
       </tags>
   </entry>
   <entry>
@@ -21,6 +20,18 @@
       </categories>
       <tags>
         <tag>sec</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php&sql_1]]></title>
+    <url>%2F%2Fphp_sql1%2F</url>
+    <content type="text"><![CDATA[引言：php&sql php连接数据库 连接服务器：$link = mysqli_connect(&#39;host&#39;,&#39;user&#39;,&#39;password&#39;)或c:&gt;mysql -h host -u user -p password 打开数据库：mysqli_query($link,use 数据库名)mysqli_select_db($link,数据库名)mysqli_connect(host,user,password,数据库名) 执行sql语句：定义一条sql语句：$sql=&#39;select * from abc(数据库名)&#39; $RES = mysqli_query($link,$sql) 处理结果集：一条一条读记录while($row = mysqli_fetch_assoc/row/array($RES)) {} 释放 关闭连接 字符集补充mysql_query($link&#39;set names utf8&#39;)]]></content>
+      <categories>
+        <category>php&amp;sql</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -46,17 +57,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily6%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：面对对象编程基础]]></title>
     <url>%2F%2Fpython7%2F</url>
     <content type="text"><![CDATA[引言：今日学习面对对象编程基础 **一切实例都可以算为对象（object），比如小狗—&gt;金毛（实例）；类（class）用来创建对象dog1 = Dog()，或描述对象 面对对象： 练习123456789101112131415161718192021222324252627282930from time import sleepclass Clock(object): def __init__(self,hour=0,minute=0,second=0): self.hour = hour self.minute = minute self.second = second def run(self): self.second += 1 if self.second == 60: self.second = 0 self.minute += 1 if self.minute == 60: self.minute = 0 self.hour += 1 if self.hour == 24: self.hour = 0 def show(self): return &apos;%02d:%02d:%02d&apos; % \ (self.hour, self.minute, self.second)def main(): clock = Clock(23,59,59) while True: print(clock.show()) sleep(1) clock.run()if __name__==&apos;__main__&apos;: main() 23:59:5900:00:0000:00:0100:00:0200:00:0300:00:0400:00:0500:00:0600:00:0700:00:08 疑问对象、方法、类的概念还是有点不清晰]]></content>
@@ -74,7 +74,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily5%2F</url>
+    <url>%2F%2Fdaily6%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -128,7 +128,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
+    <url>%2F%2Fdaily5%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -146,19 +146,30 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>for</tag>
         <tag>疑问</tag>
-        <tag>最大公约数</tag>
-        <tag>最小公倍数</tag>
-        <tag>素数</tag>
+        <tag>for</tag>
         <tag>def</tag>
         <tag>factorial</tag>
+        <tag>最大公约数</tag>
+        <tag>最小公倍数</tag>
         <tag>回文数</tag>
+        <tag>素数</tag>
         <tag>变量作用域</tag>
         <tag>局部作用域</tag>
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily4%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -181,10 +192,21 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>for</tag>
-        <tag>疑问</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
+        <tag>疑问</tag>
+        <tag>for</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -196,21 +218,21 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>range</tag>
-        <tag>while</tag>
-        <tag>for</tag>
-        <tag>end&#39; &#39;</tag>
-        <tag>转移符号</tag>
         <tag>疑问</tag>
+        <tag>for</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
         <tag>素数</tag>
+        <tag>range</tag>
+        <tag>while</tag>
+        <tag>end&#39; &#39;</tag>
+        <tag>转移符号</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily2%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -232,17 +254,6 @@
         <tag>random</tag>
         <tag>randint</tag>
         <tag>海伦公式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>

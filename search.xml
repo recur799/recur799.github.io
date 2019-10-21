@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hcip-rs:day1]]></title>
     <url>%2F%2Fhcip-rs-day1%2F</url>
-    <content type="text"><![CDATA[引言：今日复习hcip-rs 配置设备作为DHCP Server，为用户分配IP地址的示例预计时间:30min实际时间:50min(还未解决)主要负责人:宋昭威指导老师:杨老师组网图形和需求: 总结: 现在R1路由器中开启dhcp服务 dhcp enble 因为组网需求，所以需要创建两个地址池 ip pool 1/2 根据组网需求配置租期:lease day x hour x域名:domain-name huawei.comdns:dns-list x.x.x.xnetbios:netbios-list x.x.x.x网关:gateway-list x.x.x.x网段:network x.x.x.x mash x.x.x.x以及保留某些ip地址:exclued-ip-address x.x.x.x 忘记空敲 忘记配置dhcp命令]]></content>
+    <content type="text"><![CDATA[引言：今日复习hcip-rs 配置设备作为DHCP Server，为用户分配IP地址的示例预计时间:30min实际时间:50min主要负责人:宋昭威指导老师:杨老师组网图形和需求: 总结: 现在R1路由器中开启dhcp服务 dhcp enble 因为组网需求，所以需要创建两个地址池 ip pool 1/2 根据组网需求配置租期:lease day x hour x域名:domain-name huawei.comdns:dns-list x.x.x.xnetbios:netbios-list x.x.x.x网关:gateway-list x.x.x.x网段:network x.x.x.x mash x.x.x.x以及保留某些ip地址:exclued-ip-address x.x.x.x 忘记空敲 忘记配置dhcp命令]]></content>
       <categories>
         <category>rs</category>
       </categories>

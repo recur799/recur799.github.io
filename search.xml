@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[php&sql_1]]></title>
+    <url>%2F%2Fphp_sql1%2F</url>
+    <content type="text"><![CDATA[引言：php&sql php连接数据库 连接服务器：$link = mysqli_connect(&#39;host&#39;,&#39;user&#39;,&#39;password&#39;)或c:&gt;mysql -h host -u user -p password 打开数据库：mysqli_query($link,&#39;use 数据库名&#39;);或mysqli_select_db($link,&#39;数据库名&#39;),或mysqli_connect(‘host’,’user’,’password’,’数据库名’)`` 执行sql语句：定义一条sql语句：$sql=&#39;select * from abc(数据库名)&#39; $RES = mysqli_query($link,$sql) 处理结果集：一条一条读记录while($row = mysqli_fetch_assoc/row/array($RES)) {} 释放 关闭连接 字符集补充 mysql_query($link&#39;set names utf8&#39;)]]></content>
+      <categories>
+        <category>php&amp;sql</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hcia-sec:day1]]></title>
     <url>%2F%2Fsec-1%2F</url>
     <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置,R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息,Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络,所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1,-a是用源地址ping no summary 在rip中关闭汇总 学会空敲 学会写总结报告]]></content>
@@ -34,6 +46,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily6%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：面对对象编程基础]]></title>
     <url>%2F%2Fpython7%2F</url>
     <content type="text"><![CDATA[引言：今日学习面对对象编程基础 **一切实例都可以算为对象（object），比如小狗—&gt;金毛（实例）；类（class）用来创建对象dog1 = Dog()，或描述对象 面对对象： 练习123456789101112131415161718192021222324252627282930from time import sleepclass Clock(object): def __init__(self,hour=0,minute=0,second=0): self.hour = hour self.minute = minute self.second = second def run(self): self.second += 1 if self.second == 60: self.second = 0 self.minute += 1 if self.minute == 60: self.minute = 0 self.hour += 1 if self.hour == 24: self.hour = 0 def show(self): return &apos;%02d:%02d:%02d&apos; % \ (self.hour, self.minute, self.second)def main(): clock = Clock(23,59,59) while True: print(clock.show()) sleep(1) clock.run()if __name__==&apos;__main__&apos;: main() 23:59:5900:00:0000:00:0100:00:0200:00:0300:00:0400:00:0500:00:0600:00:0700:00:08 疑问对象、方法、类的概念还是有点不清晰]]></content>
@@ -51,7 +74,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily6%2F</url>
+    <url>%2F%2Fdaily5%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -105,7 +128,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily5%2F</url>
+    <url>%2F%2Fdaily4%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -136,17 +159,6 @@
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -246,22 +258,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>

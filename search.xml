@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hcia-sec:day2]]></title>
+    <url>%2F%2Fsec-2%2F</url>
+    <content type="text"><![CDATA[引言：hcia-sec第二天上课 防火墙区域 &ensp;&ensp;优先级Trust &ensp;&ensp;85Untrust&ensp;&ensp;5Local&ensp;&ensp;100Dmz &ensp;&ensp;50 配置文件管理startup 配置下次启动项startup system-software 配置系统下次启动时使用的系统软件save—&gt;remote 重启设备 升级设备操作流程 明确升级目的（升级前，要求客户进行业务测试） 备份（规定时间内升级未完成，要回退版本） 新版本考虑与旧版本的兼容性（涉及到成本） 三授权：①：客户授权（经过客户允许）②： 技术授权（技术领导检查）③：研发授权（研发人员确认） 典型园区网络架构 重点！OSI七层模型 物理层涉及到在通信信道（channel）上传输的原始比特流，是OSI参考模型的基础，它实现传输数据所需要的机械、电气功能特性。它不关心每一bit流（0,1）所代表的含义（ 如代表地址还是应用数据），只关注如何把bit流通过不同物理链路传输至对端。典型的像中继器、集线器（hub）就属于物理层设备。 链路层主要任务是提供对物理层的控制，检测并纠正可能出现的错误，使之对网络层显现一条无错线路，并且进行流量调控。 网络层检查网络拓扑，以决定传输报文的最佳路由，转发数据包。其关键问题是确定数据包从源端到目的端如何选择路由。网络层设备通过运行路由协议（Routing Protocol）来计算到目的地的最佳路由，找到数据包应该转发的下一个网络设备，然后利用网络层协议封装数据包，利用下层提供的服务把数据发送到下一个网络设备。 传输层位于OSI参考模型第四层，最终目标是向用户（一般指应用层的进程），提供有效、可靠的服务。 表示层主要解决用户信息的语法表示问题。它将欲交换的数据从适合于某一用户的抽象语法，转换为适合于OSI系统内部使用的传送语法。即提供格式化的表示和转换数据服务。数据的压缩和解压缩，加密和解密等工作都由表示层负责。 应用层为操作系统或网络应用程序提供访问网络服务的接口。 TCP/IP协议栈各层作用应用层 HTTP（超文本传输协议）：用来访问在WWW服务器上的各种页面。 FTP（文件传输协议）：为文件传输提供了途径，它允许数据从一台主机传送到另一台主机上。 DNS（域名服务系统）：用于实现从主机域名到IP地址之间的转换。 传输层 TCP （传输控制协议） ：为应用程序提供可靠的面向连接的通信服务，适用于要求得到响应的应用程序。目前，许多流行的应用程序都使用TCP。 UDP（用户数据报协议）：提供了无连接通信，且不对传送数据包进行可靠的保证。适合于一次传输小量数据，可靠性则由应用层来负责。 网络层 IP（互联网协议）：IP协议和路由协议协同工作, 寻找能够将数据包传送到目的端的最优路径。IP协议不关心数据报文的内容，提供无连接的、不可靠的服务。 ARP（地址解析协议）：把已知的IP地址解析为MAC地址。 RARP（反向地址解析协议）：用于数据链路层地址已知时，解析IP地址。 ICMP（网际控制消息协议）：定义了网络层控制和传递消息的功能。 IGMP（网际组管理协议）：用于组播组成员管理。 FTP使用FTP进行文件传输时，会使用两个TCP连接 第一个连接是FTP客户端和FTP服务器间的控制连接。FTP服务器开启21号端口，等待FTP客户端发送连接请求。FTP客户端随机开启端口，向服务器发送建立连接的请求。控制连接用于在服务器和客户端之间传输控制命令。 第二个连接是FTP客户端和FTP服务器间的数据连接。服务器使用TCP的20号端口与客户端建立数据连接。通常情况下，服务器主动建立或中断数据连接 补充css：集群istack：堆叠svf：敏捷特性]]></content>
+      <categories>
+        <category>sec</category>
+      </categories>
+      <tags>
+        <tag>sec</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hcip-rs:day1]]></title>
     <url>%2F%2Fhcip-rs-day1%2F</url>
     <content type="text"><![CDATA[引言：今日复习hcip-rs 配置设备作为DHCP Server，为用户分配IP地址的示例预计时间:30min实际时间:50min主要负责人:宋昭威指导老师:杨老师组网图形和需求: 总结: 现在R1路由器中开启dhcp服务 dhcp enble 因为组网需求，所以需要创建两个地址池 ip pool 1/2 根据组网需求配置租期:lease day x hour x域名:domain-name huawei.comdns:dns-list x.x.x.xnetbios:netbios-list x.x.x.x网关:gateway-list x.x.x.x网段:network x.x.x.x mash x.x.x.x以及保留某些ip地址:exclued-ip-address x.x.x.x 忘记空敲 忘记配置dhcp命令]]></content>
@@ -14,7 +25,7 @@
   <entry>
     <title><![CDATA[hcia-sec:day1]]></title>
     <url>%2F%2Fsec-1%2F</url>
-    <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置,R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息,Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络,所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1,-a是用源地址ping no summary 在rip中关闭汇总 学会空敲 学会写总结报告]]></content>
+    <content type="text"><![CDATA[引言：hcia-sec第一天上课 hcip-rs回顾总结： R1 R2配置静态时用缺省路由 因为优化配置,R3要导入直连和静态 因为R2是直连路由 R1是静态路由 Dis ip int br 查看所有接口信息,Dis cu | in static 查看静态路由配置 Rip配置时 因为10.1.1.0是A类网络,所以配置network时只需写10.0.0.0 R7 ping R1时 用 ping -a 1.1.1.1 192.168.1.1,-a是用源地址ping no summary 在rip中关闭汇总 学会空敲 学会写总结报告 信息安全涉及的风险物理风险设备防盗，防毁链路老化，人为破坏，被动物咬断等网络设备自身故障停电导致网络设备无法工作机房电磁辐射 信息风险信息存储安全信息传输安全信息访问安全 系统风险数据库系统配置安全安全数据库系统中运行的服务安全 应用风险网络病毒操作系统安全电子邮件应用安全WEB服务安全FTP服务安全DNS服务安全业务应用软件安全 常见的网络安全设备 eSight：统一管理网络、机房设施、服务器、存储、应用、通信协作、视频监控等设备。 LogCenter：全面、准确地将安全事件统一管理、呈现。 FireHunter：华为公司推出的新一代高性能APT威胁检测系统，通过还原交换机或者传统安全设备镜像的网络流量，在虚拟的环境内对网络中传输的文件进行检测，实现对未知恶意文件的检测。 WAF：Web应用保护。 UMA：统一IT核心资源运维管理与安全审计平台，通过对各种IT资源的帐号、认证、授权和审计的集中管理和控制，实现了运维集中接入、集中认证、集中授权、集中审计功能，满足用户运维管理和内控外审需求。 AntiDDoS：DDoS防御系统。 NGFW：下一代防火墙。 vNGFW：软件NGFW，部署在VM（Virtual Machine）中。 SVN：安全接入网关，一体化VPN解决方案。 NIP：华为下一代入侵防御系统。 Agile Controller：基于用户和应用的网络资源自动化控制系统。 信息安全管理体系 Plan：信息安全管理体系的策划与准备。根据组织的整体方针和目标，建立安全策略、目标以及与管理风险和改进信息安全相关的过程和程序，以获得结果。 Do：信息安全管理体系文件的编制。实施和运行安全策略、控制、过程和程序。 Check：信息安全管理体系运行。适用时，根据安全策略、目标和惯有经验评估和测量过程业绩，向管理层报告结果，进行评审。 Action：信息安全管理体系审核、评审和持续改进。根据内部ISMS 审核和管理评审或其他信息，采取纠正和预防措施，以实现ISMS 的持续改进。 信息安全等级保护信息安全等级保护是指对国家重要信息、法人和其他组织及公民的专有信息以及公开信息和存储、传输、处理这些信息的信息系统分等级实行安全保护，对信息系统中使用的信息安全产品实行按等级管理，对信息系统中发生的信息安全事件分等级响应、处置。 等级保护流程]]></content>
       <categories>
         <category>sec</category>
       </categories>
@@ -57,6 +68,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily6%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：面对对象编程基础]]></title>
     <url>%2F%2Fpython7%2F</url>
     <content type="text"><![CDATA[引言：今日学习面对对象编程基础 **一切实例都可以算为对象（object），比如小狗—&gt;金毛（实例）；类（class）用来创建对象dog1 = Dog()，或描述对象 面对对象： 练习123456789101112131415161718192021222324252627282930from time import sleepclass Clock(object): def __init__(self,hour=0,minute=0,second=0): self.hour = hour self.minute = minute self.second = second def run(self): self.second += 1 if self.second == 60: self.second = 0 self.minute += 1 if self.minute == 60: self.minute = 0 self.hour += 1 if self.hour == 24: self.hour = 0 def show(self): return &apos;%02d:%02d:%02d&apos; % \ (self.hour, self.minute, self.second)def main(): clock = Clock(23,59,59) while True: print(clock.show()) sleep(1) clock.run()if __name__==&apos;__main__&apos;: main() 23:59:5900:00:0000:00:0100:00:0200:00:0300:00:0400:00:0500:00:0600:00:0700:00:08 疑问对象、方法、类的概念还是有点不清晰]]></content>
@@ -74,7 +96,7 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily6%2F</url>
+    <url>%2F%2Fdaily5%2F</url>
     <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
       <categories>
         <category>日常</category>
@@ -127,17 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily5%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：函数和模块的使用]]></title>
     <url>%2F%2Fpython5%2F</url>
     <content type="text"><![CDATA[引言：今日练习函数和模块的使用 函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算 12345678def factorial(num): result = 1 for i in range(1,num+1): result *= i return resultn = int(input(&apos;n=&apos;))m = int(input(&apos;m=&apos;))print(factorial(m) // factorial(n) // factorial(n-m)) n=3m=7840 ※注意※：1.def定义一个方程式，def()括号里面的是自变量，定义函数结尾的return返回的值是因变量2.Python的math模块中其实已经有一个factorial函数了，事实上要计算阶乘可以直接使用这个现成的函数而不用自己定义 函数的参数在Python中，函数的参数可以有默认值，也支持使用可变参数，所以Python并不需要像其他语言一样支持函数的重载 123456789from random import randintdef roll_dice(n=2): total = 0 for _ in range(n): total += randint(1, 6) return totalprint(roll_dice()) 9 ※注意※：疑问：range(2)应该是range(0，2)也就是[0,1]，为什么是摇两次1.在定义函数时设定了默认值，如果再调用函数时没有传入对应参数的值，就用默认值来计算2.可变参数的运用 举例注意112345678def add(a=0, b=0, c=0): return a + b + cprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(c=50, a=100, b=200)) 0136350 **※注意※：用不同方式调用add函数，这和其他函数重载的效果一样。 可变参数1234567891011def add(*args): total = 0 for val in args: total += val return totalprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(1, 3, 5, 7, 9)) 013625 ※注意※：1.参数名前加个*表示参数时一个可变参数 用模块管理函数命名冲突123456789def foo(): print(&apos;hello, world!&apos;)def foo(): print(&apos;goodbye, world!&apos;)foo() goodbye, world! 因为python中没有函数重载概念，所以如果两个定义名字相同，最新的定义就会覆盖掉之前的定义 解决命名冲突1module1.py 12def foo(): print(&apos;hello, world!&apos;) module2.py 12def foo(): print(&apos;goodbye, world!&apos;) test.py 1234567from module1 import foofoo()from module2 import foofoo() python中每个文件就代表一个模块(module)，在使用函数的时候我们通过import关键字导入指定的模块就可以区分到底要使用的是哪个模块中的foo函数 解决命名冲突2test.py 12345import module1 as m1import module2 as m2m1.foo()m2.foo() ※注意※：不能写成 12from module1 import foofrom module2 import foo 因为程序中调用的是最后倒入的那个fo 练习用定义函数实现计算最大公约数和最小公倍数的函数12345678def gcd(x, y): (x, y) = (y, x) if x &gt; y else (x, y) for factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: return factordef lcm(x, y): return x * y // gcd(x, y) 写一个程序判断输入的正整数是不是回文素数1234567891011121314151617181920def is_palindrome(num): temp = num total = 0 while temp &gt; 0: total = total * 10 + temp % 10 temp //= 10 return total == numdef is_prime(num): for factor in range(2,num): if num % factor == 0: return False return True if num != 1 else Falseif __name__ == &apos;__main__&apos;: num = int(input(&apos;请输入正整数: &apos;)) if is_palindrome(num) and is_prime(num): print(&apos;%d是回文素数&apos; % num) else: print(&apos;%d不是回文素数&apos;% num) ※疑问※：1.判断回文素数没看懂2.__name__ == ‘__main__‘没看懂 变量作用域举例 12345678910111213141516def foo(): b = &apos;hello&apos; def bar(): c = True print(a) print(b) print(c) bar() # print(c) if __name__ == &apos;__main__&apos;: a = 100 # print(b) foo() 100hello ※注意※：1.foo函数里定义的b是一个局部变量，属于局部定义域；在foo函数里又定义了一个bar函数，在bar函数里，变量b就属于嵌套作用域，在bar中可以访问的到；在bar函数里又定义了一个c，c只作用于bar中，其他作用关于搜不到。除了“局部作用域”、“嵌套作用域”、“全局作用域”，还有“内置作用域”。所谓的“内置作用域”就是Python内置的那些隐含标识符min、len等都属于内置作用域）。也可以在局部变量前加一个 global代表来自于全局作用域2.在实际开发中，我们应该尽量减少对全局变量的使用，因为全局变量的作用域和影响过于广泛，可能会发生意料之外的修改和使用，除此之外全局变量比局部变量拥有更长的生命周期，可能导致对象占用的内存长时间无法被垃圾回收。事实上，减少对全局变量的使用，也是降低代码之间耦合度的一个重要举措，同时也是对迪米特法则的践行。3.所以以后要按照以下方法书写 1234567def main(): # Todo: Add your code here passif __name__ == &apos;__main__&apos;: main()]]></content>
@@ -146,14 +157,14 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>疑问</tag>
         <tag>for</tag>
-        <tag>def</tag>
-        <tag>factorial</tag>
+        <tag>疑问</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
-        <tag>回文数</tag>
         <tag>素数</tag>
+        <tag>def</tag>
+        <tag>factorial</tag>
+        <tag>回文数</tag>
         <tag>变量作用域</tag>
         <tag>局部作用域</tag>
         <tag>嵌套作用域</tag>
@@ -192,10 +203,10 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>for</tag>
+        <tag>疑问</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
-        <tag>疑问</tag>
-        <tag>for</tag>
       </tags>
   </entry>
   <entry>
@@ -218,26 +229,15 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>疑问</tag>
+        <tag>range</tag>
+        <tag>while</tag>
         <tag>for</tag>
+        <tag>end&#39; &#39;</tag>
+        <tag>转移符号</tag>
+        <tag>疑问</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
         <tag>素数</tag>
-        <tag>range</tag>
-        <tag>while</tag>
-        <tag>end&#39; &#39;</tag>
-        <tag>转移符号</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -257,6 +257,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：语言元素]]></title>
     <url>%2F%2Fputhon1%2F</url>
     <content type="text"><![CDATA[引言：今日学习语言元素 变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
@@ -269,22 +280,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>

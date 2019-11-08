@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://recur799.github.io/sec-2/</loc>
+    
+    <lastmod>2019-11-08T14:41:04.203Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://recur799.github.io/sec-1/</loc>
+    
+    <lastmod>2019-11-08T14:31:12.747Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://recur799.github.io/hcip-rs-day1/</loc>
     
     <lastmod>2019-10-21T12:22:50.948Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://recur799.github.io/php_sql1/</loc>
     
     <lastmod>2019-10-21T12:07:38.063Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://recur799.github.io/sec-1/</loc>
-    
-    <lastmod>2019-10-20T06:31:31.529Z</lastmod>
     
   </url>
   

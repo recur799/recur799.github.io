@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[sec-5]]></title>
+    <url>%2F%2Fsec-5%2F</url>
+    <content type="text"><![CDATA[引言：今日学习sec第五天 网络安全运维杨老师经验 项目验收完之后要转维 console线一端是usb一端是网线口 console线越长越好 连接之后通过CRT进行控制 所有设备第一次登陆必须用console线（但有些例外，比如USG6000） USG6000V地址是192.168.0.1 g0/0/0单纯的作为带外管理 华为选路规则：根据路径开销值 思科选路规则：根据设备权重 配置管理员和配置管理员（监控）一般给老板 如果一个企业有几千几万人，不能只用一个Radius服务器，一个承受不住 园区网：业务随行 esight功能：批量升级、批量备份、批量配置、资产管理进行统一设备管理 默认情况下，USG6000系列产品主面板上有一个固定的管理接口GigabitEthernet 0/0/0 ，用于设备的管理。 备份与恢复配置文件 本地上传 搭建FTP（所以包里要有网线和console线） 版本升级操作 配置系统下次启动时使用的系统软件文件名[USG] startup system-software soft.bin 配置文件要在回退的时候用，一份存在设备上面，一份存在本地电脑上面saved-configuration 补丁一般是热补丁（设备运行的时候，直接进行命令运行补丁） 防火墙管理员的角色 防火墙通过管理员角色（职责）来控制管理员的权限。 系统管理员：拥有除审计功能以外的所有权限 配置管理员：拥有业务配置和设备监控权限 审计管理员：配置审计策略和查看审计日志的专用管理员角色 配置管理员（监控):拥有设备监控权限 管理员认证方式 本地认证：是指用户的用户名和密码保存在防火墙本地，在防火墙上完成用户认证。使用本地认证方式时，需要在防火墙上创建用户/用户组并设置用户的本地密码 服务器认证：服务器认证是指用户的用户名和密码保存在服务器上，需要在服务器上完成用户认证。当用户接入时，根据配置在认证服务器上的用户信息（包括账号、密码等）进行认证 RADIUS认证和计费 HWTACACS认证 HWTACACS是在TACACS基础上进行了功能增强的一种安全协议，主要用于接入用户的认证、授权和计费HWTACASC和RADIUS区别 端口使用HWTACACS使用TCP协议，网络传输更可靠RADIUS使用UDP协议。认证和授权端口号是1812和1813，或者1645和1646 加密情况HWTACACS除了标准的HWTACACS报文头，对报文主体全部进行加密RADIUS只是对认证报文中的密码字段进行加密 认证和授权HWTACACS认证与授权分离RADIUS认证与授权一起处理 应用HWTACACS适于进行安全控制RADIUS适于进行计费 配置命令授权HWTACACS支持对配置命令进行授权RADIUS不支持对配置命令进行授权TCP和UDP区别 连接方面TCP面向连接（如打电话要先拨号建立连接）UDP是无连接的，即发送数据之前不需要建立连接 安全方面TCP提供可靠的服务，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达UDP尽最大努力交付，即不保证可靠交付 传输效率TCP传输效率相对较低UDP传输效率高，适用于对高速传输和实时性有较高的通信或广播通信 连接对象数量TCP连接只能是点到点、一对一的UDP支持一对一，一对多，多对一和多对多的交互通信 网络设备日志以防火墙为例，可输出如下类型的日志 会话日志 丢包日志 业务日志 系统日志 查看业务日志 业务日志包括威胁日志、内容日志、策略命中日志、邮件过滤日志及审计日志等（重点是策略命中日志） 业务日志可以输出到Web界面、日志主机，还可以通过信息中心输出 LogCenter安全事件管理中心 以报表的形式来进行一个整理 LogCenter业务分析原理 LogCenter应该放在DMZ区域，既又对外服务，又对内服务 IT运维操作的集中管理 路由策略和策略路由 路由策略路由策略是根据一些规则，使用某种策略改变规则中影响路由发布、接收或路由选择的参数而改变路由发现的结果，最终改变的是路由表的内容。是在路由发现的时候产生作用 策略路由策略路由是尽管存在当前最优的路由，但是针对某些特别的主机(或应用、协议)不使用当前路由表中的转发路径而单独使用别的转发路径。在数据包转发的时候发生作用、不改变路由表中任何内容 路由策略是路由发现规则，策略路由是数据包转发规则 其实将“策略路由”理解为“转发策略”，这样更容易理解与区分。由于转发在底层，路由在高层，所以转发的优先级比路由的优先级高，这点也能理解的通 防火墙智能选路 Qos是服务质量 全局选路策略当FW上存在多条等价路由时，全局选路策略带宽、链路质量，权重和优先级动态地选择出接口，保证链路资源得到充分利用，提升用户的上网体验。 策略路由策略路由能够依据用户制定的策略进行数据的转发。 ISP选路（基于ISP路由的选路）通过ISP选路功能可以实现流量按照运营商转发，使目的地址在不同运营商网络内的流量从对应出接口转发。 健康检查FW可以感知服务器或链路的状态变化，保证流量传输不受服务器或链路故障的影响。 全局选路策略-负载分担方式 默认情况下的链路带宽负载分担 选路中权重越高、丢包率越低选哪个，达到阈值了换下一个次优路径 会话保持如果ISP2在传输中，超过阈值后，旧对话继续在ISP2进行，新流量走ISP1 策略路由规则匹配过程三次不满足，直接丢弃 健康检测实现原理]]></content>
+      <tags>
+        <tag>sec</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hcia-sec:lab]]></title>
     <url>%2F%2Fsec4lab%2F</url>
     <content type="text"><![CDATA[引言： sec第四天课程的实验报告 实验拓扑 实验要求两台PC机可以ping通Router 实验过程FW1 FW3 注意事项： vrrp配置命令为vrrp vrid X virtual-ip X.X.X.X active/standby 在指定心跳端口启用双击热备命令为hrp interface GigabitEthernet X/X/X remote X.X.X.X(对应端口）hrp enable 实验结果]]></content>
@@ -218,17 +226,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily3%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：构造程序逻辑练习]]></title>
     <url>%2F%2Fpython4%2F</url>
     <content type="text"><![CDATA[引言：今日练习构造程序逻辑 练习寻找“水仙花数”123456for num in range(100,1000): low = num % 10 mid = num // 10 % 10 high = num // 100 if num == low ** 3 + mid ** 3 + high ** 3 : print(num) 水仙花数为：153水仙花数为：370水仙花数为：371水仙花数为：407 **※注意※：1.python运算符的运用，“//”的意义为取整除，及返回商的整数部分（向下取整）；“%”的意义为返回除法的余数2.水仙花数是各位立方和等于这个数本身的数，如: 153 = 1^3 + 5^3 + 3^3 寻找“完美数”1234567891011import mathfor num in range(1, 10000): result = 0 for factor in range(1, int(math.sqrt(num)) + 1): if num % factor == 0: result += factor if factor &gt; 1 and num // factor != factor: result += num // factor if result == num: print(num) **※注意※：疑问:为什么factor取值要在``range(1,int(math.sqrt(num))+1)里面取1.完美数是除自身外其他所有因子的和正好等于这个数本身的数，例如: 6 = 1 + 2 + 3, 28 = 1 + 2 + 4 + 7 + 14]]></content>
@@ -241,6 +238,28 @@
         <tag>疑问</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily3%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：发现自己英文也写不好了，要继续加油啊！]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -265,8 +284,8 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily2%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -288,17 +307,6 @@
         <tag>random</tag>
         <tag>randint</tag>
         <tag>海伦公式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>

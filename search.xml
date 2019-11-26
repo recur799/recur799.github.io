@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[sec5-lab]]></title>
     <url>%2F%2Fsec5-lab%2F</url>
-    <content type="text"><![CDATA[引言：今日复习secia第五天lab 实验拓扑 实验需求 PC1走ISP1路线（上） PC2走ISP2路线（下） 在R2的E0/0/0端口shutdown后，PC1走ISP2路线（下） 实验思路 每台交换机以及防火墙上配置OSPF协议，在防火墙上配置安全策略，实现全网通 防火墙上配置策略路由实现PC1与PC2分路走（下一跳） 配置过程PC1配置IP：10.1.1.1子网掩码：24网关：10.1.1.2 PC2配置IP：10.1.2.1子网掩码：24网关：10.1.2.2 R1配置 FW1配置注意FW中也需要配置OSPF协议 R2&amp;R3&amp;R4配置大体和R1一直，IP地址同拓扑图标出的一致即可]]></content>
+    <content type="text"><![CDATA[引言：今日复习secia第五天lab 实验拓扑 实验需求 PC1走ISP1路线（上） PC2走ISP2路线（下） 在R2的E0/0/0端口shutdown后，PC1走ISP2路线（下） 实验思路 每台交换机以及防火墙上配置OSPF协议，在防火墙上配置安全策略，实现全网通 防火墙上配置策略路由实现PC1与PC2分路走（下一跳） 配置过程PC1配置IP：10.1.1.1子网掩码：24网关：10.1.1.2 PC2配置IP：10.1.2.1子网掩码：24网关：10.1.2.2 R1配置 FW1配置注意FW中也需要配置OSPF协议 R2&amp;R3&amp;R4配置大体和R1一直，IP地址同拓扑图标出的一致即可 实验结果]]></content>
       <categories>
         <category>sec</category>
       </categories>

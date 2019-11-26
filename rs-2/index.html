@@ -65,17 +65,21 @@
   };
 </script>
 
-  <meta name="description" content="日积月累，循序渐进。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宋昭威的日常">
-<meta property="og:url" content="http://recur799.github.io/tags/clear/index.html">
+  <meta name="description" content="引言：今日学习ospf外部路由">
+<meta name="keywords" content="rs,ospf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rs-2">
+<meta property="og:url" content="http://recur799.github.io/rs-2/index.html">
 <meta property="og:site_name" content="宋昭威的日常">
-<meta property="og:description" content="日积月累，循序渐进。">
+<meta property="og:description" content="引言：今日学习ospf外部路由">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-26_215358.png">
+<meta property="og:updated_time" content="2019-11-26T14:41:08.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宋昭威的日常">
-<meta name="twitter:description" content="日积月累，循序渐进。">
-  <link rel="canonical" href="http://recur799.github.io/tags/clear/">
+<meta name="twitter:title" content="rs-2">
+<meta name="twitter:description" content="引言：今日学习ospf外部路由">
+<meta name="twitter:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-26_215358.png">
+  <link rel="canonical" href="http://recur799.github.io/rs-2/">
 
 
 <script id="page-configurations">
@@ -83,13 +87,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: clear | 宋昭威的日常</title>
+  <title>rs-2 | 宋昭威的日常</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -259,88 +263,203 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block tag">
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">clear<small>标签</small>
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://recur799.github.io/rs-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="宋昭威">
+      <meta itemprop="description" content="日积月累，循序渐进。">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="宋昭威的日常">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">rs-2
+
+          
         </h1>
-      </div>
+
+        <div class="post-meta">
+		
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-26 21:51:12 / 修改时间：22:41:08" itemprop="dateCreated datePublished" datetime="2019-11-26T21:51:12+08:00">2019-11-26</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/rs/" itemprop="url" rel="index"><span itemprop="name">rs</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/rs-2/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/rs-2/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <center> 引言：今日学习ospf外部路由 </center>
+<a id="more"></a>
 
-  
-  
+<h2 id="外部路由引入"><a href="#外部路由引入" class="headerlink" title="外部路由引入"></a>外部路由引入</h2><p><img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-26_215358.png" alt></p>
+<ul>
+<li>OSPF内部与外部相邻的路由器成为<code>ASBR</code>,每个OSPF区域相邻的路由器成为<code>ABR</code></li>
+<li>向RTA的OSPF引入一条去往<code>10.1.60.0</code>网段的静态路由，又因为引入外部路由的OSPF路由器称为<code>ASBR</code></li>
+<li><code>ASBR</code>会生成一条五类LSA（<code>AS-Exteral-LSA</code>），用于描述ASBR到达外部目的地</li>
+<li>与RTA（<code>ASBR</code>）相邻的路由器RTB与RTC会生成一条四类LSA（<code>ASBR-Summary-LSA</code>），用于描述如何从ABR到达ASBR</li>
+<li>四类LSA和五类LSA用于OSPF路由器计算外部路由</li>
+<li>四类LSA只能在一个区域内泛洪，五类LSA每泛洪到一个区域，相应区域的ABR都会生成一条新的四类LSA来描述如何到达ASBR</li>
+</ul>
+<h3 id="外部路由计算"><a href="#外部路由计算" class="headerlink" title="外部路由计算"></a>外部路由计算</h3><ol>
+<li><code>ASBR</code>往同一区域内的<code>ABR</code>发布五类LSA，告知如何从<code>ASBR</code>到达外部路由器</li>
+<li>与<code>ASBR</code>同一区域的<code>ABR</code>收到五类LSA后，向另一区域的<code>ABR</code>发送四类LSA，告知如何从<code>ABR</code>到达<code>ASBR</code></li>
+</ol>
+<h2 id="报文类型"><a href="#报文类型" class="headerlink" title="报文类型"></a>报文类型</h2><ul>
+<li>HELLO报文<br>周期性发送，用于发现和维持OSPF邻居关系</li>
+<li>DD（Database Description packet）报文<br>用于描述LSDB的摘要信息，用于两台设备进行数据库同步。</li>
+<li>LSR（Link State Request packet）报文<br>用于向对方请求所需的LSA。设备只有在OSPF邻居双方成功交换DD报文后才会向对方发出LSR报文。</li>
+<li>LSU（Link State Update packet）报文<br>用于向对方发送其所需要的LSA。</li>
+<li>LSAck（Link State Acknowledgment packet）报文<br>用来对收到的LSA进行确认。</li>
+</ul>
+<h2 id="OSPF特点"><a href="#OSPF特点" class="headerlink" title="OSPF特点"></a>OSPF特点</h2><ul>
+<li>OSPF把自治系统AS（Autonomous System）划分成逻辑意义上的一个或多个区域</li>
+<li>OSPF通过LSA（Link State Advertisement）的形式发布路由</li>
+<li>OSPF依靠在OSPF区域内各设备间交互OSPF报文来达到路由信息的统一</li>
+<li>OSPF报文封装在IP报文内，可以采用单播或组播的形式发送</li>
+</ul>
+<h3 id="DR-amp-BDR"><a href="#DR-amp-BDR" class="headerlink" title="DR&amp;BDR"></a>DR&amp;BDR</h3><ul>
+<li><code>DR</code>和<code>BDR</code>是为减少OSPF流量的，OSPF会选择一个指定路由器(<code>DR</code>)和一个备份路由器（<code>BDR</code>）</li>
+<li>当OSPF网络发生变化时，<code>DR</code>会负责更新所有OSPF路由器，<code>BDR</code>会监控<code>DR</code>状态，在<code>DR</code>故障时接替角色</li>
+</ul>
+<h2 id="LSA类型"><a href="#LSA类型" class="headerlink" title="LSA类型"></a>LSA类型</h2><ul>
+<li>Router-LSA（type1）<br>每个设备都会产生，描述设备链路状态和开销，在所属的区域内传播</li>
+<li>Network-LSA（type2)<br>由<code>DR</code>产生，描述本网段的链路状态，在所属的区域内传播</li>
+<li>Network-summary-LSA（type3）</li>
+</ul>
 
-  
+    </div>
+	<div>
+	  
+		<div>
     
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
-  
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  
+	</div>
+    
+    
+    
+      
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-          <a class="post-title-link" href="/python6/" itemprop="url">
-            <span itemprop="name">python日常：字符串和常用数据结构</span>
-          </a>
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/rs/" <i class="fa fa-tag"</i> rs</a>
+            
+              <a href="/tags/ospf/" <i class="fa fa-tag"</i> ospf</a>
+            
+          </div>
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-01T00:00:00+08:00"
-              content="2019-09-01">
-          09-01
-        </time>
-      </div>
+        
 
-    </header>
-  </article>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/sec5-lab/" rel="next" title="sec5-lab">
+                  <i class="fa fa-chevron-left"></i> sec5-lab
+                </a>
+              
+            </div>
 
+            <span class="post-nav-divider"></span>
 
-
-    </div>
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
           
+    
+    <div class="comments" id="comments"></div>
+  
 
         </div>
           
@@ -355,6 +474,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc" data-target="post-toc-wrap">
@@ -367,6 +491,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#外部路由引入"><span class="nav-number">1.</span> <span class="nav-text">外部路由引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外部路由计算"><span class="nav-number">1.1.</span> <span class="nav-text">外部路由计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报文类型"><span class="nav-number">2.</span> <span class="nav-text">报文类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF特点"><span class="nav-number">3.</span> <span class="nav-text">OSPF特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DR-amp-BDR"><span class="nav-number">3.1.</span> <span class="nav-text">DR&amp;BDR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSA类型"><span class="nav-number">4.</span> <span class="nav-text">LSA类型</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

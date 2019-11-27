@@ -74,7 +74,7 @@
 <meta property="og:description" content="引言：今日学习ospf外部路由">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-26_215358.png">
-<meta property="og:updated_time" content="2019-11-26T14:41:08.446Z">
+<meta property="og:updated_time" content="2019-11-27T14:22:20.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rs-2">
 <meta name="twitter:description" content="引言：今日学习ospf外部路由">
@@ -302,11 +302,19 @@
                 
               
 
-              <time title="创建时间：2019-11-26 21:51:12 / 修改时间：22:41:08" itemprop="dateCreated datePublished" datetime="2019-11-26T21:51:12+08:00">2019-11-26</time>
+              <time title="创建时间：2019-11-26 21:51:12" itemprop="dateCreated datePublished" datetime="2019-11-26T21:51:12+08:00">2019-11-26</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-27 22:22:20" itemprop="dateModified" datetime="2019-11-27T22:22:20+08:00">2019-11-27</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -380,8 +388,8 @@
 <li>LSAck（Link State Acknowledgment packet）报文<br>用来对收到的LSA进行确认。</li>
 </ul>
 <h2 id="OSPF特点"><a href="#OSPF特点" class="headerlink" title="OSPF特点"></a>OSPF特点</h2><ul>
-<li>OSPF把自治系统AS（Autonomous System）划分成逻辑意义上的一个或多个区域</li>
-<li>OSPF通过LSA（Link State Advertisement）的形式发布路由</li>
+<li>OSPF把自治系统<code>AS（Autonomous System）</code>划分成逻辑意义上的一个或多个区域</li>
+<li>OSPF通过<code>LSA（Link State Advertisement）</code>的形式发布路由</li>
 <li>OSPF依靠在OSPF区域内各设备间交互OSPF报文来达到路由信息的统一</li>
 <li>OSPF报文封装在IP报文内，可以采用单播或组播的形式发送</li>
 </ul>
@@ -389,11 +397,82 @@
 <li><code>DR</code>和<code>BDR</code>是为减少OSPF流量的，OSPF会选择一个指定路由器(<code>DR</code>)和一个备份路由器（<code>BDR</code>）</li>
 <li>当OSPF网络发生变化时，<code>DR</code>会负责更新所有OSPF路由器，<code>BDR</code>会监控<code>DR</code>状态，在<code>DR</code>故障时接替角色</li>
 </ul>
+<h2 id="区域类型"><a href="#区域类型" class="headerlink" title="区域类型"></a>区域类型</h2><ul>
+<li>普通区域<br>缺省情况下，OSPF区域被定义为普通区域，其中包括标准区域和骨干区域</li>
+</ul>
+<ol>
+<li>标准区域：最通用区域，传输区域间、区域内和外部路由</li>
+<li>骨干区域：通常用<code>area 0</code>表示，连接所有其他OSPF区域的中央区域</li>
+</ol>
+<ul>
+<li>STUB区域</li>
+</ul>
+<ol>
+<li>不允许发布自治系统外部路由，只允许发布区域内、区域间路由</li>
+<li>在<code>STUB</code>区域中，路由器的路由表规模和路由信息传递数量大大减少</li>
+<li>为了保证到自治系统外的路由可达，由<code>STUB</code>区域的ABR发布<br><code>Network-summary-LSA（type3）</code>缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布</li>
+</ol>
+<ul>
+<li>Totally STUB区域</li>
+</ul>
+<ol>
+<li>不允许发布自治系统外部和与区间路由，只允许发布区域内路由</li>
+<li>在<code>Totally STUB</code>区域中，同<code>STUB</code>区域，路由表规模和路由信息传递数量大大减少</li>
+<li>同<code>STUB</code>区域，由<code>Totally STUB</code>区域的<code>ABR</code>发布<code>Network-summay-LSA（type3）</code>缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过<code>ABR</code>才能发布</li>
+</ol>
+<ul>
+<li>NSSA区域</li>
+</ul>
+<ol>
+<li><code>NSSA</code>区域允许引入自治系统外部路由，由<code>ASBR</code>发布<code>NSSA LSA（type7）</code>通告给本区域，这些<code>NSSA LSA</code>在<code>ABR</code>上会转换成<code>AS-external-LSA</code>，并泛洪到整个OSPF域中</li>
+<li><code>NSSA</code>区域同时保持自治系统内的<code>STUB</code>区域特征</li>
+<li>该区域的<code>ABR</code>发布<code>NSAA LSA(type7)</code>缺省路由传播到区域内，所有域间路由都必须通过<code>ABR</code>才能发布 【域间路由：RIP、OSPF、IS-IS】</li>
+</ol>
+<ul>
+<li>Totally NSSA区域</li>
+</ul>
+<ol>
+<li><code>NSSA</code>区域允许引入自治系统外部路由，由<code>ASBR</code>发布<code>NSSA LSA（type7）</code>通告给本区域，这些<code>NSSA LSA</code>在<code>ABR</code>上会转换成<code>AS-external-LSA</code>，并泛洪到整个OSPF域中</li>
+<li><code>Totally NSSA</code>区域同时保留自治系统内的<code>Totally STUB</code>区域的特征</li>
+<li>该区域的<code>ABR</code>发布<code>Network-summary-LSA</code>和<code>NSAA LSA</code>缺省路由传播到区域内，所有域间路由都必须通过<code>ABR</code>才能发布</li>
+</ol>
 <h2 id="LSA类型"><a href="#LSA类型" class="headerlink" title="LSA类型"></a>LSA类型</h2><ul>
 <li>Router-LSA（type1）<br>每个设备都会产生，描述设备链路状态和开销，在所属的区域内传播</li>
 <li>Network-LSA（type2)<br>由<code>DR</code>产生，描述本网段的链路状态，在所属的区域内传播</li>
-<li>Network-summary-LSA（type3）</li>
+<li>Network-summary-LSA（type3）<br>由ABR产生，描述区域内某个网段的路由，并通告给发布或接受此三类LSA的<code>非Totally STUB</code>和<code>NSSA</code>区域</li>
+<li>ASBR-summary-LSA（type4）<br>由<code>ABR</code>产生，描述从<code>ABR</code>到<code>ASBR</code>的路由，通告给除<code>ASBR</code>所有区域的其他相关区域</li>
+<li>AS-external-LSA（type5）<br>由ASBR产生，描述到自治系统外部的路由，通告给所有区域（除了<code>STUB</code>和<code>NSSA</code>区域</li>
+<li>NSA LSA（type7）<br>由<code>ASBR</code>产生，描述到自治系统外部的路由，仅在<code>NSSA</code>区域内传播</li>
+<li>Opaque LSA（type9/10/11）<br><code>Opaque LSA</code>提供用于OSPF的拓展的通用机制</li>
 </ul>
+<ol>
+<li>九类LSA仅在接口所在网段范围内传播。用于支持<code>GR</code>的<code>Grace LSA</code>就是九类LSA的一种</li>
+<li>十类LSA在区域内传播，用于支持<code>TE</code>的<code>LSA</code>就是十类LSA的一种</li>
+<li>十一类LSA咋自治域内传播，目前还没有实际应用的例子</li>
+</ol>
+<h2 id="路由器类型"><a href="#路由器类型" class="headerlink" title="路由器类型"></a>路由器类型</h2><p><a href="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-27_222141.png" target="_blank" rel="noopener">https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-27_222141.png</a></p>
+<ul>
+<li>区域内路由器（Internal Router）<br>该类设备的所有接口都属于同一个OSPF区域</li>
+<li>区域内边界路由器ABR（Area Border Router）</li>
+</ul>
+<ol>
+<li><code>ABR</code>可以同属于两个以上的区域，但必须有一个为骨干区域</li>
+<li><code>ABR</code>用来连接骨干区域和非骨干区域，也可以是逻辑上的连接</li>
+</ol>
+<ul>
+<li>骨干路由器(Backbone Router)</li>
+</ul>
+<ol>
+<li>该类设备至少有一个区域属于骨干区域</li>
+<li>所有<code>ABR</code>和位于<code>area 0</code>的内部设备都是骨干路由器</li>
+</ol>
+<ul>
+<li>自治系统边界路由器ASBR(AS Boundary Router)</li>
+</ul>
+<ol>
+<li>与其他自治系统交换路由信息的设备为<code>ASBR</code></li>
+<li><code>ASBR</code>不一定位于<code>AS</code>边界，可能是区域内设备，也可能是<code>ABR</code>，只要引入了外部路由信息，就成为<code>ASBR</code></li>
+</ol>
 
     </div>
 	<div>
@@ -491,7 +570,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#外部路由引入"><span class="nav-number">1.</span> <span class="nav-text">外部路由引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外部路由计算"><span class="nav-number">1.1.</span> <span class="nav-text">外部路由计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报文类型"><span class="nav-number">2.</span> <span class="nav-text">报文类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF特点"><span class="nav-number">3.</span> <span class="nav-text">OSPF特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DR-amp-BDR"><span class="nav-number">3.1.</span> <span class="nav-text">DR&amp;BDR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSA类型"><span class="nav-number">4.</span> <span class="nav-text">LSA类型</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#外部路由引入"><span class="nav-number">1.</span> <span class="nav-text">外部路由引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外部路由计算"><span class="nav-number">1.1.</span> <span class="nav-text">外部路由计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报文类型"><span class="nav-number">2.</span> <span class="nav-text">报文类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF特点"><span class="nav-number">3.</span> <span class="nav-text">OSPF特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DR-amp-BDR"><span class="nav-number">3.1.</span> <span class="nav-text">DR&amp;BDR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区域类型"><span class="nav-number">4.</span> <span class="nav-text">区域类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSA类型"><span class="nav-number">5.</span> <span class="nav-text">LSA类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由器类型"><span class="nav-number">6.</span> <span class="nav-text">路由器类型</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

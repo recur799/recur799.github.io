@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[rs-2]]></title>
     <url>%2F%2Frs-2%2F</url>
-    <content type="text"><![CDATA[引言：今日学习ospf外部路由 外部路由引入 OSPF内部与外部相邻的路由器成为ASBR,每个OSPF区域相邻的路由器成为ABR 向RTA的OSPF引入一条去往10.1.60.0网段的静态路由，又因为引入外部路由的OSPF路由器称为ASBR ASBR会生成一条五类LSA（AS-Exteral-LSA），用于描述ASBR到达外部目的地 与RTA（ASBR）相邻的路由器RTB与RTC会生成一条四类LSA（ASBR-Summary-LSA），用于描述如何从ABR到达ASBR 四类LSA和五类LSA用于OSPF路由器计算外部路由 四类LSA只能在一个区域内泛洪，五类LSA每泛洪到一个区域，相应区域的ABR都会生成一条新的四类LSA来描述如何到达ASBR 外部路由计算 ASBR往同一区域内的ABR发布五类LSA，告知如何从ASBR到达外部路由器 与ASBR同一区域的ABR收到五类LSA后，向另一区域的ABR发送四类LSA，告知如何从ABR到达ASBR 报文类型 HELLO报文周期性发送，用于发现和维持OSPF邻居关系 DD（Database Description packet）报文用于描述LSDB的摘要信息，用于两台设备进行数据库同步。 LSR（Link State Request packet）报文用于向对方请求所需的LSA。设备只有在OSPF邻居双方成功交换DD报文后才会向对方发出LSR报文。 LSU（Link State Update packet）报文用于向对方发送其所需要的LSA。 LSAck（Link State Acknowledgment packet）报文用来对收到的LSA进行确认。 OSPF特点 OSPF把自治系统AS（Autonomous System）划分成逻辑意义上的一个或多个区域 OSPF通过LSA（Link State Advertisement）的形式发布路由 OSPF依靠在OSPF区域内各设备间交互OSPF报文来达到路由信息的统一 OSPF报文封装在IP报文内，可以采用单播或组播的形式发送 DR&amp;BDR DR和BDR是为减少OSPF流量的，OSPF会选择一个指定路由器(DR)和一个备份路由器（BDR） 当OSPF网络发生变化时，DR会负责更新所有OSPF路由器，BDR会监控DR状态，在DR故障时接替角色 LSA类型 Router-LSA（type1）每个设备都会产生，描述设备链路状态和开销，在所属的区域内传播 Network-LSA（type2)由DR产生，描述本网段的链路状态，在所属的区域内传播 Network-summary-LSA（type3）]]></content>
+    <content type="text"><![CDATA[引言：今日学习ospf外部路由 外部路由引入 OSPF内部与外部相邻的路由器成为ASBR,每个OSPF区域相邻的路由器成为ABR 向RTA的OSPF引入一条去往10.1.60.0网段的静态路由，又因为引入外部路由的OSPF路由器称为ASBR ASBR会生成一条五类LSA（AS-Exteral-LSA），用于描述ASBR到达外部目的地 与RTA（ASBR）相邻的路由器RTB与RTC会生成一条四类LSA（ASBR-Summary-LSA），用于描述如何从ABR到达ASBR 四类LSA和五类LSA用于OSPF路由器计算外部路由 四类LSA只能在一个区域内泛洪，五类LSA每泛洪到一个区域，相应区域的ABR都会生成一条新的四类LSA来描述如何到达ASBR 外部路由计算 ASBR往同一区域内的ABR发布五类LSA，告知如何从ASBR到达外部路由器 与ASBR同一区域的ABR收到五类LSA后，向另一区域的ABR发送四类LSA，告知如何从ABR到达ASBR 报文类型 HELLO报文周期性发送，用于发现和维持OSPF邻居关系 DD（Database Description packet）报文用于描述LSDB的摘要信息，用于两台设备进行数据库同步。 LSR（Link State Request packet）报文用于向对方请求所需的LSA。设备只有在OSPF邻居双方成功交换DD报文后才会向对方发出LSR报文。 LSU（Link State Update packet）报文用于向对方发送其所需要的LSA。 LSAck（Link State Acknowledgment packet）报文用来对收到的LSA进行确认。 OSPF特点 OSPF把自治系统AS（Autonomous System）划分成逻辑意义上的一个或多个区域 OSPF通过LSA（Link State Advertisement）的形式发布路由 OSPF依靠在OSPF区域内各设备间交互OSPF报文来达到路由信息的统一 OSPF报文封装在IP报文内，可以采用单播或组播的形式发送 DR&amp;BDR DR和BDR是为减少OSPF流量的，OSPF会选择一个指定路由器(DR)和一个备份路由器（BDR） 当OSPF网络发生变化时，DR会负责更新所有OSPF路由器，BDR会监控DR状态，在DR故障时接替角色 区域类型 普通区域缺省情况下，OSPF区域被定义为普通区域，其中包括标准区域和骨干区域 标准区域：最通用区域，传输区域间、区域内和外部路由 骨干区域：通常用area 0表示，连接所有其他OSPF区域的中央区域 STUB区域 不允许发布自治系统外部路由，只允许发布区域内、区域间路由 在STUB区域中，路由器的路由表规模和路由信息传递数量大大减少 为了保证到自治系统外的路由可达，由STUB区域的ABR发布Network-summary-LSA（type3）缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布 Totally STUB区域 不允许发布自治系统外部和与区间路由，只允许发布区域内路由 在Totally STUB区域中，同STUB区域，路由表规模和路由信息传递数量大大减少 同STUB区域，由Totally STUB区域的ABR发布Network-summay-LSA（type3）缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布 NSSA区域 NSSA区域允许引入自治系统外部路由，由ASBR发布NSSA LSA（type7）通告给本区域，这些NSSA LSA在ABR上会转换成AS-external-LSA，并泛洪到整个OSPF域中 NSSA区域同时保持自治系统内的STUB区域特征 该区域的ABR发布NSAA LSA(type7)缺省路由传播到区域内，所有域间路由都必须通过ABR才能发布 【域间路由：RIP、OSPF、IS-IS】 Totally NSSA区域 NSSA区域允许引入自治系统外部路由，由ASBR发布NSSA LSA（type7）通告给本区域，这些NSSA LSA在ABR上会转换成AS-external-LSA，并泛洪到整个OSPF域中 Totally NSSA区域同时保留自治系统内的Totally STUB区域的特征 该区域的ABR发布Network-summary-LSA和NSAA LSA缺省路由传播到区域内，所有域间路由都必须通过ABR才能发布 LSA类型 Router-LSA（type1）每个设备都会产生，描述设备链路状态和开销，在所属的区域内传播 Network-LSA（type2)由DR产生，描述本网段的链路状态，在所属的区域内传播 Network-summary-LSA（type3）由ABR产生，描述区域内某个网段的路由，并通告给发布或接受此三类LSA的非Totally STUB和NSSA区域 ASBR-summary-LSA（type4）由ABR产生，描述从ABR到ASBR的路由，通告给除ASBR所有区域的其他相关区域 AS-external-LSA（type5）由ASBR产生，描述到自治系统外部的路由，通告给所有区域（除了STUB和NSSA区域 NSA LSA（type7）由ASBR产生，描述到自治系统外部的路由，仅在NSSA区域内传播 Opaque LSA（type9/10/11）Opaque LSA提供用于OSPF的拓展的通用机制 九类LSA仅在接口所在网段范围内传播。用于支持GR的Grace LSA就是九类LSA的一种 十类LSA在区域内传播，用于支持TE的LSA就是十类LSA的一种 十一类LSA咋自治域内传播，目前还没有实际应用的例子 路由器类型https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-27_222141.png 区域内路由器（Internal Router）该类设备的所有接口都属于同一个OSPF区域 区域内边界路由器ABR（Area Border Router） ABR可以同属于两个以上的区域，但必须有一个为骨干区域 ABR用来连接骨干区域和非骨干区域，也可以是逻辑上的连接 骨干路由器(Backbone Router) 该类设备至少有一个区域属于骨干区域 所有ABR和位于area 0的内部设备都是骨干路由器 自治系统边界路由器ASBR(AS Boundary Router) 与其他自治系统交换路由信息的设备为ASBR ASBR不一定位于AS边界，可能是区域内设备，也可能是ABR，只要引入了外部路由信息，就成为ASBR]]></content>
       <categories>
         <category>rs</category>
       </categories>
@@ -215,6 +215,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily4%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>练字</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python日常：函数和模块的使用]]></title>
     <url>%2F%2Fpython5%2F</url>
     <content type="text"><![CDATA[引言：今日练习函数和模块的使用 函数“代码有很多种坏味道，重复是最坏的一种！”————Martin Fowler 定义函数 计算 12345678def factorial(num): result = 1 for i in range(1,num+1): result *= i return resultn = int(input(&apos;n=&apos;))m = int(input(&apos;m=&apos;))print(factorial(m) // factorial(n) // factorial(n-m)) n=3m=7840 ※注意※：1.def定义一个方程式，def()括号里面的是自变量，定义函数结尾的return返回的值是因变量2.Python的math模块中其实已经有一个factorial函数了，事实上要计算阶乘可以直接使用这个现成的函数而不用自己定义 函数的参数在Python中，函数的参数可以有默认值，也支持使用可变参数，所以Python并不需要像其他语言一样支持函数的重载 123456789from random import randintdef roll_dice(n=2): total = 0 for _ in range(n): total += randint(1, 6) return totalprint(roll_dice()) 9 ※注意※：疑问：range(2)应该是range(0，2)也就是[0,1]，为什么是摇两次1.在定义函数时设定了默认值，如果再调用函数时没有传入对应参数的值，就用默认值来计算2.可变参数的运用 举例注意112345678def add(a=0, b=0, c=0): return a + b + cprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(c=50, a=100, b=200)) 0136350 **※注意※：用不同方式调用add函数，这和其他函数重载的效果一样。 可变参数1234567891011def add(*args): total = 0 for val in args: total += val return totalprint(add())print(add(1))print(add(1, 2))print(add(1, 2, 3))print(add(1, 3, 5, 7, 9)) 013625 ※注意※：1.参数名前加个*表示参数时一个可变参数 用模块管理函数命名冲突123456789def foo(): print(&apos;hello, world!&apos;)def foo(): print(&apos;goodbye, world!&apos;)foo() goodbye, world! 因为python中没有函数重载概念，所以如果两个定义名字相同，最新的定义就会覆盖掉之前的定义 解决命名冲突1module1.py 12def foo(): print(&apos;hello, world!&apos;) module2.py 12def foo(): print(&apos;goodbye, world!&apos;) test.py 1234567from module1 import foofoo()from module2 import foofoo() python中每个文件就代表一个模块(module)，在使用函数的时候我们通过import关键字导入指定的模块就可以区分到底要使用的是哪个模块中的foo函数 解决命名冲突2test.py 12345import module1 as m1import module2 as m2m1.foo()m2.foo() ※注意※：不能写成 12from module1 import foofrom module2 import foo 因为程序中调用的是最后倒入的那个fo 练习用定义函数实现计算最大公约数和最小公倍数的函数12345678def gcd(x, y): (x, y) = (y, x) if x &gt; y else (x, y) for factor in range(x, 0, -1): if x % factor == 0 and y % factor == 0: return factordef lcm(x, y): return x * y // gcd(x, y) 写一个程序判断输入的正整数是不是回文素数1234567891011121314151617181920def is_palindrome(num): temp = num total = 0 while temp &gt; 0: total = total * 10 + temp % 10 temp //= 10 return total == numdef is_prime(num): for factor in range(2,num): if num % factor == 0: return False return True if num != 1 else Falseif __name__ == &apos;__main__&apos;: num = int(input(&apos;请输入正整数: &apos;)) if is_palindrome(num) and is_prime(num): print(&apos;%d是回文素数&apos; % num) else: print(&apos;%d不是回文素数&apos;% num) ※疑问※：1.判断回文素数没看懂2.__name__ == ‘__main__‘没看懂 变量作用域举例 12345678910111213141516def foo(): b = &apos;hello&apos; def bar(): c = True print(a) print(b) print(c) bar() # print(c) if __name__ == &apos;__main__&apos;: a = 100 # print(b) foo() 100hello ※注意※：1.foo函数里定义的b是一个局部变量，属于局部定义域；在foo函数里又定义了一个bar函数，在bar函数里，变量b就属于嵌套作用域，在bar中可以访问的到；在bar函数里又定义了一个c，c只作用于bar中，其他作用关于搜不到。除了“局部作用域”、“嵌套作用域”、“全局作用域”，还有“内置作用域”。所谓的“内置作用域”就是Python内置的那些隐含标识符min、len等都属于内置作用域）。也可以在局部变量前加一个 global代表来自于全局作用域2.在实际开发中，我们应该尽量减少对全局变量的使用，因为全局变量的作用域和影响过于广泛，可能会发生意料之外的修改和使用，除此之外全局变量比局部变量拥有更长的生命周期，可能导致对象占用的内存长时间无法被垃圾回收。事实上，减少对全局变量的使用，也是降低代码之间耦合度的一个重要举措，同时也是对迪米特法则的践行。3.所以以后要按照以下方法书写 1234567def main(): # Todo: Add your code here passif __name__ == &apos;__main__&apos;: main()]]></content>
@@ -223,8 +234,9 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>def</tag>
         <tag>疑问</tag>
+        <tag>for</tag>
+        <tag>def</tag>
         <tag>factorial</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
@@ -235,18 +247,6 @@
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
-        <tag>for</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily4%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -269,10 +269,10 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>疑问</tag>
-        <tag>for</tag>
         <tag>水仙花数</tag>
         <tag>完美数</tag>
+        <tag>疑问</tag>
+        <tag>for</tag>
       </tags>
   </entry>
   <entry>
@@ -285,10 +285,10 @@
       <tags>
         <tag>python</tag>
         <tag>疑问</tag>
+        <tag>for</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
         <tag>素数</tag>
-        <tag>for</tag>
         <tag>range</tag>
         <tag>while</tag>
         <tag>end&#39; &#39;</tag>
@@ -346,22 +346,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>

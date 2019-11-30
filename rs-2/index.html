@@ -74,7 +74,8 @@
 <meta property="og:description" content="引言：今日学习ospf外部路由">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-26_215358.png">
-<meta property="og:updated_time" content="2019-11-27T14:22:20.857Z">
+<meta property="og:image" content="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/sec-6/2019-11-30_125907.png">
+<meta property="og:updated_time" content="2019-11-30T05:22:13.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rs-2">
 <meta name="twitter:description" content="引言：今日学习ospf外部路由">
@@ -313,7 +314,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-27 22:22:20" itemprop="dateModified" datetime="2019-11-27T22:22:20+08:00">2019-11-27</time>
+                <time title="修改时间：2019-11-30 13:22:13" itemprop="dateModified" datetime="2019-11-30T13:22:13+08:00">2019-11-30</time>
               </span>
             
           
@@ -402,34 +403,30 @@
 </ul>
 <ol>
 <li>标准区域：最通用区域，传输区域间、区域内和外部路由</li>
-<li>骨干区域：通常用<code>area 0</code>表示，连接所有其他OSPF区域的中央区域</li>
-</ol>
-<ul>
-<li>STUB区域</li>
-</ul>
-<ol>
+<li>骨干区域：通常用<code>area 0</code>表示，连接所有其他OSPF区域的中央区域<h3 id="STUB区域"><a href="#STUB区域" class="headerlink" title="STUB区域"></a>STUB区域</h3></li>
 <li>不允许发布自治系统外部路由，只允许发布区域内、区域间路由</li>
 <li>在<code>STUB</code>区域中，路由器的路由表规模和路由信息传递数量大大减少</li>
 <li>为了保证到自治系统外的路由可达，由<code>STUB</code>区域的ABR发布<br><code>Network-summary-LSA（type3）</code>缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布</li>
+<li>通常，STUB区域位于自治系统边界，是那些只有一个ABR的非骨干区域<h4 id="在配置STUB区域时要注意："><a href="#在配置STUB区域时要注意：" class="headerlink" title="在配置STUB区域时要注意："></a>在配置STUB区域时要注意：</h4></li>
 </ol>
 <ul>
-<li>Totally STUB区域</li>
+<li>骨干区域不能配置STUB区域</li>
+<li>STUB内所有路由器都要配置STUB区域属性</li>
+<li>STUB不能存在ASBR（AS外部的路由不能再STUB区域传播）</li>
+<li>虚连接不能穿过STUB区域<h3 id="Totally-STUB区域"><a href="#Totally-STUB区域" class="headerlink" title="Totally STUB区域"></a>Totally STUB区域</h3></li>
 </ul>
 <ol>
 <li>不允许发布自治系统外部和与区间路由，只允许发布区域内路由</li>
 <li>在<code>Totally STUB</code>区域中，同<code>STUB</code>区域，路由表规模和路由信息传递数量大大减少</li>
-<li>同<code>STUB</code>区域，由<code>Totally STUB</code>区域的<code>ABR</code>发布<code>Network-summay-LSA（type3）</code>缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过<code>ABR</code>才能发布</li>
-</ol>
-<ul>
-<li>NSSA区域</li>
-</ul>
-<ol>
+<li>同<code>STUB</code>区域，由<code>Totally STUB</code>区域的<code>ABR</code>发布<code>Network-summay-LSA（type3）</code>缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过<code>ABR</code>才能发布<h3 id="NSSA区域"><a href="#NSSA区域" class="headerlink" title="NSSA区域"></a>NSSA区域</h3></li>
 <li><code>NSSA</code>区域允许引入自治系统外部路由，由<code>ASBR</code>发布<code>NSSA LSA（type7）</code>通告给本区域，这些<code>NSSA LSA</code>在<code>ABR</code>上会转换成<code>AS-external-LSA</code>，并泛洪到整个OSPF域中</li>
 <li><code>NSSA</code>区域同时保持自治系统内的<code>STUB</code>区域特征</li>
-<li>该区域的<code>ABR</code>发布<code>NSAA LSA(type7)</code>缺省路由传播到区域内，所有域间路由都必须通过<code>ABR</code>才能发布 【域间路由：RIP、OSPF、IS-IS】</li>
+<li>该区域的<code>ABR</code>发布<code>NSAA LSA(type7)</code>缺省路由传播到区域内，所有域间路由都必须通过<code>ABR</code>才能发布 【域间路由：RIP、OSPF、IS-IS】<h4 id="配置NSSA区域时需要注意："><a href="#配置NSSA区域时需要注意：" class="headerlink" title="配置NSSA区域时需要注意："></a>配置NSSA区域时需要注意：</h4></li>
 </ol>
 <ul>
-<li>Totally NSSA区域</li>
+<li>骨干区域不能配置NSSA区域</li>
+<li>NSSA内所有路由器都要配置NSSA区域属性</li>
+<li>虚连接不能穿过NSSA区域<h3 id="Totally-NSSA区域"><a href="#Totally-NSSA区域" class="headerlink" title="Totally NSSA区域"></a>Totally NSSA区域</h3></li>
 </ul>
 <ol>
 <li><code>NSSA</code>区域允许引入自治系统外部路由，由<code>ASBR</code>发布<code>NSSA LSA（type7）</code>通告给本区域，这些<code>NSSA LSA</code>在<code>ABR</code>上会转换成<code>AS-external-LSA</code>，并泛洪到整个OSPF域中</li>
@@ -473,6 +470,80 @@
 <li>与其他自治系统交换路由信息的设备为<code>ASBR</code></li>
 <li><code>ASBR</code>不一定位于<code>AS</code>边界，可能是区域内设备，也可能是<code>ABR</code>，只要引入了外部路由信息，就成为<code>ASBR</code></li>
 </ol>
+<h2 id="OSPF网络类型"><a href="#OSPF网络类型" class="headerlink" title="OSPF网络类型"></a>OSPF网络类型</h2><ul>
+<li>广播类型（Broadcast)<br>当链路层协议是<code>Ethernet、FDDI</code>时，缺省情况下，OSPF认为网络类型是<code>Broadcast</code>。<br>在该类型的网络中：</li>
+</ul>
+<ol>
+<li>通常以<code>组播形式</code>发送<code>Hello报文、LSU报文和LSAck报文</code>。其中，<code>224.0.0.5</code>的组播地址为OSPF设备的<code>预留IP组播地址</code>；<br><code>224.0.0.6</code>的组播地址为OSPF <code>DR/BDR（ Backup Designated Router）的预留IP组播地址</code>。</li>
+<li>以<code>单播形式</code>发送<code>DD报文和LSR报文</code></li>
+</ol>
+<ul>
+<li>NBMA类型(Non-Broadcast Multi-Access)<br>当链路层协议是<code>帧中继、X.25</code>时，缺省情况下，OSPF认为网络类型是NBMA。<br>在该类型的网络中，以<code>单播形式</code>发送协议报文（<code>Hello报文、DD报文、LSR报文、LSU报文、LSAck报文</code>）</li>
+<li>点到多点P2MP类型(Point-to-Multipoint)<br>没有一种链路层协议会被缺省的认为是Point-to-Multipoint类型。<br><code>点到多点必须是由其他的网络类型强制更改的</code>。<br><code>常用做法</code>是将非全连通的NBMA改为点到多点的网络。<br>在该类型的网络中：<br>以<code>组播形式</code>（<code>224.0.0.5</code>）发送<code>Hello报文</code>。<br>以<code>单播形式</code>发送其他协议报文（<code>DD报文、LSR报文、LSU报文、LSAck报文</code>）。</li>
+<li>点到点P2P类型(Point-to-point)<br>当链路层协议是<code>PPP、HDLC和LAPB</code>时，缺省情况下，OSPF认为网络类型是<code>P2P</code>。<br>在该类型的网络中，以<code>组播形式</code>（<code>224.0.0.5</code>）发送协议报文（<code>Hello报文、DD报文、LSR报文、LSU报文、LSAck报文</code>）。</li>
+</ul>
+<h2 id="邻居状态机"><a href="#邻居状态机" class="headerlink" title="邻居状态机"></a>邻居状态机</h2><ol>
+<li>在OSPF中，为了交换路由信息，邻居设备之间先要建立邻居关系，但邻居和邻接关系又不一样</li>
+</ol>
+<ul>
+<li>邻居<br>OSPF设备启动后，会通过OSPF接口发送HELLO报文，收到HELLO报文的OSPF设备会检查报文里的参数，如果一致，两端设备就建立为邻居</li>
+<li>邻接<br>建立邻居关系后，如果两端设备成功交换<code>DD</code>和<code>LSA</code>报文，才建立邻接关系</li>
+</ul>
+<ol start="2">
+<li>OSPF有8中状态机，分别为<code>Down</code>、<code>Attempt</code>、<code>Init</code>、<code>2-way</code>、<code>Exstart</code>、<code>Exchange</code>、<code>Loading</code>、<code>Full</code></li>
+</ol>
+<ul>
+<li>Down<br>邻居会话的初始阶段，表明没有在邻居失效时间间隔内收到来自邻居路由器的Hello数据包</li>
+<li>Attempt<br><code>Attemp</code>状态只会在<code>NBMA</code>网络中发生，表明对端在邻居失效时间间隔超时后仍然没有回复<code>Hello</code>报文，此时路由器依旧每发送轮询<code>Hello</code>报文的时间间隔向对端发送<code>Hello</code>报文</li>
+<li>Init<br>收到<code>Hello</code>报文后，状态变更为<code>Init</code></li>
+<li>2-way<br>如果收到的HELLO包中有自己的router ID，则转换为2-way状态，若不需要形成邻接关系则停留在此状态，否则进入Exstart状态</li>
+<li>Exstart<br>协商主从关系，并确认DD序列号</li>
+<li>Exchange<br>主从协商完毕后开始交换DD报文</li>
+<li>Loading<br>DD报文交换完就是loading状态</li>
+<li>Full<br>LSR重传列表为空</li>
+</ul>
+<h2 id="OSPF报文认证"><a href="#OSPF报文认证" class="headerlink" title="OSPF报文认证"></a>OSPF报文认证</h2><ul>
+<li>区域验证方式</li>
+<li>接口验证方式（优先）</li>
+</ul>
+<h2 id="OSPF路由聚合"><a href="#OSPF路由聚合" class="headerlink" title="OSPF路由聚合"></a>OSPF路由聚合</h2><p>顾名思义，将前缀相同的路由信息聚合到一起，只发布这一条聚合后的路由到其他区域</p>
+<ul>
+<li>ABR聚合<br>将前缀相同的三类LSA聚合后，一起发布</li>
+<li>ASBR聚合<br>将前缀相同的五类LSA进行聚合<br>若配置了NSSA，就聚合前缀相同的七类LSA<br>若即使ASBR又是ABR，则对从七类转换到五类的LSA进行聚合</li>
+</ul>
+<h2 id="OSPF缺省路由"><a href="#OSPF缺省路由" class="headerlink" title="OSPF缺省路由"></a>OSPF缺省路由</h2><ol>
+<li>通常应用于：</li>
+</ol>
+<ul>
+<li>ABR（区域边界路由器）发布三类SUMMARY LSA，指导区域内的的设备进行报文转发</li>
+<li>ASBR发布五类ASE LSA或七类NSSA LSA，指导AS内设备进行<code>自治系统外</code>报文的转发</li>
+</ul>
+<ol start="2">
+<li>OSPF缺省路由发布原则</li>
+</ol>
+<ul>
+<li>具有对区域外的出口</li>
+<li>若数据库里已有缺省LSA，就不再学习</li>
+<li>若有依赖的路由，必须不能使区域内的路由，只能是区域外的路由。</li>
+</ul>
+<ol start="3">
+<li>缺省路由作用是指导报文的域外转发</li>
+</ol>
+<h2 id="OSPF路由过滤"><a href="#OSPF路由过滤" class="headerlink" title="OSPF路由过滤"></a>OSPF路由过滤</h2><p>OSPF可使用的路由策略：</p>
+<ul>
+<li>route-policy</li>
+<li>access-list（访问控制列表）</li>
+<li>prefix-list（地址前缀列表）</li>
+</ul>
+<p>OSPF过滤可用于：</p>
+<ul>
+<li>路由引入(import-route)</li>
+<li>引入路由发布<br>引入后会向其他邻居发布引入信息，可以配置过滤规则来过滤向邻居发布的路由信息，只能ASBR可以配置</li>
+<li>路由学习</li>
+<li>区域间LSA学习<br>在ABR上配置对进入本区域的SUMMARY LSA进行过滤，只有ABR才有效<br><img src="https://pic-1300113763.cos.ap-shanghai.myqcloud.com/sec-6/2019-11-30_125907.png" alt></li>
+<li>区域间LSA发布<br>在ABR中配置对本区域出方向的SUMMARY LSA进行过滤，只在ABR中有效</li>
+</ul>
+<h2 id="OSPF多进程"><a href="#OSPF多进程" class="headerlink" title="OSPF多进程"></a>OSPF多进程</h2><p>各个进程与进程之间不影响，但一个接口只能属于一个OSPF进程<br>    典型例子就是VPN场景中的PE和CE之间运行OSPF，同时VPN骨干网上的IGP也采用OSPF。在PE上，这两个OSPF进程互不影响</p>
 
     </div>
 	<div>
@@ -519,6 +590,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/sec-6/" rel="prev" title="sec-6">
+                  sec-6 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -570,7 +645,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#外部路由引入"><span class="nav-number">1.</span> <span class="nav-text">外部路由引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外部路由计算"><span class="nav-number">1.1.</span> <span class="nav-text">外部路由计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报文类型"><span class="nav-number">2.</span> <span class="nav-text">报文类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF特点"><span class="nav-number">3.</span> <span class="nav-text">OSPF特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DR-amp-BDR"><span class="nav-number">3.1.</span> <span class="nav-text">DR&amp;BDR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区域类型"><span class="nav-number">4.</span> <span class="nav-text">区域类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSA类型"><span class="nav-number">5.</span> <span class="nav-text">LSA类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由器类型"><span class="nav-number">6.</span> <span class="nav-text">路由器类型</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#外部路由引入"><span class="nav-number">1.</span> <span class="nav-text">外部路由引入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#外部路由计算"><span class="nav-number">1.1.</span> <span class="nav-text">外部路由计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报文类型"><span class="nav-number">2.</span> <span class="nav-text">报文类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF特点"><span class="nav-number">3.</span> <span class="nav-text">OSPF特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DR-amp-BDR"><span class="nav-number">3.1.</span> <span class="nav-text">DR&amp;BDR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区域类型"><span class="nav-number">4.</span> <span class="nav-text">区域类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STUB区域"><span class="nav-number">4.1.</span> <span class="nav-text">STUB区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在配置STUB区域时要注意："><span class="nav-number">4.1.1.</span> <span class="nav-text">在配置STUB区域时要注意：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Totally-STUB区域"><span class="nav-number">4.2.</span> <span class="nav-text">Totally STUB区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSSA区域"><span class="nav-number">4.3.</span> <span class="nav-text">NSSA区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置NSSA区域时需要注意："><span class="nav-number">4.3.1.</span> <span class="nav-text">配置NSSA区域时需要注意：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Totally-NSSA区域"><span class="nav-number">4.4.</span> <span class="nav-text">Totally NSSA区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSA类型"><span class="nav-number">5.</span> <span class="nav-text">LSA类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由器类型"><span class="nav-number">6.</span> <span class="nav-text">路由器类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF网络类型"><span class="nav-number">7.</span> <span class="nav-text">OSPF网络类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邻居状态机"><span class="nav-number">8.</span> <span class="nav-text">邻居状态机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF报文认证"><span class="nav-number">9.</span> <span class="nav-text">OSPF报文认证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF路由聚合"><span class="nav-number">10.</span> <span class="nav-text">OSPF路由聚合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF缺省路由"><span class="nav-number">11.</span> <span class="nav-text">OSPF缺省路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF路由过滤"><span class="nav-number">12.</span> <span class="nav-text">OSPF路由过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF多进程"><span class="nav-number">13.</span> <span class="nav-text">OSPF多进程</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -588,7 +663,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -774,7 +849,9 @@
         
           
         
-        <span class="site-state-item-count">71</span>
+          
+        
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

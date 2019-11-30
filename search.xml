@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[sec-6]]></title>
+    <url>%2F%2Fsec-6%2F</url>
+    <content type="text"><![CDATA[引言：今日是sec-ia第六天 课堂补充 ipv4有2^32,ipv6有2^128 A类私有地址：10.0.0.0-10.255.255.255 B类私有地址：172.16-172.31 C类私有地址：192.168 NAT技术可以隐藏地址 NAT好可以地址节约，坏可以隐藏地址 地址转换方法：静态 动态 NAT-sever NATP easyIP需要补充 小型企业easy-ip（便宜、省事）；大型企业动态地址池+端口转换 NAT可以转换地址和端口 local安全值100 trust安全值85 DMZ安全值50 untrust安全值5 easy-ip和NATP区别和联系。easy-ip是一种特殊的NATP，把多个私有地址转换为公有地址的不同端口号上 因特网是最大的互联网，不能说因特网是互联网 以太网：目的MAC、源MAC、TYPE、DATA、FCS（循环冗余校验） FTP用来传输协议 192.168.0.1是防火墙默认存在的，G0/0/0是默认接口网络地址转换技术 背景 IPv4地址已经枯竭； IPv6技术不能立即大面积替换； 各种延长IPv4寿命的技术不断出现，NAT就是其中之一。 NAT优缺点 优点 实现IP地址复用，节约宝贵的地址资源。 地址转换过程对用户透明。 对内网用户提供隐私保护。 可实现对内部服务器的负载均衡 缺点（站在网络工程师角度） 网络监控难度加大 限制某些具体应用 NAT技术的基本原理 让大量的私网地址共享少量的公网地址来访问公网 NAT分类 源NAT（转换的源IP地址（访问者地址）） 地址池方式 easy-ip 服务器映射NAT-server，对内私网地址，对外公网地址，可以将私网地址让外网的人访问 源NAT地址池方式静态，1对1的地址转换。为何不对内？因为太浪费了。但静态可以给重要的服务器使用 NATP，把不同内部地址转换为同一公有地址的不同端口号上 NAT ALG（应用级网关）普通的NAT可以转换地址和端口，NAT ALG（防火墙默认开启）是一种深度转换技术，不仅可以转换端口地址，还可以转换应用数据的信息 NAT ALG实现原理三次握手写在携带的应用层数据里，只能用NAT ALG进行深度转换 服务器映射NAT sever让内部服务器拥有对外的公网ip地址（对外的公网ip地址不会配置在任何一个设备上） nat sever在配置NAT sever时在最后加上 no-reverse意思是只能从外到内，不能从内到外，为了放置泄密，server map表项就会只生成从外到内的表项]]></content>
+      <categories>
+        <category>sec</category>
+      </categories>
+      <tags>
+        <tag>sec</tag>
+        <tag>NAT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[rs-2]]></title>
     <url>%2F%2Frs-2%2F</url>
-    <content type="text"><![CDATA[引言：今日学习ospf外部路由 外部路由引入 OSPF内部与外部相邻的路由器成为ASBR,每个OSPF区域相邻的路由器成为ABR 向RTA的OSPF引入一条去往10.1.60.0网段的静态路由，又因为引入外部路由的OSPF路由器称为ASBR ASBR会生成一条五类LSA（AS-Exteral-LSA），用于描述ASBR到达外部目的地 与RTA（ASBR）相邻的路由器RTB与RTC会生成一条四类LSA（ASBR-Summary-LSA），用于描述如何从ABR到达ASBR 四类LSA和五类LSA用于OSPF路由器计算外部路由 四类LSA只能在一个区域内泛洪，五类LSA每泛洪到一个区域，相应区域的ABR都会生成一条新的四类LSA来描述如何到达ASBR 外部路由计算 ASBR往同一区域内的ABR发布五类LSA，告知如何从ASBR到达外部路由器 与ASBR同一区域的ABR收到五类LSA后，向另一区域的ABR发送四类LSA，告知如何从ABR到达ASBR 报文类型 HELLO报文周期性发送，用于发现和维持OSPF邻居关系 DD（Database Description packet）报文用于描述LSDB的摘要信息，用于两台设备进行数据库同步。 LSR（Link State Request packet）报文用于向对方请求所需的LSA。设备只有在OSPF邻居双方成功交换DD报文后才会向对方发出LSR报文。 LSU（Link State Update packet）报文用于向对方发送其所需要的LSA。 LSAck（Link State Acknowledgment packet）报文用来对收到的LSA进行确认。 OSPF特点 OSPF把自治系统AS（Autonomous System）划分成逻辑意义上的一个或多个区域 OSPF通过LSA（Link State Advertisement）的形式发布路由 OSPF依靠在OSPF区域内各设备间交互OSPF报文来达到路由信息的统一 OSPF报文封装在IP报文内，可以采用单播或组播的形式发送 DR&amp;BDR DR和BDR是为减少OSPF流量的，OSPF会选择一个指定路由器(DR)和一个备份路由器（BDR） 当OSPF网络发生变化时，DR会负责更新所有OSPF路由器，BDR会监控DR状态，在DR故障时接替角色 区域类型 普通区域缺省情况下，OSPF区域被定义为普通区域，其中包括标准区域和骨干区域 标准区域：最通用区域，传输区域间、区域内和外部路由 骨干区域：通常用area 0表示，连接所有其他OSPF区域的中央区域 STUB区域 不允许发布自治系统外部路由，只允许发布区域内、区域间路由 在STUB区域中，路由器的路由表规模和路由信息传递数量大大减少 为了保证到自治系统外的路由可达，由STUB区域的ABR发布Network-summary-LSA（type3）缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布 Totally STUB区域 不允许发布自治系统外部和与区间路由，只允许发布区域内路由 在Totally STUB区域中，同STUB区域，路由表规模和路由信息传递数量大大减少 同STUB区域，由Totally STUB区域的ABR发布Network-summay-LSA（type3）缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布 NSSA区域 NSSA区域允许引入自治系统外部路由，由ASBR发布NSSA LSA（type7）通告给本区域，这些NSSA LSA在ABR上会转换成AS-external-LSA，并泛洪到整个OSPF域中 NSSA区域同时保持自治系统内的STUB区域特征 该区域的ABR发布NSAA LSA(type7)缺省路由传播到区域内，所有域间路由都必须通过ABR才能发布 【域间路由：RIP、OSPF、IS-IS】 Totally NSSA区域 NSSA区域允许引入自治系统外部路由，由ASBR发布NSSA LSA（type7）通告给本区域，这些NSSA LSA在ABR上会转换成AS-external-LSA，并泛洪到整个OSPF域中 Totally NSSA区域同时保留自治系统内的Totally STUB区域的特征 该区域的ABR发布Network-summary-LSA和NSAA LSA缺省路由传播到区域内，所有域间路由都必须通过ABR才能发布 LSA类型 Router-LSA（type1）每个设备都会产生，描述设备链路状态和开销，在所属的区域内传播 Network-LSA（type2)由DR产生，描述本网段的链路状态，在所属的区域内传播 Network-summary-LSA（type3）由ABR产生，描述区域内某个网段的路由，并通告给发布或接受此三类LSA的非Totally STUB和NSSA区域 ASBR-summary-LSA（type4）由ABR产生，描述从ABR到ASBR的路由，通告给除ASBR所有区域的其他相关区域 AS-external-LSA（type5）由ASBR产生，描述到自治系统外部的路由，通告给所有区域（除了STUB和NSSA区域 NSA LSA（type7）由ASBR产生，描述到自治系统外部的路由，仅在NSSA区域内传播 Opaque LSA（type9/10/11）Opaque LSA提供用于OSPF的拓展的通用机制 九类LSA仅在接口所在网段范围内传播。用于支持GR的Grace LSA就是九类LSA的一种 十类LSA在区域内传播，用于支持TE的LSA就是十类LSA的一种 十一类LSA咋自治域内传播，目前还没有实际应用的例子 路由器类型https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-27_222141.png 区域内路由器（Internal Router）该类设备的所有接口都属于同一个OSPF区域 区域内边界路由器ABR（Area Border Router） ABR可以同属于两个以上的区域，但必须有一个为骨干区域 ABR用来连接骨干区域和非骨干区域，也可以是逻辑上的连接 骨干路由器(Backbone Router) 该类设备至少有一个区域属于骨干区域 所有ABR和位于area 0的内部设备都是骨干路由器 自治系统边界路由器ASBR(AS Boundary Router) 与其他自治系统交换路由信息的设备为ASBR ASBR不一定位于AS边界，可能是区域内设备，也可能是ABR，只要引入了外部路由信息，就成为ASBR]]></content>
+    <content type="text"><![CDATA[引言：今日学习ospf外部路由 外部路由引入 OSPF内部与外部相邻的路由器成为ASBR,每个OSPF区域相邻的路由器成为ABR 向RTA的OSPF引入一条去往10.1.60.0网段的静态路由，又因为引入外部路由的OSPF路由器称为ASBR ASBR会生成一条五类LSA（AS-Exteral-LSA），用于描述ASBR到达外部目的地 与RTA（ASBR）相邻的路由器RTB与RTC会生成一条四类LSA（ASBR-Summary-LSA），用于描述如何从ABR到达ASBR 四类LSA和五类LSA用于OSPF路由器计算外部路由 四类LSA只能在一个区域内泛洪，五类LSA每泛洪到一个区域，相应区域的ABR都会生成一条新的四类LSA来描述如何到达ASBR 外部路由计算 ASBR往同一区域内的ABR发布五类LSA，告知如何从ASBR到达外部路由器 与ASBR同一区域的ABR收到五类LSA后，向另一区域的ABR发送四类LSA，告知如何从ABR到达ASBR 报文类型 HELLO报文周期性发送，用于发现和维持OSPF邻居关系 DD（Database Description packet）报文用于描述LSDB的摘要信息，用于两台设备进行数据库同步。 LSR（Link State Request packet）报文用于向对方请求所需的LSA。设备只有在OSPF邻居双方成功交换DD报文后才会向对方发出LSR报文。 LSU（Link State Update packet）报文用于向对方发送其所需要的LSA。 LSAck（Link State Acknowledgment packet）报文用来对收到的LSA进行确认。 OSPF特点 OSPF把自治系统AS（Autonomous System）划分成逻辑意义上的一个或多个区域 OSPF通过LSA（Link State Advertisement）的形式发布路由 OSPF依靠在OSPF区域内各设备间交互OSPF报文来达到路由信息的统一 OSPF报文封装在IP报文内，可以采用单播或组播的形式发送 DR&amp;BDR DR和BDR是为减少OSPF流量的，OSPF会选择一个指定路由器(DR)和一个备份路由器（BDR） 当OSPF网络发生变化时，DR会负责更新所有OSPF路由器，BDR会监控DR状态，在DR故障时接替角色 区域类型 普通区域缺省情况下，OSPF区域被定义为普通区域，其中包括标准区域和骨干区域 标准区域：最通用区域，传输区域间、区域内和外部路由 骨干区域：通常用area 0表示，连接所有其他OSPF区域的中央区域STUB区域 不允许发布自治系统外部路由，只允许发布区域内、区域间路由 在STUB区域中，路由器的路由表规模和路由信息传递数量大大减少 为了保证到自治系统外的路由可达，由STUB区域的ABR发布Network-summary-LSA（type3）缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布 通常，STUB区域位于自治系统边界，是那些只有一个ABR的非骨干区域在配置STUB区域时要注意： 骨干区域不能配置STUB区域 STUB内所有路由器都要配置STUB区域属性 STUB不能存在ASBR（AS外部的路由不能再STUB区域传播） 虚连接不能穿过STUB区域Totally STUB区域 不允许发布自治系统外部和与区间路由，只允许发布区域内路由 在Totally STUB区域中，同STUB区域，路由表规模和路由信息传递数量大大减少 同STUB区域，由Totally STUB区域的ABR发布Network-summay-LSA（type3）缺省路由传播到区域内，所有到自治系统外部和其他区域的路由都必须通过ABR才能发布NSSA区域 NSSA区域允许引入自治系统外部路由，由ASBR发布NSSA LSA（type7）通告给本区域，这些NSSA LSA在ABR上会转换成AS-external-LSA，并泛洪到整个OSPF域中 NSSA区域同时保持自治系统内的STUB区域特征 该区域的ABR发布NSAA LSA(type7)缺省路由传播到区域内，所有域间路由都必须通过ABR才能发布 【域间路由：RIP、OSPF、IS-IS】配置NSSA区域时需要注意： 骨干区域不能配置NSSA区域 NSSA内所有路由器都要配置NSSA区域属性 虚连接不能穿过NSSA区域Totally NSSA区域 NSSA区域允许引入自治系统外部路由，由ASBR发布NSSA LSA（type7）通告给本区域，这些NSSA LSA在ABR上会转换成AS-external-LSA，并泛洪到整个OSPF域中 Totally NSSA区域同时保留自治系统内的Totally STUB区域的特征 该区域的ABR发布Network-summary-LSA和NSAA LSA缺省路由传播到区域内，所有域间路由都必须通过ABR才能发布 LSA类型 Router-LSA（type1）每个设备都会产生，描述设备链路状态和开销，在所属的区域内传播 Network-LSA（type2)由DR产生，描述本网段的链路状态，在所属的区域内传播 Network-summary-LSA（type3）由ABR产生，描述区域内某个网段的路由，并通告给发布或接受此三类LSA的非Totally STUB和NSSA区域 ASBR-summary-LSA（type4）由ABR产生，描述从ABR到ASBR的路由，通告给除ASBR所有区域的其他相关区域 AS-external-LSA（type5）由ASBR产生，描述到自治系统外部的路由，通告给所有区域（除了STUB和NSSA区域 NSA LSA（type7）由ASBR产生，描述到自治系统外部的路由，仅在NSSA区域内传播 Opaque LSA（type9/10/11）Opaque LSA提供用于OSPF的拓展的通用机制 九类LSA仅在接口所在网段范围内传播。用于支持GR的Grace LSA就是九类LSA的一种 十类LSA在区域内传播，用于支持TE的LSA就是十类LSA的一种 十一类LSA咋自治域内传播，目前还没有实际应用的例子 路由器类型https://pic-1300113763.cos.ap-shanghai.myqcloud.com/rs-2/2019-11-27_222141.png 区域内路由器（Internal Router）该类设备的所有接口都属于同一个OSPF区域 区域内边界路由器ABR（Area Border Router） ABR可以同属于两个以上的区域，但必须有一个为骨干区域 ABR用来连接骨干区域和非骨干区域，也可以是逻辑上的连接 骨干路由器(Backbone Router) 该类设备至少有一个区域属于骨干区域 所有ABR和位于area 0的内部设备都是骨干路由器 自治系统边界路由器ASBR(AS Boundary Router) 与其他自治系统交换路由信息的设备为ASBR ASBR不一定位于AS边界，可能是区域内设备，也可能是ABR，只要引入了外部路由信息，就成为ASBR OSPF网络类型 广播类型（Broadcast)当链路层协议是Ethernet、FDDI时，缺省情况下，OSPF认为网络类型是Broadcast。在该类型的网络中： 通常以组播形式发送Hello报文、LSU报文和LSAck报文。其中，224.0.0.5的组播地址为OSPF设备的预留IP组播地址；224.0.0.6的组播地址为OSPF DR/BDR（ Backup Designated Router）的预留IP组播地址。 以单播形式发送DD报文和LSR报文 NBMA类型(Non-Broadcast Multi-Access)当链路层协议是帧中继、X.25时，缺省情况下，OSPF认为网络类型是NBMA。在该类型的网络中，以单播形式发送协议报文（Hello报文、DD报文、LSR报文、LSU报文、LSAck报文） 点到多点P2MP类型(Point-to-Multipoint)没有一种链路层协议会被缺省的认为是Point-to-Multipoint类型。点到多点必须是由其他的网络类型强制更改的。常用做法是将非全连通的NBMA改为点到多点的网络。在该类型的网络中：以组播形式（224.0.0.5）发送Hello报文。以单播形式发送其他协议报文（DD报文、LSR报文、LSU报文、LSAck报文）。 点到点P2P类型(Point-to-point)当链路层协议是PPP、HDLC和LAPB时，缺省情况下，OSPF认为网络类型是P2P。在该类型的网络中，以组播形式（224.0.0.5）发送协议报文（Hello报文、DD报文、LSR报文、LSU报文、LSAck报文）。 邻居状态机 在OSPF中，为了交换路由信息，邻居设备之间先要建立邻居关系，但邻居和邻接关系又不一样 邻居OSPF设备启动后，会通过OSPF接口发送HELLO报文，收到HELLO报文的OSPF设备会检查报文里的参数，如果一致，两端设备就建立为邻居 邻接建立邻居关系后，如果两端设备成功交换DD和LSA报文，才建立邻接关系 OSPF有8中状态机，分别为Down、Attempt、Init、2-way、Exstart、Exchange、Loading、Full Down邻居会话的初始阶段，表明没有在邻居失效时间间隔内收到来自邻居路由器的Hello数据包 AttemptAttemp状态只会在NBMA网络中发生，表明对端在邻居失效时间间隔超时后仍然没有回复Hello报文，此时路由器依旧每发送轮询Hello报文的时间间隔向对端发送Hello报文 Init收到Hello报文后，状态变更为Init 2-way如果收到的HELLO包中有自己的router ID，则转换为2-way状态，若不需要形成邻接关系则停留在此状态，否则进入Exstart状态 Exstart协商主从关系，并确认DD序列号 Exchange主从协商完毕后开始交换DD报文 LoadingDD报文交换完就是loading状态 FullLSR重传列表为空 OSPF报文认证 区域验证方式 接口验证方式（优先） OSPF路由聚合顾名思义，将前缀相同的路由信息聚合到一起，只发布这一条聚合后的路由到其他区域 ABR聚合将前缀相同的三类LSA聚合后，一起发布 ASBR聚合将前缀相同的五类LSA进行聚合若配置了NSSA，就聚合前缀相同的七类LSA若即使ASBR又是ABR，则对从七类转换到五类的LSA进行聚合 OSPF缺省路由 通常应用于： ABR（区域边界路由器）发布三类SUMMARY LSA，指导区域内的的设备进行报文转发 ASBR发布五类ASE LSA或七类NSSA LSA，指导AS内设备进行自治系统外报文的转发 OSPF缺省路由发布原则 具有对区域外的出口 若数据库里已有缺省LSA，就不再学习 若有依赖的路由，必须不能使区域内的路由，只能是区域外的路由。 缺省路由作用是指导报文的域外转发 OSPF路由过滤OSPF可使用的路由策略： route-policy access-list（访问控制列表） prefix-list（地址前缀列表） OSPF过滤可用于： 路由引入(import-route) 引入路由发布引入后会向其他邻居发布引入信息，可以配置过滤规则来过滤向邻居发布的路由信息，只能ASBR可以配置 路由学习 区域间LSA学习在ABR上配置对进入本区域的SUMMARY LSA进行过滤，只有ABR才有效 区域间LSA发布在ABR中配置对本区域出方向的SUMMARY LSA进行过滤，只在ABR中有效 OSPF多进程各个进程与进程之间不影响，但一个接口只能属于一个OSPF进程 典型例子就是VPN场景中的PE和CE之间运行OSPF，同时VPN骨干网上的IGP也采用OSPF。在PE上，这两个OSPF进程互不影响]]></content>
       <categories>
         <category>rs</category>
       </categories>
@@ -234,9 +246,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>疑问</tag>
-        <tag>for</tag>
         <tag>def</tag>
+        <tag>疑问</tag>
         <tag>factorial</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
@@ -247,6 +258,22 @@
         <tag>嵌套作用域</tag>
         <tag>全局作用域</tag>
         <tag>内置作用域</tag>
+        <tag>for</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python日常：构造程序逻辑练习]]></title>
+    <url>%2F%2Fpython4%2F</url>
+    <content type="text"><![CDATA[引言：今日练习构造程序逻辑 练习寻找“水仙花数”123456for num in range(100,1000): low = num % 10 mid = num // 10 % 10 high = num // 100 if num == low ** 3 + mid ** 3 + high ** 3 : print(num) 水仙花数为：153水仙花数为：370水仙花数为：371水仙花数为：407 **※注意※：1.python运算符的运用，“//”的意义为取整除，及返回商的整数部分（向下取整）；“%”的意义为返回除法的余数2.水仙花数是各位立方和等于这个数本身的数，如: 153 = 1^3 + 5^3 + 3^3 寻找“完美数”1234567891011import mathfor num in range(1, 10000): result = 0 for factor in range(1, int(math.sqrt(num)) + 1): if num % factor == 0: result += factor if factor &gt; 1 and num // factor != factor: result += num // factor if result == num: print(num) **※注意※：疑问:为什么factor取值要在``range(1,int(math.sqrt(num))+1)里面取1.完美数是除自身外其他所有因子的和正好等于这个数本身的数，例如: 6 = 1 + 2 + 3, 28 = 1 + 2 + 4 + 7 + 14]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>疑问</tag>
+        <tag>for</tag>
+        <tag>水仙花数</tag>
+        <tag>完美数</tag>
       </tags>
   </entry>
   <entry>
@@ -261,18 +288,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[python日常：构造程序逻辑练习]]></title>
-    <url>%2F%2Fpython4%2F</url>
-    <content type="text"><![CDATA[引言：今日练习构造程序逻辑 练习寻找“水仙花数”123456for num in range(100,1000): low = num % 10 mid = num // 10 % 10 high = num // 100 if num == low ** 3 + mid ** 3 + high ** 3 : print(num) 水仙花数为：153水仙花数为：370水仙花数为：371水仙花数为：407 **※注意※：1.python运算符的运用，“//”的意义为取整除，及返回商的整数部分（向下取整）；“%”的意义为返回除法的余数2.水仙花数是各位立方和等于这个数本身的数，如: 153 = 1^3 + 5^3 + 3^3 寻找“完美数”1234567891011import mathfor num in range(1, 10000): result = 0 for factor in range(1, int(math.sqrt(num)) + 1): if num % factor == 0: result += factor if factor &gt; 1 and num // factor != factor: result += num // factor if result == num: print(num) **※注意※：疑问:为什么factor取值要在``range(1,int(math.sqrt(num))+1)里面取1.完美数是除自身外其他所有因子的和正好等于这个数本身的数，例如: 6 = 1 + 2 + 3, 28 = 1 + 2 + 4 + 7 + 14]]></content>
+    <title><![CDATA[练字日常]]></title>
+    <url>%2F%2Fdaily2%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
       <categories>
-        <category>python</category>
+        <category>日常</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>水仙花数</tag>
-        <tag>完美数</tag>
-        <tag>疑问</tag>
-        <tag>for</tag>
+        <tag>练字</tag>
       </tags>
   </entry>
   <entry>
@@ -285,10 +308,10 @@
       <tags>
         <tag>python</tag>
         <tag>疑问</tag>
-        <tag>for</tag>
         <tag>最大公约数</tag>
         <tag>最小公倍数</tag>
         <tag>素数</tag>
+        <tag>for</tag>
         <tag>range</tag>
         <tag>while</tag>
         <tag>end&#39; &#39;</tag>
@@ -297,8 +320,8 @@
   </entry>
   <entry>
     <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily2%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：英文还好吧，汉字练习改变策略，先认真描吧（看这写实属揪心还难看）]]></content>
+    <url>%2F%2Fdaily1%2F</url>
+    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
       <categories>
         <category>日常</category>
       </categories>
@@ -323,17 +346,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[练字日常]]></title>
-    <url>%2F%2Fdaily1%2F</url>
-    <content type="text"><![CDATA[引言：今日的练字 英文 汉字 总结：怎么说呢，还是有英文还好，汉字还需要多多练习，真的有点丑…]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>练字</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[python日常：语言元素]]></title>
     <url>%2F%2Fputhon1%2F</url>
     <content type="text"><![CDATA[引言：今日学习语言元素 变量变量类型 整形：int 浮点型：float 字符串型：char 布尔型：bool 复数型：complex 变量命名 不能以数字开头 不能有关键字或系统保留字 注意大小写 变量使用 用input()获取键盘输入变量=变量类型（input（’变量 = ‘）)print(‘%d + %d = %d’ % (变量1, 变量2, 变量1 + 变量2)) 查看变量类型用type()查看变量类型 变量类型 int()：将一个数值或字符串转换成整数，可以指定进制。 float()：将一个字符串转换成浮点数。 str()：将指定的对象转换成字符串形式，可以指定编码。 chr()：将整数转换成该编码对应的字符串（一个字符）。 ord()：将字符串（一个字符）转换成对应的编码（整数）。 运算符优先级如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序 练习华氏温度转摄氏温度123f=float(input(&apos;请输入华氏温度：&apos;))c=(f-32)/1.8print(&apos;%1f华氏度 = %1f摄氏度&apos; % (f,c)) 请输入华氏温度：100100.000000华氏度 = 37.777778摄氏度 输入圆半径计算面积和周长123456import math ※注意※radius = float(input(&apos;请输入圆的半径: &apos;))perimeter = 2 * math.pi * radiusarea = math.pi * radius * radiusprint(&apos;周长: %.2f&apos; % perimeter)print(&apos;面积: %.2f&apos; % area) 请输入圆的半径: 3.5周长: 21.99面积: 38.48 输入年份判断是否为闰年12year = int(input(&apos;请输入年份: &apos;))is_leap = (year % 4 == 0 and year % 100 != 0 or year % 400 == 0) print(is_leap)请输入年份: 2000True]]></content>
@@ -346,22 +358,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
+    <title><![CDATA[写博客的第一天]]></title>
+    <url>%2F%2Ftucao1%2F</url>
+    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
       <categories>
-        <category>介绍</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[写博客的第一天]]></title>
-    <url>%2F%2Ftucao1%2F</url>
-    <content type="text"><![CDATA[引言：希望自己每天都进步一点吧 头疼 随便写点什么吧，搭建个博客耗了我一下午的时间 真的是头疼]]></content>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[这里是宋昭威的日常博客 平时就写一些学习日常以及吐槽 欢迎互相学习~]]></content>
       <categories>
-        <category>日常</category>
+        <category>介绍</category>
       </categories>
       <tags>
         <tag>吐槽</tag>
